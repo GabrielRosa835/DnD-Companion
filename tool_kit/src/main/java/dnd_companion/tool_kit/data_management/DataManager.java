@@ -1,15 +1,32 @@
 package dnd_companion.tool_kit.data_management;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.*;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DataManager
 {
 	private static ObjectMapper mapper = new ObjectMapper();
 	
-	public static boolean save(Class<Object> object_class, Data data) {
+	public static String to_snake_case(String input) {
+        return (input == null) ? null : input.toLowerCase().replace(" ", "_");
+    }
+	public static boolean check_dir_existance(String file_path) {
+		Path directory = Paths.get(file_path);
+
+        if (Files.exists(directory) && Files.isDirectory(directory)) {
+            System.out.println("Directory found");
+            return true;
+        } else {
+            System.out.println("Directory not found");
+            return false;
+        }
+	}
+	
+	public static boolean save(Data data) {
 		try {
-			String file_path = String.format("data/", data.collection(), "-", data.name(), ".json");
+			String file_path = String.format("data/%s/%s.json", data.collection(), to_snake_case(data.name()));
 			File file = new File(file_path);
 			mapper.writeValue(file, data);
 			

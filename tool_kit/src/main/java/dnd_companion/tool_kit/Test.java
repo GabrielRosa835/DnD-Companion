@@ -2,13 +2,13 @@ package dnd_companion.tool_kit;
 
 import dnd_companion.tool_kit.data_management.ArmorData;
 import dnd_companion.tool_kit.data_management.DataManager;
-import dnd_companion.tool_kit.data_management.Price;
-import dnd_companion.tool_kit.data_management.Weight;
+import dnd_companion.tool_kit.data_management.simple.Price;
+import dnd_companion.tool_kit.data_management.simple.Weight;
 
-public class Test {
-	public static void main() {
+public class Test 
+{
+	public static void main(String args[]) {
 		
-		DataManager data_manager = new DataManager();
 		ArmorData test_armor_data = new ArmorData(
 			"Plate Armor",
 			new Weight(Weight.WeightUnits.LBS, 65),
@@ -18,5 +18,6 @@ public class Test {
 			15,
 			true
 		);
+		DataManager.save(test_armor_data);
 	}
 }

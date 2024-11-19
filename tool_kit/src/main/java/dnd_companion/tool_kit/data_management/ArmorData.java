@@ -1,5 +1,8 @@
 package dnd_companion.tool_kit.data_management;
 
+import dnd_companion.tool_kit.data_management.simple.Price;
+import dnd_companion.tool_kit.data_management.simple.Weight;
+
 public class ArmorData implements Data  
 {
 	public String collection() {return "armors";}
@@ -10,8 +13,6 @@ public class ArmorData implements Data
 	private int base_armor_class;
 	private int strength_requirement;
 	private boolean stealth_disavantage;
-	
-	
 	
 	public ArmorData(
 		String name, 
