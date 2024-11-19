@@ -1,0 +1,10 @@
+{
+   "id": "system-armor_categories",
+   "options": [
+      "NONE",
+      "SHIELD",
+      "LIGHT",
+      "MEDIUM",
+      "HEAVY"
+   ]
+}
