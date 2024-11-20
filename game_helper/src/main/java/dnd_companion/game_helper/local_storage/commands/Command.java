@@ -1,0 +1,9 @@
+package dnd_companion.game_helper.local_storage.commands;
+
+public abstract class Command 
+{
+	protected boolean status;
+	public boolean status() {return this.status;}
+	
+	public abstract Command execute();
+}
