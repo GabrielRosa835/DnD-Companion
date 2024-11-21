@@ -1,11 +1,11 @@
 package dnd_companion.game_helper.tests;
 
 import dnd_companion.game_helper.local_storage.Data;
-import dnd_companion.game_helper.local_storage.LocalStorageManager;
-import dnd_companion.game_helper.local_storage.data_structure.data.ArmorData;
-import dnd_companion.game_helper.local_storage.data_structure.options.ItemBasicProperties;
-import dnd_companion.game_helper.local_storage.data_structure.options.Price;
-import dnd_companion.game_helper.local_storage.data_structure.options.Weight;
+import dnd_companion.game_helper.local_storage.data.structure.ArmorData;
+import dnd_companion.game_helper.local_storage.data.structure.components.ItemBasicProperties;
+import dnd_companion.game_helper.local_storage.data.structure.components.Price;
+import dnd_companion.game_helper.local_storage.data.structure.components.Weight;
+import dnd_companion.game_helper.local_storage.manager.LocalStorageManager;
 
 public class LSMSaveTest extends CommandTest
 {

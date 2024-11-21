@@ -1,6 +1,6 @@
 package dnd_companion.game_helper.tests;
 
-import dnd_companion.game_helper.local_storage.commands.Command;
+import dnd_companion.game_helper.utils.Command;
 import dnd_companion.game_helper.utils.ToolBox;
 
 public abstract class CommandTest extends Command
