@@ -1,10 +1,13 @@
 package dnd_companion.game_helper.local_storage.data.structure;
 
+import dnd_companion.game_helper.local_storage.data.manipulation.atomic.price.Price;
+import dnd_companion.game_helper.local_storage.data.manipulation.atomic.weight.Weight;
+
 public record ArmorData(
 	String name,
 	String collection,
-	double normalized_price,
-	double normalized_weight,
+	Price price,
+	Weight weight,
 	String[] tags,
 	String description,
 	String category,

@@ -5,6 +5,6 @@ import dnd_companion.game_helper.utils.Command;
 
 public abstract class DBCommand extends Command 
 {
-	private Data result;
+	protected Data result;
 	public Data result() {return this.result;}
 }

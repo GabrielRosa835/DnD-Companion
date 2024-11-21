@@ -4,7 +4,7 @@ import dnd_companion.game_helper.local_storage.data.manipulation.atomic.price.Pr
 import dnd_companion.game_helper.local_storage.data.manipulation.atomic.weight.Weight;
 import dnd_companion.game_helper.local_storage.data.structure.ArmorData;
 
-public class DBCreateArmorCommand extends DBCommand 
+public class BuildArmorCommand extends DBCommand 
 {
 	private String name;
 	private String collection;
@@ -17,7 +17,7 @@ public class DBCreateArmorCommand extends DBCommand
 	private int strength_requirement;
 	private boolean stealth_disavantage;
 	
-	public DBCreateArmorCommand(
+	public BuildArmorCommand(
 		String name, 
 		String collection, 
 		Price price,
@@ -41,20 +41,27 @@ public class DBCreateArmorCommand extends DBCommand
 		this.stealth_disavantage = stealth_disavantage;
 	}
 
-	public DBCreateArmorCommand execute() 
+	public BuildArmorCommand execute() 
 	{
-		ArmorData data = new ArmorData(
-			this.name,
-			this.collection,
-			this.price.normalized_value(),
-			this.weight.normalized_value(),
-			this.tags,
-			this.description,
-			this.category,
-			this.base_armor_class,
-			this.strength_requirement,
-			this.stealth_disavantage
-		);
+		try {
+			ArmorData data = new ArmorData(
+				this.name,
+				this.collection,
+				(Price) this.price.convert_to("normal"),
+				(Weight) this.weight.convert_to("normal"),
+				this.tags,
+				this.description,
+				this.category,
+				this.base_armor_class,
+				this.strength_requirement,
+				this.stealth_disavantage
+			);
+			this.result = data;
+			this.status = true;
+		} catch (Exception e) {
+			this.status = false;
+		}
+		return this;
 	}
 }
 

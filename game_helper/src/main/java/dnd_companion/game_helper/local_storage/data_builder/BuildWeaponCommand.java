@@ -4,15 +4,15 @@ import dnd_companion.game_helper.local_storage.data.structure.WeaponData;
 import dnd_companion.game_helper.local_storage.manager.LocalStorageManager;
 import dnd_companion.game_helper.utils.Command;
 
-public class DBCreateWeaponCommand extends Command
+public class BuildWeaponCommand extends Command
 {
 	private WeaponData data;
 
-	public DBCreateWeaponCommand(WeaponData data) {
+	public BuildWeaponCommand(WeaponData data) {
 		this.data = data;
 	}
 	
-	public DBCreateWeaponCommand execute() {
+	public BuildWeaponCommand execute() {
 		try {
 			LocalStorageManager.save(data);
 			status = true;
