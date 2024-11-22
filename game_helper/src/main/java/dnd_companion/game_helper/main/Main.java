@@ -1,10 +1,10 @@
 package dnd_companion.game_helper.main;
 
-import dnd_companion.game_helper.local_storage.manager.LocalStorageManager;
+import dnd_companion.game_helper.local_storage.storage_build.StorageBuilder;
 
 public class Main 
 {
 	public static void main (String args[]) {
-		LocalStorageManager.create_directory_hierarquy();		
+		StorageBuilder.setup_directory_hierarquy();		
 	}
 }
