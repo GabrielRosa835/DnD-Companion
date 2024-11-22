@@ -1,11 +1,11 @@
-package dnd_companion.game_helper.local_storage.data_handler;
+package dnd_companion.game_helper.local_storage.data_handling;
 
 import java.io.File;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import dnd_companion.game_helper.local_storage.data.structure.templates.Data;
 import dnd_companion.game_helper.local_storage.system_components.Command;
-import dnd_companion.game_helper.local_storage.system_components.Data;
 import dnd_companion.game_helper.utils.LSValidations;
 import dnd_companion.game_helper.utils.ToolBox;
 import dnd_companion.game_helper.utils.DataUtils;

@@ -6,4 +6,8 @@ public abstract class Command
 	public boolean status() {return this.status;}
 	
 	public abstract Command execute();
+	
+	public Command() {
+		this.status = false;
+	}
 }

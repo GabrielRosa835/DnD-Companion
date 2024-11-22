@@ -4,7 +4,6 @@ import java.util.*;
 
 import dnd_companion.game_helper.local_storage.data.structure.ArmorData;
 import dnd_companion.game_helper.local_storage.data.structure.OptionData;
-import dnd_companion.game_helper.local_storage.data.structure.WeaponData;
 
 public final class CollectionClassMap
 {
@@ -12,8 +11,12 @@ public final class CollectionClassMap
 	public static final Map<String, Class<?>> mapping() {return mapping;}
 	
 	static {
-        mapping.put("options", OptionData.class);
-        mapping.put("armors", ArmorData.class);
-        mapping.put("weapons", WeaponData.class);
+		mapping.put(ArmorData.COLLECTION, ArmorData.class);
+        mapping.put(OptionData.COLLECTION, OptionData.class);
+        // CAMPAIGNS
+        // CHARACTERS
+        // MONSTERS
+        // WEAPONS
+        // ITEMS
     }
 }

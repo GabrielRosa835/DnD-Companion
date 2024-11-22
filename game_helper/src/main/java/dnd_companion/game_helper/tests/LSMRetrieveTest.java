@@ -5,9 +5,9 @@ import dnd_companion.game_helper.local_storage.data.structure.ArmorData;
 import dnd_companion.game_helper.local_storage.data.structure.components.ItemBasicProperties;
 import dnd_companion.game_helper.local_storage.data.structure.components.Price;
 import dnd_companion.game_helper.local_storage.data.structure.components.Weight;
-import dnd_companion.game_helper.local_storage.system_components.Data;
+import dnd_companion.game_helper.local_storage.data.structure.templates.Data;
+import dnd_companion.game_helper.local_storage.data.structure.templates.DataUtils;
 import dnd_companion.game_helper.local_storage.system_components.DataKey;
-import dnd_companion.game_helper.local_storage.system_components.DataUtils;
 
 public class LSMRetrieveTest extends CommandTest 
 {	

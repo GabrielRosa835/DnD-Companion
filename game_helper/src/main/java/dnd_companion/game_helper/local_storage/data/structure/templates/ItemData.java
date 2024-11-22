@@ -1,8 +1,7 @@
-package dnd_companion.game_helper.local_storage.data.structure;
+package dnd_companion.game_helper.local_storage.data.structure.templates;
 
 import dnd_companion.game_helper.local_storage.data.manipulation.atomic.price.Price;
 import dnd_companion.game_helper.local_storage.data.manipulation.atomic.weight.Weight;
-import dnd_companion.game_helper.local_storage.system_components.Data;
 
 public interface ItemData extends Data 
 {

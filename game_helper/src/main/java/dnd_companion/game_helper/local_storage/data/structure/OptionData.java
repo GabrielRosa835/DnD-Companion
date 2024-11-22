@@ -1,6 +1,20 @@
 package dnd_companion.game_helper.local_storage.data.structure;
 
-import dnd_companion.game_helper.local_storage.data.structure.options.AtomicOption;
-import dnd_companion.game_helper.local_storage.system_components.Data;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record OptionData(String name, String collection, AtomicOption[] options) implements Data {}
+import dnd_companion.game_helper.local_storage.data.structure.templates.AtomicOption;
+import dnd_companion.game_helper.local_storage.data.structure.templates.Data;
+
+public record OptionData(String name, AtomicOption[] options) implements Data {
+	public static final String COLLECTION = "options";
+	@JsonProperty("collection") public String collection() {return COLLECTION;}
+	
+	@JsonCreator
+    public OptionData(
+        @JsonProperty("name") String name,
+        @JsonProperty("options") AtomicOption[] options,
+        @JsonProperty("collection") String collection) {
+        this(name, options);
+    }
+}

@@ -6,7 +6,8 @@ public class ToolBox
 		System.out.println(String.format(main_message, params));
 	}
 	public static void print_err(Exception exception) {
-		System.err.println(String.format("ERROR: ", exception.getMessage()));
+		String message = (exception.getMessage() == null) ? "No specified message" : exception.getMessage();
+		System.err.println(String.format("ERROR: %s", message));
 	}
 	public static String to_snake_case(String input) {
 		return (input == null) ? null : input.toLowerCase().replace(" ", "_");

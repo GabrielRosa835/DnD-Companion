@@ -1,6 +1,6 @@
 package dnd_companion.game_helper.utils;
 
-import dnd_companion.game_helper.local_storage.system_components.Data;
+import dnd_companion.game_helper.local_storage.data.structure.templates.Data;
 import dnd_companion.game_helper.local_storage.system_components.DataKey;
 
 public class DataUtils 

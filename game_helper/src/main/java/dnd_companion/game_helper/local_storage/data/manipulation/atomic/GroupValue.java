@@ -1,12 +1,7 @@
 package dnd_companion.game_helper.local_storage.data.manipulation.atomic;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import dnd_companion.game_helper.exceptions.InvalidOptionException;
-import dnd_companion.game_helper.local_storage.data.structure.options.AtomicOptionUnit;
+import dnd_companion.game_helper.local_storage.data.structure.templates.AtomicOptionUnit;
+import dnd_companion.game_helper.local_storage.data_validation.DataValidator;
 
 public abstract class GroupValue
 {
@@ -17,10 +12,11 @@ public abstract class GroupValue
 	public AtomicOptionUnit unit() {return this.unit;}
 	
 	protected abstract AtomicOptionUnit[] unit_options();
+	public abstract String unit_group();
 	
 	public GroupValue(double value, String unit) {
 		this.value = value;
-		this.unit = validate_unit(unit);
+		this.unit = this.validate_unit(unit);
 	}
 
 	public GroupValue convert_to(String unit) {
@@ -35,20 +31,6 @@ public abstract class GroupValue
 	}
 	
 	protected AtomicOptionUnit validate_unit(String unit) {
-        List<String> unit_names = Arrays.stream(unit_options())
-        		.map(atom -> atom.name())
-                .collect(Collectors.toList());
-        List<String> unit_abbreviations = Arrays.stream(unit_options())
-        		.map(atom -> atom.abbreviation())
-                .collect(Collectors.toList());
-
-        if (unit_names.contains(unit) || unit_abbreviations.contains(unit)) {
-            Optional<AtomicOptionUnit> resultado = Arrays.stream(unit_options())
-                    .filter(atom -> atom.name().equals(unit) || atom.abbreviation().equals(unit))
-                    .findFirst();
-            return resultado.orElseThrow(() -> new InvalidOptionException("Invalid measure unit"));
-        } else {
-            throw new InvalidOptionException("Invalid measure unit");
-        }
+		return DataValidator.validate_unit(unit, this.unit_group());
     }
 }
