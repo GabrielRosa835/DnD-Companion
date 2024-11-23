@@ -1,5 +1,7 @@
 package dnd_companion.game_helper.utils;
 
+import java.lang.reflect.Field;
+
 public class ToolBox 
 {
 	public static void print(String main_message, Object... params) {
@@ -12,4 +14,25 @@ public class ToolBox
 	public static String to_snake_case(String input) {
 		return (input == null) ? null : input.toLowerCase().replace(" ", "_");
 	}
+	public static <T> T to_snake_case_all(T object) {
+        if (object == null) {
+            return null;
+        }
+
+        Field[] fields = object.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            if (field.getType().equals(String.class)) {
+                field.setAccessible(true);
+                try {
+                    String value = (String) field.get(object);
+                    if (value != null) {
+                        field.set(object, to_snake_case(value));
+                    }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return object;
+    }
 }

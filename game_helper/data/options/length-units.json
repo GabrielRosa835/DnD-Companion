@@ -1,0 +1,35 @@
+{
+  "name" : "length-units",
+  "options" : [ {
+    "type" : "LengthUnit",
+    "name" : "Normal",
+    "abbreviation" : "NORM",
+    "normalizing_factor" : 1.0
+  }, {
+    "type" : "LengthUnit",
+    "name" : "Meters",
+    "abbreviation" : "M",
+    "normalizing_factor" : 1.524
+  }, {
+    "type" : "LengthUnit",
+    "name" : "Centimeters",
+    "abbreviation" : "CM",
+    "normalizing_factor" : 152.4
+  }, {
+    "type" : "LengthUnit",
+    "name" : "Feet",
+    "abbreviation" : "FT",
+    "normalizing_factor" : 5.0
+  }, {
+    "type" : "LengthUnit",
+    "name" : "Inch",
+    "abbreviation" : "M",
+    "normalizing_factor" : 60.0
+  }, {
+    "type" : "LengthUnit",
+    "name" : "Squares",
+    "abbreviation" : "S",
+    "normalizing_factor" : 1.0
+  } ],
+  "collection" : "options"
+}

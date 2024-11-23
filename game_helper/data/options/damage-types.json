@@ -1,0 +1,44 @@
+{
+  "name" : "damage-types",
+  "options" : [ {
+    "type" : "DamageType",
+    "name" : "Acid"
+  }, {
+    "type" : "DamageType",
+    "name" : "Bludgeoning"
+  }, {
+    "type" : "DamageType",
+    "name" : "Cold"
+  }, {
+    "type" : "DamageType",
+    "name" : "Fire"
+  }, {
+    "type" : "DamageType",
+    "name" : "Force"
+  }, {
+    "type" : "DamageType",
+    "name" : "Lightning"
+  }, {
+    "type" : "DamageType",
+    "name" : "Necrotic"
+  }, {
+    "type" : "DamageType",
+    "name" : "Piercing"
+  }, {
+    "type" : "DamageType",
+    "name" : "Poison"
+  }, {
+    "type" : "DamageType",
+    "name" : "Psychic"
+  }, {
+    "type" : "DamageType",
+    "name" : "Radiant"
+  }, {
+    "type" : "DamageType",
+    "name" : "Slashing"
+  }, {
+    "type" : "DamageType",
+    "name" : "Thunder"
+  } ],
+  "collection" : "options"
+}

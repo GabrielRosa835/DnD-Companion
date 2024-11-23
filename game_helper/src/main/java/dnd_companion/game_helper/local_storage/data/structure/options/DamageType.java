@@ -1,6 +1,8 @@
 package dnd_companion.game_helper.local_storage.data.structure.options;
 
-public record DamageType(String damage_type_name) {
-	public static final String OPTION_GROUP = "damage-types";
-	public String option_group() {return OPTION_GROUP;}
+import dnd_companion.game_helper.local_storage.data.structure.templates.AtomicOption;
+
+public record DamageType(String name) implements AtomicOption {
+	public static final String GROUP = "damage-types";
+	public String group() {return GROUP;}
 }

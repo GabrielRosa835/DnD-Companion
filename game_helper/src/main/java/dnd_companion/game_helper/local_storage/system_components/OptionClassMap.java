@@ -17,12 +17,12 @@ public final class OptionClassMap
 	public static final Map<String, Class<?>> mapping() {return mapping;}
 	
 	static {
-		mapping.put(ArmorCategory.OPTION_GROUP, ArmorCategory.class);
-		mapping.put(Currency.OPTION_GROUP, Currency.class);
-		mapping.put(DamageType.OPTION_GROUP, DamageType.class);
-		mapping.put(DiceType.OPTION_GROUP, DiceType.class);
-		mapping.put(ItemTag.OPTION_GROUP, ItemTag.class);
-		mapping.put(LengthUnit.OPTION_GROUP, LengthUnit.class);
-		mapping.put(WeightUnit.OPTION_GROUP, WeightUnit.class);
+		mapping.put(ArmorCategory.GROUP, ArmorCategory.class);
+		mapping.put(Currency.GROUP, Currency.class);
+		mapping.put(DamageType.GROUP, DamageType.class);
+		mapping.put(DiceType.GROUP, DiceType.class);
+		mapping.put(ItemTag.GROUP, ItemTag.class);
+		mapping.put(LengthUnit.GROUP, LengthUnit.class);
+		mapping.put(WeightUnit.GROUP, WeightUnit.class);
     }
 }

@@ -2,19 +2,19 @@
   "name" : "armor-categories",
   "options" : [ {
     "type" : "ArmorCategory",
-    "name" : "NONE"
+    "name" : "None"
   }, {
     "type" : "ArmorCategory",
-    "name" : "SHIELD"
+    "name" : "Shield"
   }, {
     "type" : "ArmorCategory",
-    "name" : "LIGHT"
+    "name" : "Light"
   }, {
     "type" : "ArmorCategory",
-    "name" : "MEDIUM"
+    "name" : "Medium"
   }, {
     "type" : "ArmorCategory",
-    "name" : "HEAVY"
+    "name" : "Heavy"
   } ],
   "collection" : "options"
 }

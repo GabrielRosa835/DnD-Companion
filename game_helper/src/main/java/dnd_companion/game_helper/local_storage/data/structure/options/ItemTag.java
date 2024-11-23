@@ -1,6 +1,8 @@
 package dnd_companion.game_helper.local_storage.data.structure.options;
 
-public record ItemTag(String name) {
-	public static final String OPTION_GROUP = "item-tags";
-	public String option_group() {return OPTION_GROUP;}
+import dnd_companion.game_helper.local_storage.data.structure.templates.AtomicOption;
+
+public record ItemTag(String name) implements AtomicOption {
+	public static final String GROUP = "item-tags";
+	public String group() {return GROUP;}
 }

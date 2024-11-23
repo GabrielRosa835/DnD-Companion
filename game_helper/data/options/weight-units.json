@@ -1,0 +1,30 @@
+{
+  "name" : "weight-units",
+  "options" : [ {
+    "type" : "WeightUnit",
+    "name" : "Normal",
+    "abbreviation" : "NORM",
+    "normalizing_factor" : 1.0
+  }, {
+    "type" : "WeightUnit",
+    "name" : "Kilograms",
+    "abbreviation" : "KG",
+    "normalizing_factor" : 1000.0
+  }, {
+    "type" : "WeightUnit",
+    "name" : "Pounds",
+    "abbreviation" : "LBS",
+    "normalizing_factor" : 453.592
+  }, {
+    "type" : "WeightUnit",
+    "name" : "Grams",
+    "abbreviation" : "G",
+    "normalizing_factor" : 1.0
+  }, {
+    "type" : "WeightUnit",
+    "name" : "Ounces",
+    "abbreviation" : "OZ",
+    "normalizing_factor" : 28.3495
+  } ],
+  "collection" : "options"
+}

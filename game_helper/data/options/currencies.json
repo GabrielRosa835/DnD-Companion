@@ -1,0 +1,35 @@
+{
+  "name" : "currencies",
+  "options" : [ {
+    "type" : "Currency",
+    "name" : "Normal",
+    "abbreviation" : "NORM",
+    "normalizing_factor" : 1.0
+  }, {
+    "type" : "Currency",
+    "name" : "Copper Piece",
+    "abbreviation" : "CP",
+    "normalizing_factor" : 1.0
+  }, {
+    "type" : "Currency",
+    "name" : "Silver Piece",
+    "abbreviation" : "SP",
+    "normalizing_factor" : 10.0
+  }, {
+    "type" : "Currency",
+    "name" : "Electurm Piece",
+    "abbreviation" : "EP",
+    "normalizing_factor" : 50.0
+  }, {
+    "type" : "Currency",
+    "name" : "Gold Piece",
+    "abbreviation" : "GP",
+    "normalizing_factor" : 100.0
+  }, {
+    "type" : "Currency",
+    "name" : "Platinum Piece",
+    "abbreviation" : "PP",
+    "normalizing_factor" : 1000.0
+  } ],
+  "collection" : "options"
+}
