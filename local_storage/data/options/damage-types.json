@@ -1,0 +1,45 @@
+{
+  "@class" : "dnd_companion.local_storage.data.structure.OptionData",
+  "name" : "damage-types",
+  "options" : [ {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Acid"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Bludgeoning"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Cold"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Fire"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Force"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Lightning"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Necrotic"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Piercing"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Poison"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Psychic"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Radiant"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Slashing"
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DamageType",
+    "name" : "Thunder"
+  } ],
+  "collection" : "options"
+}

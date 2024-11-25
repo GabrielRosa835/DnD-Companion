@@ -1,0 +1,36 @@
+{
+  "@class" : "dnd_companion.local_storage.data.structure.OptionData",
+  "name" : "dice-types",
+  "options" : [ {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DiceType",
+    "name" : "Tetrahedron",
+    "abbreviation" : "D4",
+    "max_value" : 4
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DiceType",
+    "name" : "Cube",
+    "abbreviation" : "D6",
+    "max_value" : 6
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DiceType",
+    "name" : "Octahedron",
+    "abbreviation" : "D8",
+    "max_value" : 8
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DiceType",
+    "name" : "10 Sided Pyramid",
+    "abbreviation" : "D10",
+    "max_value" : 10
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DiceType",
+    "name" : "Dodecahedron",
+    "abbreviation" : "D12",
+    "max_value" : 12
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.options.DiceType",
+    "name" : "Icosahedron",
+    "abbreviation" : "D20",
+    "max_value" : 20
+  } ],
+  "collection" : "options"
+}

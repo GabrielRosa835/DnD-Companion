@@ -1,0 +1,36 @@
+{
+  "@class" : "dnd_companion.local_storage.data.structure.UnitData",
+  "name" : "length-units",
+  "options" : [ {
+    "@class" : "dnd_companion.local_storage.data.structure.units.LengthUnit",
+    "name" : "Normal",
+    "abbreviation" : "NORM",
+    "normalizing_factor" : 1.0
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.units.LengthUnit",
+    "name" : "Meters",
+    "abbreviation" : "M",
+    "normalizing_factor" : 1.524
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.units.LengthUnit",
+    "name" : "Centimeters",
+    "abbreviation" : "CM",
+    "normalizing_factor" : 152.4
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.units.LengthUnit",
+    "name" : "Feet",
+    "abbreviation" : "FT",
+    "normalizing_factor" : 5.0
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.units.LengthUnit",
+    "name" : "Inch",
+    "abbreviation" : "M",
+    "normalizing_factor" : 60.0
+  }, {
+    "@class" : "dnd_companion.local_storage.data.structure.units.LengthUnit",
+    "name" : "Squares",
+    "abbreviation" : "S",
+    "normalizing_factor" : 1.0
+  } ],
+  "collection" : "units"
+}
