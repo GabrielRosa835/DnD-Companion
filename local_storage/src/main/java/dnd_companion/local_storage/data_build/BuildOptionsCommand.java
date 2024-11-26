@@ -1,24 +1,24 @@
 package dnd_companion.local_storage.data_build;
 
-import dnd_companion.local_storage.data.structure.OptionData;
-import dnd_companion.local_storage.data.structure.templates.AtomicOption;
+import java.util.Collection;
+
+import dnd_companion.local_storage.data.structure.templates.OptionData;
 import dnd_companion.local_storage.system_components.utils.ToolBox;
 
-public class BuildOptionsCommand extends DataBuilderCommand
+public class BuildOptionsCommand<T> extends DataBuilderCommand
 {
-	private AtomicOption[] options;
+	private Collection<T> options;
+	private Class<OptionData<T>> data_class;
 	
-	public BuildOptionsCommand(AtomicOption[] options) {
+	public BuildOptionsCommand(Collection<T> options, Class<OptionData<T>> data_class) {
 		super();
 		this.options = options;
+		this.data_class = data_class;
 	}
 
-	public BuildOptionsCommand execute() {
+	public BuildOptionsCommand<T> execute() {
 		try {
-			OptionData data = new OptionData(
-				this.options[0].group(),
-				this.options
-			);			
+			OptionData<T> data = data_class.getConstructor().newInstance(options);
 			this.result = data;
 			this.status = true;
 		} catch (Exception e) {

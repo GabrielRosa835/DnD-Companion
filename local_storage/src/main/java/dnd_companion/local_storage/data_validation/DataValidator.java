@@ -1,49 +1,29 @@
 package dnd_companion.local_storage.data_validation;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
-import dnd_companion.local_storage.data.manipulation.ValueGroup;
-import dnd_companion.local_storage.data.structure.templates.AtomicOption;
-import dnd_companion.local_storage.data.structure.templates.AtomicUnit;
-import dnd_companion.local_storage.system_components.utils.ToolBox;
+import dnd_companion.local_storage.system_components.DataKey;
+import dnd_companion.local_storage.system_components.exceptions.InvalidOptionException;
 
 public class DataValidator 
 {
-	public static AtomicOption[] validate_options(AtomicOption... options) {
+	public static <T> T validate_option(DataKey key, T option) throws Exception {
 		try {
-			List<AtomicOption> validated_options = new ArrayList<AtomicOption>();
-			for (AtomicOption option : options) {
-				validated_options.add((AtomicOption) new ValidateOptionCommand(option).execute().result());
-			}
-			return validated_options.toArray(new AtomicOption[validated_options.size()]);
-		} catch (Exception e) {
-			ToolBox.print_err(e);
-			return null;
+			return new ValidateOptionCommand<T>(key, option).execute().result();			
+		} catch (InvalidOptionException e) {
+			throw new Exception(e.getMessage());
 		}
 	}
-	public static AtomicUnit[] validate_units(String unit_group, String... units) {
+	public static <T> T[] validate_options(DataKey key, T[] options) throws Exception {
 		try {
-			List<AtomicUnit> validated_units = new ArrayList<AtomicUnit>();
-			for (String unit : units) {
-				validated_units.add((AtomicUnit) new ValidateUnitOptionCommand(unit_group, unit).execute().result());
+			Collection<T> validated_options = new ArrayList<T>();
+			for (T option : options) {
+				validated_options.add(new ValidateOptionCommand<T>(key, option).execute().result());
 			}
-			return validated_units.toArray(new AtomicUnit[validated_units.size()]);
-		} catch (Exception e) {
-			ToolBox.print_err(e);
-			return null;
-		}
-	}
-	public static ValueGroup[] validate_value_groups(ValueGroup... value_groups) {
-		try {
-			List<ValueGroup> validated_groups = new ArrayList<ValueGroup>();
-			for (ValueGroup value_group : value_groups) {
-				validated_groups.add((ValueGroup) new ValidateValueGroupsCommand(value_group).execute().result());
-			}
-			return validated_groups.toArray(new ValueGroup[validated_groups.size()]);			
-		} catch (Exception e) {
-			ToolBox.print_err(e);
-			return null;
+			return validated_options.toArray(options.clone());			
+		} catch (InvalidOptionException e) {
+			throw new Exception(e.getMessage());
 		}
 	}
 }

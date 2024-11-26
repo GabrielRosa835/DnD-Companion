@@ -1,20 +1,20 @@
 package dnd_companion.local_storage.data_build;
 
 import dnd_companion.local_storage.data.manipulation.ItemTags;
-import dnd_companion.local_storage.data.manipulation.price.Price;
-import dnd_companion.local_storage.data.manipulation.weight.Weight;
-import dnd_companion.local_storage.data.structure.ArmorData;
-import dnd_companion.local_storage.data.structure.OptionData;
+import dnd_companion.local_storage.data.manipulation.archived.items.armor.Armor.ArmorCategory;
+import dnd_companion.local_storage.data.manipulation.value_group.Price;
+import dnd_companion.local_storage.data.manipulation.value_group.Weight;
+import dnd_companion.local_storage.data.structure.ArchivedOptionData;
 import dnd_companion.local_storage.data.structure.UnitData;
-import dnd_companion.local_storage.data.structure.options.ArmorCategory;
+import dnd_companion.local_storage.data.structure.items.armors.ArmorData;
 import dnd_companion.local_storage.data.structure.templates.AtomicOption;
 import dnd_companion.local_storage.data.structure.templates.AtomicUnit;
 import dnd_companion.local_storage.system_components.utils.ToolBox;
 
 public class DataBuilder 
 {
-	public static OptionData build_options(AtomicOption... options) {
-		return (OptionData) new BuildOptionsCommand(options).execute().result();
+	public static ArchivedOptionData build_options(AtomicOption... options) {
+		return (ArchivedOptionData) new BuildOptionsCommand(options).execute().result();
 	}
 	public static UnitData build_units(AtomicUnit... units) {
 		return (UnitData) new BuildUnitsCommand(units).execute().result();
@@ -24,9 +24,9 @@ public class DataBuilder
 		String name, 
 		Price price,
 		Weight weight,
-		ItemTags tags, 
+		String[] tags, 
 		String description, 
-		ArmorCategory category, 
+		String category, 
 		int base_armor_class,
 		int strength_requirement, 
 		boolean stealth_disavantage

@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import dnd_companion.local_storage.system_components.Command;
-import dnd_companion.local_storage.system_components.utils.LSValidations;
+import dnd_companion.local_storage.system_components.utils.Validations;
 import dnd_companion.local_storage.system_components.utils.ToolBox;
 
 public class CreateDirectoryCommand extends Command
@@ -18,7 +18,7 @@ public class CreateDirectoryCommand extends Command
 
 	public CreateDirectoryCommand execute() {
 		try {
-			if (!LSValidations.check_file_existance(dir_path)) {
+			if (!Validations.check_file_existance(dir_path)) {
     			Files.createDirectories(Paths.get(dir_path));
     			ToolBox.print("Directory successfully created: \"%s\"", dir_path);
 			} else {

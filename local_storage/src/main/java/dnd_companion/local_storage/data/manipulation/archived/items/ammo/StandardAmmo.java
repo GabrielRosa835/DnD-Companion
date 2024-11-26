@@ -7,15 +7,15 @@ import dnd_companion.local_storage.data.manipulation.archived.items.Item;
 import dnd_companion.local_storage.data.manipulation.archived.items.ItemPropertyCluster;
 import dnd_companion.local_storage.data.manipulation.archived.items.ItemTagCluster;
 import dnd_companion.local_storage.data.manipulation.price.PriceManager;
-import dnd_companion.local_storage.data.manipulation.weight.Weight;
-import dnd_companion.local_storage.data.manipulation.weight.WeightManager;
+import dnd_companion.local_storage.data.manipulation.value_group.Weight;
+import dnd_companion.local_storage.data.manipulation.value_group.WeightManager;
 
 public enum StandardAmmo 
 {
 	ARROW(
 		new ItemTagCluster(), 
 		new PriceManager(Arrays.asList(new CurrencyBundle(Currency.Standard.COPPER, 5))), 
-		new WeightManager(Arrays.asList(new Weight(Weight.Standard.OZ, 0.8))), 
+		new WeightManager(Arrays.asList(new Weight(dnd_companion.local_storage.data.manipulation.value_group.Standard.OZ, 0.8))), 
 		"""
 		Arrows are used with a weapon that has the ammunition property to make a ranged attack.
 		Each time you attack with the weapon, you expend one piece of ammunition.
@@ -28,7 +28,7 @@ public enum StandardAmmo
 	BOLTS(
 		new ItemTagCluster(), 
 		new PriceManager(Arrays.asList(new CurrencyBundle(Currency.Standard.COPPER, 5))), 
-		new WeightManager(Arrays.asList(new Weight(Weight.Standard.OZ, 1.2))), 
+		new WeightManager(Arrays.asList(new Weight(dnd_companion.local_storage.data.manipulation.value_group.Standard.OZ, 1.2))), 
 		"""
 		Crossbow bolts are used with a weapon that has the ammunition property to make a ranged attack. 
 		Each time you attack with the weapon, you expend one piece of ammunition. 

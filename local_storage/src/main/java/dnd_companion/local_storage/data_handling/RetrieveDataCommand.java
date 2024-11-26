@@ -11,24 +11,33 @@ import dnd_companion.local_storage.system_components.DataKey;
 import dnd_companion.local_storage.system_components.utils.DataUtils;
 import dnd_companion.local_storage.system_components.utils.ToolBox;
 
-public class RetrieveDataCommand extends Command
+public class RetrieveDataCommand<T extends Data> extends Command
 {
 	private DataKey key;
+	private ObjectReader reader;
+	private Class<T> type;
 	
-	private Data result;
-	public Data result() {return this.result;}
-	
-	private ObjectReader reader = new ObjectMapper().readerFor(Data.class);
+	private T result;
+	public T result() {return this.result;}
 	
 	public RetrieveDataCommand(DataKey key) {
-		this.key = key;
+		super();
+		try {
+			if(!key.class_name().equals(type.getName())) {
+				throw new IllegalArgumentException("Command and key classes don't match");
+			}
+			this.key = key;	
+			this.reader = new ObjectMapper().readerFor(Class.forName(key.class_name()));
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public RetrieveDataCommand execute() {
+	public RetrieveDataCommand<T> execute() {
 		try {
 			File file = new File(DataUtils.create_file_path(key));
-			Data data = reader.readValue(file);
-			ToolBox.print("Data retrieved successfully: %s", data.name());
+			T data = reader.readValue(file);
+			ToolBox.print("Options retrieved successfully: %s", key.toString());
 			this.result = data;
 			this.status = true;
 		} catch (Exception e) {

@@ -2,10 +2,10 @@ package dnd_companion.local_storage.storage_build.storage_setup;
 
 import java.util.Arrays;
 
-import dnd_companion.local_storage.data.structure.options.ArmorCategory;
-import dnd_companion.local_storage.data.structure.options.DamageType;
-import dnd_companion.local_storage.data.structure.options.DiceType;
-import dnd_companion.local_storage.data.structure.options.ItemTag;
+import dnd_companion.local_storage.data.structure.atomic.DiceType;
+import dnd_companion.local_storage.data.structure.texts.ArmorCategory;
+import dnd_companion.local_storage.data.structure.texts.DamageType;
+import dnd_companion.local_storage.data.structure.texts.ItemTag;
 import dnd_companion.local_storage.data_build.DataBuilder;
 import dnd_companion.local_storage.data_handling.DataHandler;
 import dnd_companion.local_storage.system_components.Command;

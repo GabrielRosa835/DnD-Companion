@@ -2,9 +2,9 @@ package dnd_companion.local_storage.storage_build.storage_setup;
 
 import java.util.Arrays;
 
-import dnd_companion.local_storage.data.structure.units.Currency;
-import dnd_companion.local_storage.data.structure.units.LengthUnit;
-import dnd_companion.local_storage.data.structure.units.WeightUnit;
+import dnd_companion.local_storage.data.structure.atomic.Currency;
+import dnd_companion.local_storage.data.structure.atomic.LengthUnit;
+import dnd_companion.local_storage.data.structure.atomic.WeightUnit;
 import dnd_companion.local_storage.data_build.DataBuilder;
 import dnd_companion.local_storage.data_handling.DataHandler;
 import dnd_companion.local_storage.system_components.Command;

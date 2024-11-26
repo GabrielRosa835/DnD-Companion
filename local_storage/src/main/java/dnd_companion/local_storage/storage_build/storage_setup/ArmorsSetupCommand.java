@@ -1,10 +1,8 @@
 package dnd_companion.local_storage.storage_build.storage_setup;
 
-import dnd_companion.local_storage.data.manipulation.ItemTags;
-import dnd_companion.local_storage.data.manipulation.price.Price;
-import dnd_companion.local_storage.data.manipulation.weight.Weight;
-import dnd_companion.local_storage.data.structure.ArmorData;
-import dnd_companion.local_storage.data.structure.options.ArmorCategory;
+import dnd_companion.local_storage.data.manipulation.value_group.Price;
+import dnd_companion.local_storage.data.manipulation.value_group.Weight;
+import dnd_companion.local_storage.data.structure.items.armors.ArmorData;
 import dnd_companion.local_storage.data.structure.templates.Data;
 import dnd_companion.local_storage.data_build.DataBuilder;
 import dnd_companion.local_storage.data_handling.DataHandler;
@@ -21,17 +19,17 @@ public class ArmorsSetupCommand extends Command
 	}
 	
 	public ArmorsSetupCommand execute() {
-		ToolBox.print("Reached here: %s", ArmorsSetupCommand.class.getName());
+		ToolBox.print("Reached here: %s", ArmorsSetupCommand.class.getSimpleName());
 		ArmorData no_armor = DataBuilder.build_armor(
 				"None",
 				new Price(0, "NORM"),
 				new Weight(0, "NORM"),
-				new ItemTags("Armor"),
+				new String[]{"Armor"},
 				"No description",
-				new ArmorCategory("None"),
+				"NONE",
 				10, 0, false);
 		DataHandler.save(no_armor);
-//		check(no_armor);
+		check(no_armor);
 		
 		
 //		try {

@@ -1,13 +1,12 @@
 package dnd_companion.local_storage.system_components;
 
-public abstract class Command 
+public abstract class Command
 {
-	protected boolean status;
+	protected boolean status = false;
 	public boolean status() {return this.status;}
 	
-	public abstract Command execute();
+	protected String message = null;
+	public String message() {return this.message;}
 	
-	public Command() {
-		this.status = false;
-	}
+	public abstract Command execute();
 }

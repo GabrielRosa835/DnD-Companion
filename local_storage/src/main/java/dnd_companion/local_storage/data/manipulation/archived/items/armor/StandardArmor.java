@@ -9,8 +9,8 @@ import dnd_companion.local_storage.data.manipulation.archived.items.ItemProperty
 import dnd_companion.local_storage.data.manipulation.archived.items.ItemPropertyCluster;
 import dnd_companion.local_storage.data.manipulation.archived.items.ItemTagCluster;
 import dnd_companion.local_storage.data.manipulation.price.PriceManager;
-import dnd_companion.local_storage.data.manipulation.weight.Weight;
-import dnd_companion.local_storage.data.manipulation.weight.WeightManager;
+import dnd_companion.local_storage.data.manipulation.value_group.Weight;
+import dnd_companion.local_storage.data.manipulation.value_group.WeightManager;
 import items.*;
 
 public enum StandardArmor implements Armor
@@ -22,21 +22,21 @@ public enum StandardArmor implements Armor
 	LEATHER(
 		new ItemTagCluster(), 
 		new PriceManager(Arrays.asList(new CurrencyBundle(Currency.Standard.GOLD, 10))), 
-		new WeightManager(Arrays.asList(new Weight(Weight.Standard.LBS, 10))), 
+		new WeightManager(Arrays.asList(new Weight(dnd_companion.local_storage.data.manipulation.value_group.Standard.LBS, 10))), 
 		"Description :)",
 		ArmorCategory.LIGHT, 11, 0, false
 	), 
 	SCALE_MAIL(
 		new ItemTagCluster(), 
 		new PriceManager(Arrays.asList(new CurrencyBundle(Currency.Standard.GOLD, 50))), 
-		new WeightManager(Arrays.asList(new Weight(Weight.Standard.LBS, 45))), 
+		new WeightManager(Arrays.asList(new Weight(dnd_companion.local_storage.data.manipulation.value_group.Standard.LBS, 45))), 
 		"Description :)",
 		ArmorCategory.MEDIUM, 14, 0, true
 	), 
 	CHAIN_MAIL(
 		new ItemTagCluster(), 
 		new PriceManager(Arrays.asList(new CurrencyBundle(Currency.Standard.GOLD, 75))), 
-		new WeightManager(Arrays.asList(new Weight(Weight.Standard.LBS, 55))), 
+		new WeightManager(Arrays.asList(new Weight(dnd_companion.local_storage.data.manipulation.value_group.Standard.LBS, 55))), 
 		"Description :)",
 		ArmorCategory.HEAVY, 16, 13, true
 	);

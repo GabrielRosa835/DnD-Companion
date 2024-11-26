@@ -1,11 +1,14 @@
 package dnd_companion.local_storage.data_build;
 
-import dnd_companion.local_storage.data.manipulation.ItemTags;
-import dnd_companion.local_storage.data.manipulation.price.Price;
-import dnd_companion.local_storage.data.manipulation.weight.Weight;
-import dnd_companion.local_storage.data.structure.ArmorData;
-import dnd_companion.local_storage.data.structure.options.ArmorCategory;
+import dnd_companion.local_storage.data.manipulation.value_group.Price;
+import dnd_companion.local_storage.data.manipulation.value_group.Weight;
+import dnd_companion.local_storage.data.structure.items.ItemTagData;
+import dnd_companion.local_storage.data.structure.items.armors.ArmorCategoryData;
+import dnd_companion.local_storage.data.structure.items.armors.ArmorData;
+import dnd_companion.local_storage.data.structure.system.units.CurrencyData;
+import dnd_companion.local_storage.data.structure.system.units.WeightUnitData;
 import dnd_companion.local_storage.data_validation.DataValidator;
+import dnd_companion.local_storage.system_components.DataKey;
 import dnd_companion.local_storage.system_components.utils.ToolBox;
 
 public class BuildArmorCommand extends DataBuilderCommand 
@@ -13,9 +16,9 @@ public class BuildArmorCommand extends DataBuilderCommand
 	private String name;
 	private Price price;
 	private Weight weight;
-	private ItemTags tags;
+	private String[] tags;
 	private String description;
-	private ArmorCategory category;
+	private String category;
 	private int base_armor_class;
 	private int strength_requirement;
 	private boolean stealth_disavantage;
@@ -24,9 +27,9 @@ public class BuildArmorCommand extends DataBuilderCommand
 		String name, 
 		Price price,
 		Weight weight,
-		ItemTags tags, 
+		String[] tags, 
 		String description, 
-		ArmorCategory category, 
+		String category, 
 		int base_armor_class,
 		int strength_requirement, 
 		boolean stealth_disavantage
@@ -46,17 +49,38 @@ public class BuildArmorCommand extends DataBuilderCommand
 	{
 		try {
 			ToolBox.print("Reached here: %s", BuildArmorCommand.class.getName());
-			ArmorCategory validated_category = (ArmorCategory) DataValidator.validate_options(category)[0];
-			Price validated_price = (Price) DataValidator.validate_value_groups(price)[0];
-			Weight validated_weight = (Weight) DataValidator.validate_value_groups(weight)[0];
+			DataValidator.validate_option(
+					new DataKey(
+							new ArmorCategoryData().collection(), 
+							new ArmorCategoryData().name(), 
+							new ArmorCategoryData().getClass().getName()
+							), this.category);
+			DataValidator.validate_option(
+					new DataKey(
+							new CurrencyData().collection(), 
+							new CurrencyData().name(), 
+							new CurrencyData().getClass().getName()
+							), this.price.unit());
+			DataValidator.validate_option(
+					new DataKey(
+							new WeightUnitData().collection(), 
+							new WeightUnitData().name(), 
+							new WeightUnitData().getClass().getName()
+							), this.weight.unit());
+			DataValidator.validate_options(
+					new DataKey(
+							new ItemTagData().collection(), 
+							new ItemTagData().name(), 
+							new ItemTagData().getClass().getName()
+							), this.tags);
 			
 			ArmorData data = new ArmorData(
 				this.name,
-				(Price) validated_price.convert_to("Normal"),
-				(Weight) validated_weight.convert_to("Normal"),
+				(Price) price.convert_to("Normal"),
+				(Weight) weight.convert_to("Normal"),
 				this.tags,
 				this.description,
-				validated_category,
+				this.category,
 				this.base_armor_class,
 				this.strength_requirement,
 				this.stealth_disavantage
