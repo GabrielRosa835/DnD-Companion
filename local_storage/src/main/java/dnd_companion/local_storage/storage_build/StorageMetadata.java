@@ -2,8 +2,6 @@ package dnd_companion.local_storage.storage_build;
 
 import java.util.TreeMap;
 
-import dnd_companion.local_storage.system_components.utils.ToolBox;
-
 public abstract class StorageMetadata
 {
 	public static final TreeMap<String, DirRef> directory_hierarquy = new TreeMap<String, DirRef>();
@@ -33,7 +31,6 @@ public abstract class StorageMetadata
 
 			while (parent_dir != "data") {
 				current = StorageMetadata.directory_hierarquy.get(parent_dir);
-				ToolBox.print("%s", current.toString());
 				parent_dir = current.parent_dir();
 				path = String.format("%s\\%s", parent_dir, path);
 			}

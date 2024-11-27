@@ -10,10 +10,8 @@ public class Validations
 		Path file = Paths.get(file_path);
 
         if (Files.exists(file)) {
-            ToolBox.print("File found: \"%s\"", file_path);
             return true;
         } else {
-        	ToolBox.print("File not found: \"%s\"", file_path);
         	return false;
         }
 	}

@@ -1,6 +1,7 @@
 package dnd_companion.local_storage.data_handling;
 
 import java.io.File;
+import java.util.Arrays;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -33,7 +34,7 @@ public class RetrieveOptionsCommand<T> extends Command
 		try {
 			File file = new File(DataUtils.create_file_path(key));
 			OptionData<T> data = reader.readValue(file);
-			ToolBox.print("Options retrieved successfully: %s", key.toString());
+			ToolBox.print("Options retrieved successfully: (%s) %s", data.getClass().getSimpleName(), Arrays.toString(data.options()));
 			this.result = data.options();
 			this.status = true;
 		} catch (Exception e) {

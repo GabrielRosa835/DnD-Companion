@@ -15,7 +15,6 @@ public class RetrieveDataCommand<T extends Data> extends Command
 {
 	private DataKey key;
 	private ObjectReader reader;
-	private Class<T> type;
 	
 	private T result;
 	public T result() {return this.result;}
@@ -23,9 +22,6 @@ public class RetrieveDataCommand<T extends Data> extends Command
 	public RetrieveDataCommand(DataKey key) {
 		super();
 		try {
-			if(!key.class_name().equals(type.getName())) {
-				throw new IllegalArgumentException("Command and key classes don't match");
-			}
 			this.key = key;	
 			this.reader = new ObjectMapper().readerFor(Class.forName(key.class_name()));
 		} catch (ClassNotFoundException e) {

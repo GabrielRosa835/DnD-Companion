@@ -6,6 +6,6 @@ import dnd_companion.local_storage.data.structure.templates.OptionData;
 public record LengthUnitData (LengthUnit... options)
 implements OptionData<LengthUnit> 
 {
-	public String collection() {return "system";}
+	public String collection() {return "units";}
 	public String name() {return "length-units";}
 }

@@ -18,60 +18,57 @@ public class ArmorsSetupCommand extends Command
 		ToolBox.print("%s: %s", data.name(), checked_data.toString());
 	}
 	
-	public ArmorsSetupCommand execute() {
-		ToolBox.print("Reached here: %s", ArmorsSetupCommand.class.getSimpleName());
-		ArmorData no_armor = DataBuilder.build_armor(
-				"None",
-				new Price(0, "NORM"),
-				new Weight(0, "NORM"),
-				new String[]{"Armor"},
-				"No description",
-				"NONE",
-				10, 0, false);
-		DataHandler.save(no_armor);
-		check(no_armor);
-		
-		
-//		try {
-//			
-//			ArmorData leather_armor = DataBuilder.build_armor(
-//					"Leather Armor",
-//					new Price(10, "GP"),
-//					new Weight(10, "LBS"),
-//					new ItemTags("Armor"),
-//					"No description",
-//					new ArmorCategory("Light"),
-//					11, 0, false);
-//			DataHandler.save(leather_armor);
-//			check(leather_armor);
-//			
-//			ArmorData scale_mail = DataBuilder.build_armor(
-//					"Leather Armor",
-//					new Price(50, "GP"),
-//					new Weight(45, "LBS"),
-//					new ItemTags("Armor"),
-//					"No description",
-//					new ArmorCategory("Medium"),
-//					14, 0, true);
-//			DataHandler.save(scale_mail);
-//			check(scale_mail);
-//			
-//			ArmorData chain_mail = DataBuilder.build_armor(
-//					"Leather Armor",
-//					new Price(75, "GP"),
-//					new Weight(55, "LBS"),
-//					new ItemTags("Armor"),
-//					"No description",
-//					new ArmorCategory("Heavy"),
-//					16, 13, true);
-//			DataHandler.save(chain_mail);
-//			check(chain_mail);
-//									
-//			this.status = true;
-//		} catch (Exception e) {
-//			ToolBox.print_err(e);
-//			this.status = false;
-//		}		
+	public ArmorsSetupCommand execute() {		
+		try {
+			ArmorData no_armor = DataBuilder.build_armor(
+					"Unarmored",
+					new Price(0, "NORM"),
+					new Weight(0, "NORM"),
+					new String[]{"Armor"},
+					"No description",
+					"NONE",
+					10, 0, false);
+			DataHandler.save(no_armor);
+			check(no_armor);
+			
+			ArmorData leather_armor = DataBuilder.build_armor(
+					"Leather Armor",
+					new Price(10, "GP"),
+					new Weight(10, "LBS"),
+					new String[]{"Armor"},
+					"No description",
+					"Light",
+					11, 0, false);
+			DataHandler.save(leather_armor);
+			check(leather_armor);
+			
+			ArmorData scale_mail = DataBuilder.build_armor(
+					"Scale Mail",
+					new Price(50, "GP"),
+					new Weight(45, "LBS"),
+					new String[]{"Armor"},
+					"No description",
+					"Medium",
+					14, 0, true);
+			DataHandler.save(scale_mail);
+			check(scale_mail);
+			
+			ArmorData chain_mail = DataBuilder.build_armor(
+					"Chain Mail",
+					new Price(75, "GP"),
+					new Weight(55, "LBS"),
+					new String[]{"Armor"},
+					"No description",
+					"Heavy",
+					16, 13, true);
+			DataHandler.save(chain_mail);
+			check(chain_mail);
+									
+			this.status = true;
+		} catch (Exception e) {
+			ToolBox.print_err(e);
+			this.status = false;
+		}		
 		return this;
 	}
 }

@@ -18,13 +18,13 @@ public class ValidateOptionCommand<T> extends Command
 
 	public ValidateOptionCommand(DataKey key, T validated_option) {
 		super();
-		this.validated_option = validated_option;
 		this.options = DataHandler.retrieve_options(key);
+		this.validated_option = validated_option;
 	}
 
 	public ValidateOptionCommand<T> execute() {
 		Optional<T> optional = Arrays.stream(options)
-				.filter(atom -> atom.equals(validated_option))
+				.filter(o -> o.equals(validated_option))
 				.findFirst();
 		if (!optional.isPresent()) {
 			throw new InvalidOptionException(String.format("Not a valid option: %s", optional.toString()));
