@@ -12,7 +12,7 @@ public class ValidateOptionCommand<T> extends Command
 {
 	private T validated_option;
 	private T[] options;
-	
+
 	private T result;
 	public T result() {return this.result;}
 
@@ -22,14 +22,24 @@ public class ValidateOptionCommand<T> extends Command
 		this.validated_option = validated_option;
 	}
 
+	@Override
 	public ValidateOptionCommand<T> execute() {
-		Optional<T> optional = Arrays.stream(options)
-				.filter(o -> o.equals(validated_option))
-				.findFirst();
-		if (!optional.isPresent()) {
-			throw new InvalidOptionException(String.format("Not a valid option: %s", optional.toString()));
+		try {
+			Optional<T> optional = Arrays.stream(options)
+					.filter(o -> o.equals(validated_option))
+					.findFirst();
+			if (optional.isEmpty()) {
+				throw new InvalidOptionException("Not a valid option (" + optional.toString() + ")");
+			}
+			this.result = optional.get();
+			this.status = true;
+			this.message = "Option validated successfully: " + this.result.toString();
+		} catch (Exception e) {
+			this.result = null;
+			this.status = false;
+			this.message = "Something went wrong while validating option";
+			e.printStackTrace();
 		}
-		this.result = optional.get();
 		return this;
 	}
 }

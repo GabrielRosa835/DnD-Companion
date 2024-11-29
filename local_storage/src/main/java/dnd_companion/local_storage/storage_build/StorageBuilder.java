@@ -1,8 +1,9 @@
 package dnd_companion.local_storage.storage_build;
 
-import dnd_companion.local_storage.storage_build.storage_setup.*;
+import dnd_companion.local_storage.storage_build.storage_setup.ArmorsSetupCommand;
+import dnd_companion.local_storage.storage_build.storage_setup.OptionsSetupCommand;
 
-public class StorageBuilder 
+public class StorageBuilder
 {
 	public static boolean create_directory(String dir_path) {
 		return new CreateDirectoryCommand(dir_path).execute().status();

@@ -1,9 +1,9 @@
 package dnd_companion.local_storage.data_handling;
 
-import dnd_companion.local_storage.data.structure.templates.Data;
+import dnd_companion.local_storage.data_structure.json.templates.Data;
 import dnd_companion.local_storage.system_components.DataKey;
 
-public class DataHandler 
+public class DataHandler
 {
 	public static boolean save(Data data) {
 		return new SaveCommand(data).execute().status();

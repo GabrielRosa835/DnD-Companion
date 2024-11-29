@@ -1,0 +1,19 @@
+{
+  "options" : [ {
+    "name" : "Kilograms",
+    "abbreviation" : "KG",
+    "normalizing_factor" : 1.0
+  }, {
+    "name" : "Pounds",
+    "abbreviation" : "LBS",
+    "normalizing_factor" : 2.20462
+  }, {
+    "name" : "Grams",
+    "abbreviation" : "G",
+    "normalizing_factor" : 1000.0
+  }, {
+    "name" : "Ounces",
+    "abbreviation" : "OZ",
+    "normalizing_factor" : 35.274
+  } ]
+}

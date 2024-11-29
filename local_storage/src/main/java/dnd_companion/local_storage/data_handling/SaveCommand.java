@@ -9,25 +9,25 @@ import java.util.Arrays;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import dnd_companion.local_storage.data.structure.templates.Data;
-import dnd_companion.local_storage.data.structure.templates.OptionData;
+import dnd_companion.local_storage.data_structure.json.templates.Data;
+import dnd_companion.local_storage.data_structure.json.templates.OptionData;
 import dnd_companion.local_storage.system_components.Command;
-import dnd_companion.local_storage.system_components.utils.DataUtils;
-import dnd_companion.local_storage.system_components.utils.ToolBox;
+import dnd_companion.local_storage.system_components.ToolBox;
 
 public class SaveCommand extends Command
 {
 	private Data data;
-	
+
 	private ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-	
+
 	public SaveCommand(Data data) {
 		this.data = data;
 	}
-	
+
+	@Override
 	public SaveCommand execute() {
 		try {
-			File file = new File(DataUtils.create_file_path(data));
+			File file = new File(ToolBox.create_file_path(data));
 			mapper.writeValue(file, data);
 			Path path = Paths.get(file.toURI());
 			String string_data;

@@ -1,36 +1,37 @@
 package dnd_companion.local_storage.storage_build.storage_setup;
 
-import dnd_companion.local_storage.data.manipulation.value_group.Price;
-import dnd_companion.local_storage.data.manipulation.value_group.Weight;
-import dnd_companion.local_storage.data.structure.items.armors.ArmorData;
-import dnd_companion.local_storage.data.structure.templates.Data;
 import dnd_companion.local_storage.data_build.DataBuilder;
 import dnd_companion.local_storage.data_handling.DataHandler;
+import dnd_companion.local_storage.data_structure.java.system.units.Price;
+import dnd_companion.local_storage.data_structure.java.system.units.Weight;
+import dnd_companion.local_storage.data_structure.json.items.armors.ArmorData;
+import dnd_companion.local_storage.data_structure.json.templates.Data;
 import dnd_companion.local_storage.system_components.Command;
 import dnd_companion.local_storage.system_components.DataKey;
-import dnd_companion.local_storage.system_components.utils.ToolBox;
+import dnd_companion.local_storage.system_components.ToolBox;
 
-public class ArmorsSetupCommand extends Command 
+public class ArmorsSetupCommand extends Command
 {
-	private static void check(Data data) {
+	private static void check(ArmorData data) {
 		DataKey key = new DataKey(data);
 		Data checked_data = DataHandler.retrieve(key);
 		ToolBox.print("%s: %s", data.name(), checked_data.toString());
 	}
-	
-	public ArmorsSetupCommand execute() {		
+
+	@Override
+	public ArmorsSetupCommand execute() {
 		try {
 			ArmorData no_armor = DataBuilder.build_armor(
 					"Unarmored",
-					new Price(0, "NORM"),
-					new Weight(0, "NORM"),
+					new Price(0, "GP"),
+					new Weight(0, "LBS"),
 					new String[]{"Armor"},
 					"No description",
-					"NONE",
+					"None",
 					10, 0, false);
 			DataHandler.save(no_armor);
 			check(no_armor);
-			
+
 			ArmorData leather_armor = DataBuilder.build_armor(
 					"Leather Armor",
 					new Price(10, "GP"),
@@ -41,7 +42,7 @@ public class ArmorsSetupCommand extends Command
 					11, 0, false);
 			DataHandler.save(leather_armor);
 			check(leather_armor);
-			
+
 			ArmorData scale_mail = DataBuilder.build_armor(
 					"Scale Mail",
 					new Price(50, "GP"),
@@ -52,7 +53,7 @@ public class ArmorsSetupCommand extends Command
 					14, 0, true);
 			DataHandler.save(scale_mail);
 			check(scale_mail);
-			
+
 			ArmorData chain_mail = DataBuilder.build_armor(
 					"Chain Mail",
 					new Price(75, "GP"),
@@ -63,12 +64,12 @@ public class ArmorsSetupCommand extends Command
 					16, 13, true);
 			DataHandler.save(chain_mail);
 			check(chain_mail);
-									
+
 			this.status = true;
 		} catch (Exception e) {
 			ToolBox.print_err(e);
 			this.status = false;
-		}		
+		}
 		return this;
 	}
 }

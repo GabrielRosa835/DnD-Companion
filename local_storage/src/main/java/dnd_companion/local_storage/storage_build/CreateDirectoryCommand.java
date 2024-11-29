@@ -5,17 +5,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import dnd_companion.local_storage.system_components.Command;
-import dnd_companion.local_storage.system_components.utils.Validations;
-import dnd_companion.local_storage.system_components.utils.ToolBox;
+import dnd_companion.local_storage.system_components.ToolBox;
+import dnd_companion.local_storage.system_components.archived.Validations;
 
 public class CreateDirectoryCommand extends Command
 {
 	private String dir_path;
-	
+
 	public CreateDirectoryCommand(String dir_path) {
 		this.dir_path = dir_path;
 	}
 
+	@Override
 	public CreateDirectoryCommand execute() {
 		try {
 			if (!Validations.check_file_existance(dir_path)) {
@@ -28,7 +29,7 @@ public class CreateDirectoryCommand extends Command
 		} catch (IOException e) {
 			ToolBox.print_err(e);
 			status = false;
-		}    		
+		}
         return this;
    	}
 }
