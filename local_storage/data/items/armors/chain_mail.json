@@ -7,7 +7,7 @@
   "tags" : [ "Armor" ],
   "description" : "No description",
   "category" : "Heavy",
-  "base_armor_class" : 16,
+  "armor_class" : 16,
   "strength_requirement" : 13,
   "stealth_disadvantage" : true
 }

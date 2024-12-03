@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.data_build;
 
-import dnd_companion.local_storage.data_structure.java.items.ItemTag;
+import dnd_companion.local_storage.data_structure.java.items.*;
 import dnd_companion.local_storage.data_structure.java.items.weapons.WeaponRange;
 import dnd_companion.local_storage.data_structure.java.system.Damage;
 import dnd_companion.local_storage.data_structure.java.system.Dice;
@@ -16,24 +16,24 @@ public class BuildWeaponDataCommand extends DataBuilderCommand<WeaponData>
 	private Weight weight;
 	private ItemTag[] tags;
 	private String description;
-	private String category;
-	private String type;
+	private WeaponCategory category;
+	private WeaponType type;
+	private WeaponProperty[] properties;
+	private WeaponMastery mastery;
 	private Damage damage;
-	private String[] properties;
-	private String mastery;
 	private WeaponRange range;
-	private Ammo
+	private Ammo ammo;
 	private Dice versatile_dice;
 
 	public BuildWeaponDataCommand(
 		String name,
 		Price price,
 		Weight weight,
-		String[] tags,
+		ItemTag[] tags,
 		String description,
 		String category,
 		String type,
-		String damage_dice_type, int damage_dice_amount, String damage_type,
+		Damage damage,
 		String[] properties,
 		String mastery,
 		Length min_range,

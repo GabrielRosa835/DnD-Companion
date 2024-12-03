@@ -16,9 +16,9 @@ import dnd_companion.local_storage.system_components.ToolBox;
 
 public class SaveCommand extends Command
 {
-	private Data data;
+	private final Data data;
 
-	private ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+	private final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
 	public SaveCommand(Data data) {
 		this.data = data;

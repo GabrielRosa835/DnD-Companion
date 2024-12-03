@@ -13,8 +13,6 @@ import dnd_companion.local_storage.system_components.exceptions.InvalidOptionExc
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
 public class Ammo extends GenericItem
 {
 	public Ammo retrieve(String name) throws InvalidOptionException {

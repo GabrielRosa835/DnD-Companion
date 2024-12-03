@@ -7,7 +7,7 @@
   "tags" : [ "Armor" ],
   "description" : "No description",
   "category" : "Medium",
-  "base_armor_class" : 14,
+  "armor_class" : 14,
   "strength_requirement" : 0,
   "stealth_disadvantage" : true
 }
