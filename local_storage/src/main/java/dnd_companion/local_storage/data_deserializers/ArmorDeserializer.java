@@ -9,14 +9,14 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dnd_companion.local_storage.data_structure.java.items.armors.Armor;
-import dnd_companion.local_storage.data_structure.java.system.units.Price;
-import dnd_companion.local_storage.data_structure.java.system.units.Weight;
+import dnd_companion.local_storage.structure.components.items.armors.ArmorComponent;
+import dnd_companion.local_storage.structure.components.system.units.Price;
+import dnd_companion.local_storage.structure.components.system.units.Weight;
 
-public class ArmorDeserializer extends JsonDeserializer<Armor>
+public class ArmorDeserializer extends JsonDeserializer<ArmorComponent>
 {
 	@Override
-	public Armor deserialize(
+	public ArmorComponent deserialize(
 		JsonParser p,
 		@SuppressWarnings("unused") DeserializationContext ctxt
 	) throws IOException, JacksonException {
@@ -37,7 +37,7 @@ public class ArmorDeserializer extends JsonDeserializer<Armor>
         int strength_requirement = node.get("strength_requirement").asInt();
         boolean stealth_disadvantage = node.get("stealth_disadvantage").asBoolean();
 
-        return new Armor(
+        return new ArmorComponent(
     		name,
     		new Price(price_value, price_unit),
     		new Weight(weight_value, weight_unit),
