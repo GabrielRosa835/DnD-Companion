@@ -1,19 +1,19 @@
 package dnd_companion.local_storage.structure.components.items.weapons;
 
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.structure.data.atomic.LengthUnit;
 import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
+import dnd_companion.local_storage.structure.data.system.units.LengthUnitDataOptions;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public class WeaponRange
 {
 	private double min_value;
 	private double max_value;
-	private LengthUnit unit;
+	private LengthUnitData unit;
 
 	public double min_value() {return this.min_value;}
 	public double max_value() {return this.max_value;}
-	public LengthUnit unit() {return this.unit;}
+	public LengthUnitData unit() {return this.unit;}
 
 	public WeaponRange(
 		double min_value,
@@ -25,7 +25,7 @@ public class WeaponRange
 		this.unit = validate_unit(unit);
 	}
 
-	private LengthUnit validate_unit(String unit) {
-		return (LengthUnit) DataValidator.validate_unit(new DataKey(LengthUnitData.class), unit);
+	private LengthUnitData validate_unit(String unit) {
+		return (LengthUnitData) DataValidator.validate_unit(new DataKey(LengthUnitDataOptions.class), unit);
 	}
 }

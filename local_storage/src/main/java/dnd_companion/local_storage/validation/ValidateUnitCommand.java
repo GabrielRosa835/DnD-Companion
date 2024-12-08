@@ -3,14 +3,14 @@ package dnd_companion.local_storage.validation;
 import java.util.Arrays;
 import java.util.Optional;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
+import dnd_companion.local_storage.common.command.Command;
 import dnd_companion.local_storage.common.exceptions.InvalidOptionException;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.templates.AtomicUnit;
+import dnd_companion.local_storage.structure.data.system.units.UnitData;
 
-public class ValidateUnitCommand<T extends AtomicUnit> extends Command
+public class ValidateUnitCommand<T extends UnitData> extends Command
 {
 	private DataKey key;
 	private String unit;

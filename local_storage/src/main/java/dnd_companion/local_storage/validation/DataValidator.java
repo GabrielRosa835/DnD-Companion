@@ -1,24 +1,21 @@
 package dnd_companion.local_storage.validation;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.structure.data.templates.AtomicUnit;
+import dnd_companion.local_storage.common.command.CommandManager;
+import dnd_companion.local_storage.structure.data.system.units.UnitData;
 
-public class DataValidator
+public class DataValidator extends CommandManager
 {
-	public static <T> T validate_option(DataKey key, T option) {
-		return new ValidateOptionCommand<>(key, option).execute().result();
+	public <T> DataValidator validate_option(DataKey key, T option) {
+		this.last_command = new ValidateOptionCommand<>(key, option).execute();
+		return this;
 	}
-	public static <T> T[] validate_options(DataKey key, T[] options) {
-		Collection<T> validated_options = new ArrayList<>();
-		for (T option : options) {
-			validated_options.add(new ValidateOptionCommand<>(key, option).execute().result());
-		}
-		return validated_options.toArray(options.clone());
+	public <T> DataValidator validate_options(DataKey key, T[] options) {
+		this.last_command = null;
+		return this;
 	}
-	public static <T extends AtomicUnit> T validate_unit(DataKey key, String unit) {
-		return new ValidateUnitCommand<T>(key, unit).execute().result();
+	public <T extends UnitData> DataValidator validate_unit(DataKey key, String unit) {
+		this.last_command = new ValidateUnitCommand<T>(key, unit).execute();
+		return this;
 	}
 }

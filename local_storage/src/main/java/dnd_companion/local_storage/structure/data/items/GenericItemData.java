@@ -1,8 +1,6 @@
 package dnd_companion.local_storage.structure.data.items;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.templates.Data;
-import dnd_companion.local_storage.structure.data.templates.Item;
 
 public record GenericItemData(
 	String name,
@@ -12,9 +10,7 @@ public record GenericItemData(
 	String weight_unit,
 	String[] tags,
 	String description
-) implements Item, Data {
-	@Override
-	public String collection() {return "items";}
-	@Override
-	public String file_name() {return ToolBox.to_snake_case(this.name);}
+) implements ItemProperties {
+	@Override public String collection() {return "items";}
+	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
 }

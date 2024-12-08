@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.build.armor;
 
-import dnd_companion.local_storage.common.Command;
+import dnd_companion.local_storage.common.command.Command;
 import dnd_companion.local_storage.structure.components.items.armors.ArmorComponent;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorData;
 

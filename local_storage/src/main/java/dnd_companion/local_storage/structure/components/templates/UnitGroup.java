@@ -3,10 +3,10 @@ package dnd_companion.local_storage.structure.components.templates;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.structure.data.templates.AtomicUnit;
+import dnd_companion.local_storage.structure.data.system.units.UnitData;
 import dnd_companion.local_storage.validation.DataValidator;
 
-public abstract class UnitGroup<T extends AtomicUnit>
+public abstract class UnitGroup<T extends UnitData>
 {
 	@JsonProperty
 	private double value;

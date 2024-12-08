@@ -3,7 +3,7 @@ package dnd_companion.local_storage.common;
 import java.util.Arrays;
 
 import dnd_companion.local_storage.storage.StorageMetadata;
-import dnd_companion.local_storage.structure.data.templates.Data;
+import dnd_companion.local_storage.structure.data.Data;
 
 public class ToolBox
 {
@@ -11,8 +11,7 @@ public class ToolBox
 		System.out.println(String.format(main_message, params));
 	}
 	public static void print_err(Exception exception) {
-		String message = (exception.getMessage() == null) ? "No specified message" : exception.getMessage();
-		System.err.println(String.format("ERROR: %s", message));
+		exception.printStackTrace();
 	}
 
 	public static String to_snake_case(String input) {

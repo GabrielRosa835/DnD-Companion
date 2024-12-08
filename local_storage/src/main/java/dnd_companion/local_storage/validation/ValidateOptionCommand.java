@@ -3,8 +3,8 @@ package dnd_companion.local_storage.validation;
 import java.util.Arrays;
 import java.util.Optional;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
+import dnd_companion.local_storage.common.command.Command;
 import dnd_companion.local_storage.common.exceptions.InvalidOptionException;
 import dnd_companion.local_storage.handling.DataHandler;
 

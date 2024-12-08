@@ -1,22 +1,16 @@
 package dnd_companion.local_storage.structure.data.system.units;
 
-import dnd_companion.local_storage.structure.data.atomic.WeightUnit;
-import dnd_companion.local_storage.structure.data.templates.OptionData;
+import dnd_companion.local_storage.common.ToolBox;
 
-public record WeightUnitData (WeightUnit... options)
-implements OptionData<WeightUnit>
-{
+public record WeightUnitData (
+	String name, 
+	String abbreviation, 
+	double normalizing_factor
+) implements UnitData {
+	public String collection() {return "weight_units";}
+	public String file_name() {return ToolBox.to_snake_case(this.name);}
+	
 	public WeightUnitData() {
-		this(
-			new WeightUnit("Kilograms", "KG", 1),
-			new WeightUnit("Pounds", "LBS", 2.20462),
-			new WeightUnit("Grams", "G", 1000),
-			new WeightUnit("Ounces", "OZ", 35.274)
-		);
+		this(null, null, 0);
 	}
-
-	@Override
-	public String collection() {return "units";}
-	@Override
-	public String file_name() {return "weight-units";}
 }

@@ -1,30 +1,14 @@
 package dnd_companion.local_storage.structure.data.system;
 
-import dnd_companion.local_storage.structure.data.templates.OptionData;
+import dnd_companion.local_storage.common.ToolBox;
 
-public record DamageTypeData (String... options)
-implements OptionData<String>
-{
+public record DamageTypeData (
+	String name
+) implements SystemData {
+	@Override public String collection() {return "damage-types";}
+	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
+	
 	public DamageTypeData() {
-		this(
-			"Acid",
-			"Bludgeoning",
-			"Cold",
-			"Fire",
-			"Force",
-			"Lightning",
-			"Necrotic",
-			"Piercing",
-			"Poison",
-			"Psychic",
-			"Radiant",
-			"Slashing",
-			"Thunder"
-		);
+		this(null);
 	}
-
-	@Override
-	public String collection() {return "system";}
-	@Override
-	public String file_name() {return "damage-types";}
 }

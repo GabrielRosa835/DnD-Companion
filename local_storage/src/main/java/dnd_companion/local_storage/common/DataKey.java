@@ -1,7 +1,6 @@
 package dnd_companion.local_storage.common;
 
-import dnd_companion.local_storage.structure.data.templates.Data;
-import dnd_companion.local_storage.structure.data.templates.OptionData;
+import dnd_companion.local_storage.structure.data.Data;
 
 public class DataKey
 {
@@ -35,20 +34,6 @@ public class DataKey
 		this.collection = data.collection();
 		this.file_name = data.file_name();
 		this.type = data.getClass().getName();
-	}
-
-	public <T, U extends OptionData<T>> DataKey (Class<U> type) {
-		try {
-			U type_instance = type.getConstructor().newInstance();
-			this.collection = type_instance.collection();
-			this.file_name = type_instance.file_name();
-			this.type = type.getName();
-		} catch (Exception e) {
-			e.printStackTrace();
-			this.collection = null;
-			this.file_name = null;
-			this.type = null;
-		}
 	}
 
 	@Override

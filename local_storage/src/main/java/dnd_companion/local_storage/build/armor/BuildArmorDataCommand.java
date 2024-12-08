@@ -5,9 +5,9 @@ import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.structure.components.system.units.Price;
 import dnd_companion.local_storage.structure.components.system.units.Weight;
-import dnd_companion.local_storage.structure.data.items.ItemTagData;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorCategoryData;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorData;
+import dnd_companion.local_storage.structure.data.items.tags.ItemTagData;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public class BuildArmorDataCommand extends DataBuilderCommand<ArmorData>
