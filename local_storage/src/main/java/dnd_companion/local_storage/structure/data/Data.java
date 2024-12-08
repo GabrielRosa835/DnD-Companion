@@ -4,6 +4,7 @@ public interface Data
 {
 	public String collection();
 	public String file_name();
+	public String name();
 	
 	public static String file = "data";
 }

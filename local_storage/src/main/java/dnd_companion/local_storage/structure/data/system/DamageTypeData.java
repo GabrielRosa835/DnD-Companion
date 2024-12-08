@@ -1,6 +1,7 @@
 package dnd_companion.local_storage.structure.data.system;
 
 import dnd_companion.local_storage.common.ToolBox;
+import dnd_companion.local_storage.structure.data.SystemData;
 
 public record DamageTypeData (
 	String name

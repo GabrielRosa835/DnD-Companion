@@ -1,3 +1,7 @@
 {
-  "name" : "Heavy"
+  "name" : "Heavy",
+  "don_time" : 10.0,
+  "don_time_step_type" : "Minutes",
+  "doff_time" : 5.0,
+  "doff_time_step_type" : "Minutes"
 }

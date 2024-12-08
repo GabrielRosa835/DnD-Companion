@@ -1,0 +1,20 @@
+{
+  "name" : "Greatsword",
+  "price_value" : 50.0,
+  "price_unit" : "GP",
+  "weight_value" : 6.0,
+  "weight_unit" : "LBS",
+  "tags" : [ "Weapon" ],
+  "description" : "No description",
+  "category" : "Martial",
+  "type" : "Melee",
+  "damage_dice_amount" : 2,
+  "damage_dice_type" : "d6",
+  "damage_type" : "Slashing",
+  "properties" : [ "Heavy", "Two-Handed" ],
+  "mastery" : "Graze",
+  "min_range_value" : 5.0,
+  "max_range_value" : 5.0,
+  "range_unit" : "Squares",
+  "versatile_dice_type" : null
+}

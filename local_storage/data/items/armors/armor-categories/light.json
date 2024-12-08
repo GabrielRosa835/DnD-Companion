@@ -1,3 +1,7 @@
 {
-  "name" : "Light"
+  "name" : "Light",
+  "don_time" : 1.0,
+  "don_time_step_type" : "Minutes",
+  "doff_time" : 1.0,
+  "doff_time_step_type" : "Minutes"
 }

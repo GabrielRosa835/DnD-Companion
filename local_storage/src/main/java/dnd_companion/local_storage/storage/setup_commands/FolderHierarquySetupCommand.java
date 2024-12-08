@@ -1,4 +1,4 @@
-package dnd_companion.local_storage.storage.storage_setup_commands;
+package dnd_companion.local_storage.storage.setup_commands;
 
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.command.Command;
@@ -17,10 +17,12 @@ public class FolderHierarquySetupCommand extends Command<Boolean>
 			}
 			this.status = true;
 			this.result = true;
-			this.message = "All directories were successfully created";
+			this.message = "Directories' setup was successful";
 		} catch (Exception e) {
 			ToolBox.print_err(e);
-			this.clear();
+			this.status = false;
+			this.result = false;
+			this.message = "Failed to setup directories";
 		}
 		return this;
 	}

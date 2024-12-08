@@ -2,20 +2,26 @@ package dnd_companion.local_storage.storage;
 
 import java.util.LinkedHashMap;
 
+import dnd_companion.local_storage.structure.data.CampaignData;
 import dnd_companion.local_storage.structure.data.Data;
-import dnd_companion.local_storage.structure.data.campaings.CampaignData;
-import dnd_companion.local_storage.structure.data.items.ItemData;
+import dnd_companion.local_storage.structure.data.ItemData;
+import dnd_companion.local_storage.structure.data.SystemData;
+import dnd_companion.local_storage.structure.data.UnitData;
 import dnd_companion.local_storage.structure.data.items.ammunition.AmmoData;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorCategoryData;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorData;
 import dnd_companion.local_storage.structure.data.items.tags.ItemTagData;
+import dnd_companion.local_storage.structure.data.items.weapons.WeaponCategoryData;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
+import dnd_companion.local_storage.structure.data.items.weapons.WeaponMasteryData;
+import dnd_companion.local_storage.structure.data.items.weapons.WeaponPropertyData;
+import dnd_companion.local_storage.structure.data.items.weapons.WeaponTypeData;
+import dnd_companion.local_storage.structure.data.system.ActionTypeData;
 import dnd_companion.local_storage.structure.data.system.DamageTypeData;
 import dnd_companion.local_storage.structure.data.system.DiceData;
-import dnd_companion.local_storage.structure.data.system.SystemData;
-import dnd_companion.local_storage.structure.data.system.units.CurrencyData;
+import dnd_companion.local_storage.structure.data.system.units.CurrencyUnitData;
 import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
-import dnd_companion.local_storage.structure.data.system.units.UnitData;
+import dnd_companion.local_storage.structure.data.system.units.TimeUnitData;
 import dnd_companion.local_storage.structure.data.system.units.WeightUnitData;
 
 public abstract class StorageMetadata
@@ -41,13 +47,20 @@ public abstract class StorageMetadata
 		
 		add(new DirRef(new ArmorData().collection(), new ArmorCategoryData().collection()));
 		
+		add(new DirRef(new WeaponData().collection(), new WeaponCategoryData().collection()));
+		add(new DirRef(new WeaponData().collection(), new WeaponMasteryData().collection()));
+		add(new DirRef(new WeaponData().collection(), new WeaponPropertyData().collection()));
+		add(new DirRef(new WeaponData().collection(), new WeaponTypeData().collection()));
+		
 		add(new DirRef(SystemData.file, new DamageTypeData().collection()));
 		add(new DirRef(SystemData.file, new DiceData().collection()));
+		add(new DirRef(SystemData.file, new ActionTypeData().collection()));
 		add(new DirRef(SystemData.file, UnitData.file));
 		
-		add(new DirRef(UnitData.file, new CurrencyData().collection()));
+		add(new DirRef(UnitData.file, new CurrencyUnitData().collection()));
 		add(new DirRef(UnitData.file, new LengthUnitData().collection()));
 		add(new DirRef(UnitData.file, new WeightUnitData().collection()));
+		add(new DirRef(UnitData.file, new TimeUnitData().collection()));
 	}
 
 	public record DirRef(String parent_dir, String dir_name) {

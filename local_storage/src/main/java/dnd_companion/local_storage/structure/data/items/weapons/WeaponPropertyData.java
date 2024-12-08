@@ -1,26 +1,16 @@
 package dnd_companion.local_storage.structure.data.items.weapons;
 
-import dnd_companion.local_storage.structure.data.templates.OptionData;
+import dnd_companion.local_storage.common.ToolBox;
+import dnd_companion.local_storage.structure.data.Data;
 
-public record WeaponPropertyData(String... options) implements OptionData<String>
-{
+public record WeaponPropertyData (
+	String name,
+	String description
+) implements Data {
+	@Override public String collection() {return "weapon-properties";}
+	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
+	
 	public WeaponPropertyData() {
-		this(
-			"Ammunition",
-			"Finesse",
-			"Heavy",
-			"Light",
-			"Loading",
-			"Range",
-			"Reach",
-			"Thrown",
-			"Two-Handed",
-			"Versatile"
-		);
+		this(null, null);
 	}
-
-	@Override
-	public String collection() {return "weapons";}
-	@Override
-	public String file_name() {return "weapon-properties";}
 }

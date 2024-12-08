@@ -14,9 +14,11 @@ public class InitializeStorageCommand extends Command<Boolean>
 		try {
 			storage_builder.clear_data();
 			storage_setup.setup_folder_hierarquy();
-			storage_setup.setup_options();
+			storage_setup.setup_system_options();
+			storage_setup.setup_units();
+			storage_setup.setup_items();
 			storage_setup.setup_armors();
-			
+			storage_setup.setup_weapons();
 			this.status = false;
 			this.result = false;
 			this.message = "Data storage was successfully initialized";

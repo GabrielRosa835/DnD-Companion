@@ -8,7 +8,7 @@ import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.command.Command;
 import dnd_companion.local_storage.common.exceptions.InvalidOptionException;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.system.units.UnitData;
+import dnd_companion.local_storage.structure.data.UnitData;
 
 public class ValidateUnitCommand<T extends UnitData> extends Command
 {

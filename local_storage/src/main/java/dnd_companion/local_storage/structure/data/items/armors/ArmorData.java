@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.structure.data.items.armors;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.items.ItemData;
+import dnd_companion.local_storage.structure.data.Data;
 import dnd_companion.local_storage.structure.data.items.ItemProperties;
 
 public record ArmorData(
@@ -16,7 +16,7 @@ public record ArmorData(
 	int armor_class,
 	int strength_requirement,
 	boolean stealth_disadvantage
-) implements ItemProperties, ItemData {
+) implements ItemProperties, Data {
 	@Override public String collection() {return "armors";}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
 	

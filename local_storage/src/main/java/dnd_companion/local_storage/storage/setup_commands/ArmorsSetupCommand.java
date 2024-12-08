@@ -1,4 +1,4 @@
-package dnd_companion.local_storage.storage.storage_setup_commands;
+package dnd_companion.local_storage.storage.setup_commands;
 
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.command.Command;
@@ -14,53 +14,55 @@ public class ArmorsSetupCommand extends Command<Boolean>
 	public ArmorsSetupCommand execute() {
 		try {
 			data_handler.save_multiple(
-					new ArmorCategoryData("None"),
-					new ArmorCategoryData("Shield"),
-					new ArmorCategoryData("Light"),
-					new ArmorCategoryData("Medium"),
-					new ArmorCategoryData("Heavy"));
+				new ArmorCategoryData("None", 0, "None", 0, "None"),
+				new ArmorCategoryData("Shield", 1, "Action", 1, "Action"),
+				new ArmorCategoryData("Light", 1, "Minutes", 1, "Minutes"),
+				new ArmorCategoryData("Medium", 5, "Minutes", 1, "Minutes"),
+				new ArmorCategoryData("Heavy", 10, "Minutes", 5, "Minutes")
+			);
 
-			data_handler.save(new ArmorData(
+			data_handler.save_multiple(
+				new ArmorData(
 					"Unarmored",
 					0, "GP",
 					0, "LBS",
 					new String[]{"Armor"},
 					"No description",
 					"None",
-					10, 0, false));
-			data_handler.save(new ArmorData(
+					10, 0, false),
+				new ArmorData(
 					"Leather Armor",
 					10, "GP",
 					10, "LBS",
 					new String[]{"Armor"},
 					"No description",
 					"Light",
-					11, 0, false));
-			data_handler.save(new ArmorData(
+					11, 0, false),
+				new ArmorData(
 					"Scale Mail",
 					50, "GP",
 					45, "LBS",
 					new String[]{"Armor"},
 					"No description",
 					"Medium",
-					14, 0, true));
-			data_handler.save(new ArmorData(
+					14, 0, true),
+				new ArmorData(
 					"Chain Mail",
 					75, "GP",
 					55, "LBS",
 					new String[]{"Armor"},
 					"No description",
 					"Heavy",
-					16, 13, true));
-
+					16, 13, true)
+			);
 			this.status = true;
 			this.result = true;
-			this.message = "Armors successfully initialized";
+			this.message = "Armors' setup was successful";
 		} catch (Exception e) {
 			ToolBox.print_err(e);
 			this.status = false;
 			this.result = false;
-			this.message = "Failed to initialize armors";
+			this.message = "Failed to setup armors";
 		}
 		return this;
 	}

@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.structure.data.items.ammunition;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.items.ItemData;
+import dnd_companion.local_storage.structure.data.ItemData;
 import dnd_companion.local_storage.structure.data.items.ItemProperties;
 
 public record AmmoData(

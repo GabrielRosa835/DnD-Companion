@@ -1,3 +1,7 @@
 {
-  "name" : "None"
+  "name" : "None",
+  "don_time" : 0.0,
+  "don_time_step_type" : "None",
+  "doff_time" : 0.0,
+  "doff_time_step_type" : "None"
 }
