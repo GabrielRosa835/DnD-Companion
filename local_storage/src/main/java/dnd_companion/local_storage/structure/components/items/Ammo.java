@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Optional;
 
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.common.exceptions.InvalidOptionException;
+import dnd_companion.local_storage.common.archived.InvalidOptionException;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.components.system.units.Price;
 import dnd_companion.local_storage.structure.components.system.units.Weight;

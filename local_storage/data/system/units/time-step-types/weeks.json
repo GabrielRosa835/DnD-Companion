@@ -1,5 +1,5 @@
 {
   "name" : "Weeks",
   "abbreviation" : "w",
-  "normalizing_factor" : 1.0
+  "normalizing_factor" : 0.00595238
 }

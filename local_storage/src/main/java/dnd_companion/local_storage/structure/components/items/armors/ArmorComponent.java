@@ -7,7 +7,7 @@ import dnd_companion.local_storage.structure.components.system.units.Weight;
 
 public class ArmorComponent extends GenericItem
 {
-	public ArmorCategory category;
+	public ArmorCategoryComponent category;
 	public int armor_class;
 	public int strength_requirement;
 	public boolean stealth_disadvantage;
@@ -18,7 +18,7 @@ public class ArmorComponent extends GenericItem
 		Weight weight,
 		ItemTag[] tags,
 		String description,
-		ArmorCategory category,
+		ArmorCategoryComponent category,
 		int armor_class,
 		int strength_requirement,
 		boolean stealth_disadvantage

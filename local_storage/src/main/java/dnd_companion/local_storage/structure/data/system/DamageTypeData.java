@@ -2,6 +2,7 @@ package dnd_companion.local_storage.structure.data.system;
 
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.structure.data.SystemData;
+import dnd_companion.local_storage.validation.DataValidator;
 
 public record DamageTypeData (
 	String name
@@ -11,5 +12,8 @@ public record DamageTypeData (
 	
 	public DamageTypeData() {
 		this(null);
+	}
+	public DamageTypeData validate() {
+		return (DamageTypeData) new DataValidator().validate(this).result();
 	}
 }

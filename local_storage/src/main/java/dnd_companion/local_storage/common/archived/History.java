@@ -1,8 +1,9 @@
-package dnd_companion.local_storage.common.command;
+package dnd_companion.local_storage.common.archived;
 
 import java.util.Collection;
 
 import dnd_companion.local_storage.common.ToolBox;
+import dnd_companion.local_storage.common.command.Command;
 
 public abstract class History 
 {

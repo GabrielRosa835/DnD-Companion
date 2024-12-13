@@ -3,6 +3,7 @@ package dnd_companion.local_storage.structure.data.items.ammunition;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.structure.data.ItemData;
 import dnd_companion.local_storage.structure.data.items.ItemProperties;
+import dnd_companion.local_storage.validation.DataValidator;
 
 public record AmmoData(
 	String name,
@@ -18,5 +19,8 @@ public record AmmoData(
 	
 	public AmmoData() {
 		this(null, 0, null, 0, null, null, null);
+	}
+	public AmmoData validate() {
+		return (AmmoData) new DataValidator().validate(this).result();
 	}
 }

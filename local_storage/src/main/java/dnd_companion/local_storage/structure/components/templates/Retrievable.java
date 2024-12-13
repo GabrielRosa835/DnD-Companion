@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.structure.components.templates;
 
-public interface Retrievable<T>
+public interface Retrievable<T extends Retrievable<T>> 
 {
-	public static
+	public T retrieve(String name);
 }

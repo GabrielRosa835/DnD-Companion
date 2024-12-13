@@ -10,28 +10,22 @@ import dnd_companion.local_storage.storage.setup_commands.WeaponsSetupCommand;
 
 public class StorageSetup extends CommandManager
 {
-	public StorageSetup setup_folder_hierarquy() {
-		this.last_command = new FolderHierarquySetupCommand().execute();
-		return this;
+	public FolderHierarquySetupCommand setup_folder_hierarquy() {
+		return new FolderHierarquySetupCommand().execute();
 	}
-	public StorageSetup setup_system_options() {
-		this.last_command = new SystemOptionsSetupCommand().execute();
-		return this;
+	public SystemOptionsSetupCommand setup_system_options() {
+		return new SystemOptionsSetupCommand().execute();
 	}
-	public StorageSetup setup_armors() {
-		this.last_command = new ArmorsSetupCommand().execute();
-		return this;
+	public ArmorsSetupCommand setup_armors() {
+		return new ArmorsSetupCommand().execute();
 	}
-	public StorageSetup setup_weapons() {
-		this.last_command = new WeaponsSetupCommand().execute();
-		return this;
+	public WeaponsSetupCommand setup_weapons() {
+		return new WeaponsSetupCommand().execute();
 	}
-	public StorageSetup setup_items() {
-		this.last_command = new ItemsSetupCommand().execute();
-		return this;
+	public ItemsSetupCommand setup_items() {
+		return new ItemsSetupCommand().execute();
 	}
-	public StorageSetup setup_units() {
-		this.last_command = new UnitsSetupCommand().execute();
-		return this;
+	public UnitsSetupCommand setup_units() {
+		return new UnitsSetupCommand().execute();
 	}
 }

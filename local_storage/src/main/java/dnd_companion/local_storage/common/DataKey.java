@@ -24,9 +24,9 @@ public class DataKey
 		this.type = null;
 	}
 
-	public DataKey(String collection, String name, String type) {
-		this.collection = collection;
-		this.file_name = name;
+	public DataKey(String collection, String file_name, String type) {
+		this.collection = ToolBox.to_snake_case(collection);
+		this.file_name = ToolBox.to_snake_case(file_name);
 		this.type = type;
 	}
 

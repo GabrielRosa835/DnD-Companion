@@ -1,6 +1,7 @@
 package dnd_companion.local_storage.handling.commands;
 
 import java.io.File;
+import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -8,39 +9,26 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.exceptions.DataNotFoundException;
 import dnd_companion.local_storage.structure.data.Data;
 
-public class RetrieveDataCommand<T extends Data> extends Command
+public class RetrieveDataCommand<T extends Data> extends Command<RetrieveDataCommand<T>, Data>
 {
-	private DataKey key;
-	private ObjectReader reader;
-
-	private T result;
-	public T result() {return this.result;}
+	private final DataKey key;
 
 	public RetrieveDataCommand(DataKey key) {
-		super();
-		try {
-			this.key = key;
-			this.reader = new ObjectMapper().readerFor(Class.forName(key.type()));
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+		this.key = key;
+		this.message = String.format("Failed to retrieved data: %s", key.toString());
 	}
 
-	@Override
-	public RetrieveDataCommand<T> execute() {
-		try {
-			File file = new File(ToolBox.create_file_path(key));
-			T data = reader.readValue(file);
-			ToolBox.print("Options retrieved successfully: %s", key.toString());
-			this.result = data;
-			this.status = true;
-		} catch (Exception e) {
-			ToolBox.print_err(e);
-			this.result = null;
-			this.status = false;
+	@Override public void code() throws IOException, DataNotFoundException, ClassNotFoundException {
+		ObjectReader reader = new ObjectMapper().readerFor(Class.forName(key.type()));
+		File file = new File(ToolBox.create_file_path(key));
+		T data = reader.readValue(file);
+		if (data == null) {
+			throw new DataNotFoundException(String.format("No data found for key %s", key.toString()));
 		}
-		return this;
+		this.result = data;
+		this.message = String.format("Data retrieved successfully: %s", key.toString());
 	}
 }

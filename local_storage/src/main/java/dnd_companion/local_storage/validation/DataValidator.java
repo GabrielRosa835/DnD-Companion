@@ -2,20 +2,15 @@ package dnd_companion.local_storage.validation;
 
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.command.CommandManager;
-import dnd_companion.local_storage.structure.data.UnitData;
+import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.structure.data.system.units.UnitProperties;
 
 public class DataValidator extends CommandManager
 {
-	public <T> DataValidator validate_option(DataKey key, T option) {
-		this.last_command = new ValidateOptionCommand<>(key, option).execute();
-		return this;
+	public ValidateDataCommand validate(Data data) {
+		return new ValidateDataCommand(data).execute();
 	}
-	public <T> DataValidator validate_options(DataKey key, T[] options) {
-		this.last_command = null;
-		return this;
-	}
-	public <T extends UnitData> DataValidator validate_unit(DataKey key, String unit) {
-		this.last_command = new ValidateUnitCommand<T>(key, unit).execute();
-		return this;
+	public <T extends UnitProperties & Data> ValidateUnitCommand<T> validate_unit(DataKey key, String unit) {
+		return new ValidateUnitCommand<T>(key, unit).execute();
 	}
 }

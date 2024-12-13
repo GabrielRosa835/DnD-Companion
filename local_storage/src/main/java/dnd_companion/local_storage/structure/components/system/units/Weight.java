@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.structure.components.system.units;
 
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.structure.components.templates.UnitGroup;
+import dnd_companion.local_storage.structure.components.templates.units.UnitGroup;
 import dnd_companion.local_storage.structure.data.system.units.WeightUnitData;
 import dnd_companion.local_storage.structure.data.system.units.WeightUnitData;
 

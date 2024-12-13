@@ -10,7 +10,7 @@ public class ToolBox
 	public static void print(String main_message, Object... params) {
 		System.out.println(String.format(main_message, params));
 	}
-	public static void print_err(Exception exception) {
+	public static void print(Exception exception) {
 		exception.printStackTrace();
 	}
 

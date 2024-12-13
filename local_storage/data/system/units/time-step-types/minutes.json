@@ -1,5 +1,5 @@
 {
   "name" : "Minutes",
   "abbreviation" : "m",
-  "normalizing_factor" : 1.0
+  "normalizing_factor" : 60.0
 }

@@ -1,5 +1,5 @@
 {
   "name" : "Seconds",
   "abbreviation" : "s",
-  "normalizing_factor" : 1.0
+  "normalizing_factor" : 3600.0
 }

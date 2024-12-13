@@ -1,6 +1,8 @@
 package dnd_companion.local_storage.common.command;
 
-public abstract class Command<Result>
+import dnd_companion.local_storage.common.ToolBox;
+
+public abstract class Command<T extends Command<T, Result>, Result>
 {
 	protected boolean status = false;
 	public boolean status() {return this.status;}
@@ -11,12 +13,16 @@ public abstract class Command<Result>
 	protected String message = null;
 	public String message() {return this.message;}
 
-	public abstract Command<Result> execute();
-	
-	public Command<Result> clear() {
-		this.status = false;
-		this.message = null;
-		this.result = null;
-		return this;
+	@SuppressWarnings("unchecked")
+	public T execute() {
+		try {
+			this.code();
+			this.status = true;
+		} catch (Exception e) {
+			ToolBox.print(e);
+		}
+		return (T) this;
 	}
+	
+	protected abstract void code() throws Exception;
 }

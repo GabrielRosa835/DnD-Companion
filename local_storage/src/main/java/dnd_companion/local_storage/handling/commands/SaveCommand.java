@@ -1,50 +1,43 @@
 package dnd_companion.local_storage.handling.commands;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.fasterxml.jackson.core.exc.StreamWriteException;
+import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.exceptions.DataAlreadyExistsException;
 import dnd_companion.local_storage.structure.data.Data;
 
-public class SaveCommand extends Command<Data>
+public class SaveCommand extends Command<SaveCommand, Data>
 {
 	private final Data data;
-
-	private final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+	private final DataKey key;
 
 	public SaveCommand(Data data) {
 		this.data = data;
+		this.key = new DataKey(data);
+		this.message = String.format("Failed to save data: %s", this.key.toString());
 	}
 
-	@Override
-	public SaveCommand execute() {
-		try {
-			File file = new File(ToolBox.create_file_path(data));
-			mapper.writeValue(file, data);
-			Path path = Paths.get(file.toURI());
-			String success_message;
-			if (Files.exists(path)) {
-				success_message = "updated";
-		    } else {
-		    	success_message = "saved";
-		    }
-			this.status = true;
-			this.result = data;
-			this.message = String.format("Data %s successfully: (%s) %s", 
-					success_message, data.getClass().getSimpleName(), data.toString());
-		} catch (Exception e) {
-			ToolBox.print_err(e);
-			this.status = false;
-			this.result = null;
-			this.message = String.format("Failed to save or upload (%s) %s",
-					data.getClass().getSimpleName(), data.toString());
+	@Override protected void code()	throws StreamWriteException, DatabindException, IOException, DataAlreadyExistsException {
+		ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+		File file = new File(ToolBox.create_file_path(data));
+		Path path = Paths.get(file.toURI());
+		if (Files.exists(path)) {
+			throw new DataAlreadyExistsException(
+					String.format("Failed to save data: it already exists (%s)", this.key.toString()));
 		}
-		return this;
+		mapper.writeValue(file, data);
+		this.result = data;
+		this.message = String.format("Data saved successfully: %s", this.key.toString());
 	}
 }

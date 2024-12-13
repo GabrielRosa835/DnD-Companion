@@ -1,48 +1,33 @@
 package dnd_companion.local_storage.validation;
 
-import java.util.Arrays;
-import java.util.Optional;
-
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.command.Command;
-import dnd_companion.local_storage.common.exceptions.InvalidOptionException;
+import dnd_companion.local_storage.common.exceptions.InvalidDataException;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.UnitData;
+import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.structure.data.system.units.UnitProperties;
 
-public class ValidateUnitCommand<T extends UnitData> extends Command
+public class ValidateUnitCommand<T extends Data & UnitProperties> extends Command<ValidateUnitCommand<T>, T>
 {
-	private DataKey key;
-	private String unit;
+	private final DataKey key;
+	private final String unit_value;
 
-	private T result;
-	public T result() {return this.result;}
-
-	public ValidateUnitCommand(DataKey key, String unit) {
+	public ValidateUnitCommand(DataKey key, String unit_value) {
 		this.key = key;
-		this.unit = unit;
+		this.unit_value = unit_value;
+		this.message = "Failed to validate unit: " + unit_value;
 	}
 
-	@Override
-	public ValidateUnitCommand<T> execute() {
-		try {
-			T[] options = DataHandler.retrieve_options(key);
-			Optional<T> optional = Arrays.stream(options).filter(option ->
-					option.name().equals(ToolBox.to_snake_case(unit)) ||
-					option.abbreviation().equals(unit.toUpperCase()))
-					.findFirst();
-			if (optional.isEmpty()) {
-				throw new InvalidOptionException(String.format("Not a valid unit: %s", unit));
-			}
-			this.result = optional.get();
-			this.status = true;
-			this.message = "Unit validated successfully: " + this.result.toString();
-		} catch (Exception e) {
-			this.result = null;
-			this.status = false;
-			this.message = "Something went wrong while validating unit";
-			e.printStackTrace();
+	@Override public void code() throws InvalidDataException {
+		@SuppressWarnings("unchecked")
+		T retrieved_data = (T) new DataHandler().retrieve(key).result();
+		if (
+			!this.unit_value.equals(retrieved_data.name()) && 
+			!this.unit_value.equals(retrieved_data.abbreviation())
+		){
+			throw new InvalidDataException("Not a valid unit: " + this.unit_value);
 		}
-		return this;
+		this.result = retrieved_data;
+		this.message = "Unit validated successfully: " + this.result.toString();
 	}
 }
