@@ -1,10 +1,10 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.data.items.tags.ItemTagData;
 
-public class ItemsSetupCommand extends Command<ItemsSetupCommand, Boolean>
+public class ItemsSetupCommand extends Command<Boolean>
 {
 	public ItemsSetupCommand() {
 		this.message = "Failed to setup items";

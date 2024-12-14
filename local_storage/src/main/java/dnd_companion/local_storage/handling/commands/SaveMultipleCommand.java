@@ -2,12 +2,12 @@ package dnd_companion.local_storage.handling.commands;
 
 import java.util.Arrays;
 
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.common.command.Command;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.data.Data;
 
-public class SaveMultipleCommand extends Command<SaveMultipleCommand, Data[]>
+public class SaveMultipleCommand extends Command<Data[]>
 {
 	private final Data[] data_collection;
 	private final DataKey[] keys;

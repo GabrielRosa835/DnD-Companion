@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.storage;
 
-import dnd_companion.local_storage.common.command.CommandManager;
+import dnd_companion.local_storage.common.CommandManager;
 import dnd_companion.local_storage.storage.setup_commands.ArmorsSetupCommand;
 import dnd_companion.local_storage.storage.setup_commands.FolderHierarquySetupCommand;
 import dnd_companion.local_storage.storage.setup_commands.ItemsSetupCommand;

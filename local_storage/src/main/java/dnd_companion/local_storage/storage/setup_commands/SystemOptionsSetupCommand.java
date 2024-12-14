@@ -1,12 +1,12 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.data.system.ActionTypeData;
 import dnd_companion.local_storage.structure.data.system.DamageTypeData;
 import dnd_companion.local_storage.structure.data.system.DiceData;
 
-public class SystemOptionsSetupCommand extends Command<SystemOptionsSetupCommand, Boolean>
+public class SystemOptionsSetupCommand extends Command<Boolean>
 {
 	public SystemOptionsSetupCommand() {
 		this.message = "Failed to setup system options";

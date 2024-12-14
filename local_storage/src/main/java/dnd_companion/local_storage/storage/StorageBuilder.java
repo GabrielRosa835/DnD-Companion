@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.storage;
 
-import dnd_companion.local_storage.common.command.CommandManager;
+import dnd_companion.local_storage.common.CommandManager;
 import dnd_companion.local_storage.storage.commands.ClearStorageCommand;
 import dnd_companion.local_storage.storage.commands.CreateDirectoryCommand;
 import dnd_companion.local_storage.storage.commands.InitializeStorageCommand;

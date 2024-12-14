@@ -29,12 +29,21 @@ public class ToolBox
 		String dir_path = StorageMetadata.directory_hierarquy.get(data.collection()).path();
 		return dir_path + "\\" + ToolBox.to_snake_case(data.file_name()) + ".json";
 	}
+	public static String create_file_path(String collection) {
+		return StorageMetadata.directory_hierarquy.get(collection).path();
+	}
 
-	public static String get_simple_name_from_full(String input) {
-        if (input == null || input.isEmpty()) {
+	public static String get_simple_name_from_full(String type_name) {
+        if (type_name == null || type_name.isEmpty()) {
             return "";
         }
-        String[] elements = input.split("\\.");
+        String[] elements = type_name.split("\\.");
         return elements[elements.length - 1];
     }
+	
+	public static String exlude_file_extension(String file_name) {
+		int dot_index = file_name.lastIndexOf('.');
+		String name_without_extension = (dot_index == -1) ? file_name : file_name.substring(0, dot_index);
+		return name_without_extension; 
+	}
 }

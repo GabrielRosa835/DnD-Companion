@@ -1,10 +1,10 @@
 package dnd_companion.local_storage.storage.commands;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.storage.StorageBuilder;
 import dnd_companion.local_storage.storage.StorageSetup;
 
-public class InitializeStorageCommand extends Command<InitializeStorageCommand, Boolean>
+public class InitializeStorageCommand extends Command<Boolean>
 {
 	public InitializeStorageCommand() {
 		this.message = "Failed to initialize data storage";

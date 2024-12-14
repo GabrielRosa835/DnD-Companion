@@ -16,5 +16,13 @@ public class ArmorCategoryComponent
 	private TimePeriod doff_time;
 	public TimePeriod doff_time() {return doff_time;}
 	
+	public ArmorCategoryComponent(String name, String description, TimePeriod don_time, TimePeriod doff_time) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.don_time = don_time;
+		this.doff_time = doff_time;
+	}
+	
 	public ArmorCategoryComponent
 }

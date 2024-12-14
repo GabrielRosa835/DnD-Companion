@@ -1,13 +1,13 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.data.system.units.CurrencyUnitData;
 import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
 import dnd_companion.local_storage.structure.data.system.units.TimeUnitData;
 import dnd_companion.local_storage.structure.data.system.units.WeightUnitData;
 
-public class UnitsSetupCommand extends Command<UnitsSetupCommand, Boolean>
+public class UnitsSetupCommand extends Command<Boolean>
 {
 	public UnitsSetupCommand() {
 		this.message = "Failed to setup units";
@@ -18,7 +18,7 @@ public class UnitsSetupCommand extends Command<UnitsSetupCommand, Boolean>
 		data_handler.save_multiple(
 			new CurrencyUnitData("Copper Piece", "CP", 1),
 			new CurrencyUnitData("Silver Piece", "SP", 10),
-			new CurrencyUnitData("Electurm Piece", "EP", 50),
+			new CurrencyUnitData("Electrum Piece", "EP", 50),
 			new CurrencyUnitData("Gold Piece", "GP", 100),
 			new CurrencyUnitData("Platinum Piece", "PP", 1000)
 		);

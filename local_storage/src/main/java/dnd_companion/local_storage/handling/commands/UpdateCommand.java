@@ -11,13 +11,13 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.common.command.Command;
 import dnd_companion.local_storage.common.exceptions.DataNotFoundException;
 import dnd_companion.local_storage.structure.data.Data;
 
-public class UpdateCommand extends Command<UpdateCommand, Data>
+public class UpdateCommand extends Command<Data>
 {
 	private final Data data;
 	private final DataKey key;

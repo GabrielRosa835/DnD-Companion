@@ -8,10 +8,10 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.exceptions.StorageAlreadyEmptyException;
 
-public class ClearStorageCommand extends Command<ClearStorageCommand, Boolean> 
+public class ClearStorageCommand extends Command<Boolean> 
 {
 	public ClearStorageCommand() {
 		this.message = "Failed to clear storage";

@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponCategoryData;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
@@ -8,7 +8,7 @@ import dnd_companion.local_storage.structure.data.items.weapons.WeaponMasteryDat
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponPropertyData;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponTypeData;
 
-public class WeaponsSetupCommand extends Command<WeaponsSetupCommand, Boolean>
+public class WeaponsSetupCommand extends Command<Boolean>
 {
 	public WeaponsSetupCommand() {
 		this.message = "Failed to setup weapons";

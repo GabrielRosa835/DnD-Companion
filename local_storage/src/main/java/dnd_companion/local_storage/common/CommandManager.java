@@ -1,6 +1,3 @@
 package dnd_companion.local_storage.common;
 
-public class DataUtils
-{
-
-}
+public abstract class CommandManager {}

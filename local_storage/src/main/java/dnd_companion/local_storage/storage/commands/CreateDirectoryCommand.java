@@ -5,10 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import dnd_companion.local_storage.common.command.Command;
+import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.exceptions.DirectoryAlreadyExistsException;
 
-public class CreateDirectoryCommand extends Command<CreateDirectoryCommand, String>
+public class CreateDirectoryCommand extends Command<String>
 {
 	private String dir_path;
 
