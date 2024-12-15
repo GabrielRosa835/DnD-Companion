@@ -1,12 +1,12 @@
 package dnd_companion.local_storage.structure.data.system;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.SystemData;
+import dnd_companion.local_storage.structure.data.Data;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public record ActionTypeData (
 	String name
-) implements SystemData {
+) implements Data {
 	@Override public String collection() {return "action-types";}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
 	

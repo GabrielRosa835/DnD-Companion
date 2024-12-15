@@ -3,9 +3,9 @@ package dnd_companion.local_storage.build.armor;
 import java.util.Arrays;
 
 import dnd_companion.local_storage.common.Command;
-import dnd_companion.local_storage.structure.components.items.ItemTag;
 import dnd_companion.local_storage.structure.components.items.armors.ArmorCategoryComponent;
 import dnd_companion.local_storage.structure.components.items.armors.ArmorComponent;
+import dnd_companion.local_storage.structure.components.items.tags.ItemTagComponent;
 import dnd_companion.local_storage.structure.components.system.units.Price;
 import dnd_companion.local_storage.structure.components.system.units.Weight;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorData;
@@ -23,7 +23,7 @@ public class BuildArmorComponentCommand extends Command<ArmorComponent>
 				data.name(),
 				new Price(data.price_value(), data.price_unit()),
 				new Weight(data.weight_value(), data.weight_unit()),
-				Arrays.stream(data.tags()).map(t -> new ItemTag(t)).toArray(ItemTag[]::new),
+				Arrays.stream(data.tags()).map(t -> new ItemTagComponent(t)).toArray(ItemTagComponent[]::new),
 				data.description(),
 				new ArmorCategoryComponent(data.category()),
 				data.armor_class(),

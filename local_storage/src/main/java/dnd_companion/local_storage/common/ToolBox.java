@@ -2,7 +2,7 @@ package dnd_companion.local_storage.common;
 
 import java.util.Arrays;
 
-import dnd_companion.local_storage.storage.StorageMetadata;
+import dnd_companion.local_storage.metadata.StorageMetadata;
 import dnd_companion.local_storage.structure.data.Data;
 
 public class ToolBox

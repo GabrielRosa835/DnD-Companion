@@ -6,14 +6,15 @@ import dnd_companion.local_storage.validation.DataValidator;
 
 public record TimeUnitData (
 	String name,
+	String plural_name,
 	String abbreviation,
 	double normalizing_factor
-) implements UnitProperties, UnitData {
+) implements UnitData {
 	@Override public String collection() {return "time-step-types";}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
 	
 	public TimeUnitData() {
-		this(null, null, 0);
+		this(null, null, null, 0);
 	}
 	public TimeUnitData validate() {
 		return (TimeUnitData) new DataValidator().validate(this).result();

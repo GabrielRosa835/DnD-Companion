@@ -6,14 +6,15 @@ import dnd_companion.local_storage.validation.DataValidator;
 
 public record WeightUnitData (
 	String name, 
+	String plural_name,
 	String abbreviation, 
 	double normalizing_factor
-) implements UnitProperties, UnitData {
+) implements UnitData {
 	public String collection() {return "weight_units";}
 	public String file_name() {return ToolBox.to_snake_case(this.name);}
 	
 	public WeightUnitData() {
-		this(null, null, 0);
+		this(null, null, null, 0);
 	}
 	public WeightUnitData validate() {
 		return (WeightUnitData) new DataValidator().validate(this).result();

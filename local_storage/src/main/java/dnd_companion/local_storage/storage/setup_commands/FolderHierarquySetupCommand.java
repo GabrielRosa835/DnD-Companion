@@ -1,8 +1,8 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
 import dnd_companion.local_storage.common.Command;
+import dnd_companion.local_storage.metadata.StorageMetadata;
 import dnd_companion.local_storage.storage.StorageBuilder;
-import dnd_companion.local_storage.storage.StorageMetadata;
 
 public class FolderHierarquySetupCommand extends Command<Boolean>
 {

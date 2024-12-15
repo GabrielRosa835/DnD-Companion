@@ -13,11 +13,6 @@ public class DataKey
 	private Class<? extends Data> type;
 	public Class<? extends Data> type() {return this.type;}
 
-	@Override public String toString() {
-		return String.format("DataKey[collection=%s, name=%s, type=%s]",
-				this.collection, this.file_name, this.type.getSimpleName());
-	}
-
 	public DataKey() {
 		this.collection = null;
 		this.file_name = null;
@@ -34,6 +29,11 @@ public class DataKey
 		this.collection = data.collection();
 		this.file_name = data.file_name();
 		this.type = data.getClass();
+	}
+	
+	@Override public String toString() {
+		return String.format("DataKey[collection=%s, name=%s, type=%s]",
+				this.collection, this.file_name, this.type.getSimpleName());
 	}
 
 	@Override

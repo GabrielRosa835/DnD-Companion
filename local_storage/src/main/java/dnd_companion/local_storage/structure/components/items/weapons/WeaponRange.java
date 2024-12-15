@@ -1,31 +1,22 @@
 package dnd_companion.local_storage.structure.components.items.weapons;
 
-import dnd_companion.local_storage.common.DataKey;
-import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
-import dnd_companion.local_storage.structure.data.system.units.LengthUnitDataOptions;
-import dnd_companion.local_storage.validation.DataValidator;
+import dnd_companion.local_storage.structure.components.system.units.LengthComponent;
+import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
 
-public class WeaponRange
+public class WeaponRange 
 {
-	private double min_value;
-	private double max_value;
-	private LengthUnitData unit;
-
-	public double min_value() {return this.min_value;}
-	public double max_value() {return this.max_value;}
-	public LengthUnitData unit() {return this.unit;}
-
-	public WeaponRange(
-		double min_value,
-		double max_value,
-		String unit
-	) {
-		this.min_value = min_value;
-		this.max_value = max_value;
-		this.unit = validate_unit(unit);
+	private LengthComponent min_range;
+	public LengthComponent min_range() {return this.min_range;}
+	
+	private LengthComponent max_range;
+	public LengthComponent max_range() {return this.max_range;}
+	
+	public WeaponRange(LengthComponent min_range, LengthComponent max_range) {
+		this.min_range = min_range;
+		this.max_range = max_range;
 	}
-
-	private LengthUnitData validate_unit(String unit) {
-		return (LengthUnitData) DataValidator.validate_unit(new DataKey(LengthUnitDataOptions.class), unit);
+	public WeaponRange(WeaponData data) {
+		this.min_range = new LengthComponent(data.min_range_value(), data.range_unit());
+		this.max_range = new LengthComponent(data.max_range_value(), data.range_unit());
 	}
 }

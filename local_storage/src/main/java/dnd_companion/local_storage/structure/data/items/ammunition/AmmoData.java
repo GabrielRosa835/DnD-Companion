@@ -2,7 +2,6 @@ package dnd_companion.local_storage.structure.data.items.ammunition;
 
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.structure.data.ItemData;
-import dnd_companion.local_storage.structure.data.items.ItemProperties;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public record AmmoData(
@@ -13,7 +12,7 @@ public record AmmoData(
 	String weight_unit,
 	String[] tags,
 	String description
-) implements ItemProperties, ItemData {
+) implements ItemData {
 	@Override public String collection() {return "ammunitions";}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name);}
 	

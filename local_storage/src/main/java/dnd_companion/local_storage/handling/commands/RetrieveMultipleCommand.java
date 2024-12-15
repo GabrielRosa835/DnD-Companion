@@ -34,9 +34,9 @@ public class RetrieveMultipleCommand extends Command<Data[]>
     	return this.execute();
     }
 
-    public RetrieveMultipleCommand(String collection, Class<? extends Data> type) {
-        this.collection = collection;
-        this.type = type;
+    public RetrieveMultipleCommand(DataKey key) {
+        this.collection = key.collection();
+        this.type = key.type();
         this.message = "Failed to retrieve data collection: " + this.collection;
     }
 

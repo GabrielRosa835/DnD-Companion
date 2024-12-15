@@ -22,7 +22,7 @@ public class DataHandler extends CommandManager
 	public RetrieveCommand retrieve(DataKey key) {
 		return new RetrieveCommand(key).execute();
 	}
-	public RetrieveMultipleCommand retrieve_multiple (String collection, Class<? extends Data> type) {
-		return new RetrieveMultipleCommand(collection, type).execute();
+	public RetrieveMultipleCommand retrieve_multiple (DataKey key) {
+		return new RetrieveMultipleCommand(key).execute();
 	}
 }
