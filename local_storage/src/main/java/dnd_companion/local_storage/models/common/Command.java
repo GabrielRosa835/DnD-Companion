@@ -1,4 +1,6 @@
-package dnd_companion.local_storage.common;
+package dnd_companion.local_storage.models.common;
+
+import dnd_companion.local_storage.common.ToolBox;
 
 public abstract class Command<Result>
 {

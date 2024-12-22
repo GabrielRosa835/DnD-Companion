@@ -10,12 +10,12 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.exceptions.DataNotFoundException;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.Command;
+import dnd_companion.local_storage.models.data.Data;
 
 public class RetrieveMultipleCommand extends Command<Data[]> 
 {

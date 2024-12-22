@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.structure.data.items;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.ItemData;
+import dnd_companion.local_storage.models.data.ItemData;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public record GenericItemData(

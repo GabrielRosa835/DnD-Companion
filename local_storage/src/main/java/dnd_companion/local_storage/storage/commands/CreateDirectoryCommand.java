@@ -5,8 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.exceptions.DirectoryAlreadyExistsException;
+import dnd_companion.local_storage.models.common.Command;
 
 public class CreateDirectoryCommand extends Command<String>
 {

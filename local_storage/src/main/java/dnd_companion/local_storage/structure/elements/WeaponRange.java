@@ -1,7 +1,7 @@
-package dnd_companion.local_storage.structure.components.items.weapons;
+package dnd_companion.local_storage.structure.elements;
 
-import dnd_companion.local_storage.structure.components.system.units.LengthComponent;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
+import dnd_companion.local_storage.structure.elements.system.units.LengthComponent;
 
 public class WeaponRange 
 {
@@ -16,7 +16,9 @@ public class WeaponRange
 		this.max_range = max_range;
 	}
 	public WeaponRange(WeaponData data) {
-		this.min_range = new LengthComponent(data.min_range_value(), data.range_unit());
-		this.max_range = new LengthComponent(data.max_range_value(), data.range_unit());
+		this(
+			new LengthComponent(data.min_range_value(), data.range_unit()),
+			new LengthComponent(data.max_range_value(), data.range_unit())
+		);
 	}
 }

@@ -1,11 +1,11 @@
 package dnd_companion.local_storage.archived.components.main.life;
 
-import dnd_companion.local_storage.structure.components.system.Dice;
+import dnd_companion.local_storage.structure.components.system.DiceComponent;
 
 public class HitDice
 {
 	public int dice_ammount;
-	public Dice dice_type;
+	public DiceComponent dice_type;
 
 	public int use_dice()
 	{
@@ -17,7 +17,7 @@ public class HitDice
 		}
 	}
 
-	public HitDice(int dice_ammount, Dice dice_type)
+	public HitDice(int dice_ammount, DiceComponent dice_type)
 	{
 		this.dice_ammount = dice_ammount;
 		this.dice_type = dice_type;

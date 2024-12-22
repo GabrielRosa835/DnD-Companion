@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.UnitData;
+import dnd_companion.local_storage.models.data.UnitData;
 import dnd_companion.local_storage.structure.data.system.units.CurrencyUnitData;
 import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
 import dnd_companion.local_storage.structure.data.system.units.TimeUnitData;

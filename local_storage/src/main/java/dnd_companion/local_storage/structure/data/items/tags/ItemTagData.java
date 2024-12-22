@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.structure.data.items.tags;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.data.Data;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public record ItemTagData (

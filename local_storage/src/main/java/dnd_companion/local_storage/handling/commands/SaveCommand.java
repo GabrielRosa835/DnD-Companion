@@ -11,11 +11,11 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.exceptions.DataAlreadyExistsException;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.Command;
+import dnd_companion.local_storage.models.data.Data;
 
 public class SaveCommand extends Command<Data>
 {

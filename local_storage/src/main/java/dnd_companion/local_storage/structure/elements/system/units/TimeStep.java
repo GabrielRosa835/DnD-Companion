@@ -1,12 +1,11 @@
-package dnd_companion.local_storage.structure.components.system.units;
+package dnd_companion.local_storage.structure.elements.system.units;
 
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.components.UnitComponent;
-import dnd_companion.local_storage.structure.data.UnitData;
-import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
+import dnd_companion.local_storage.structure.components.UnitGroupComponent;
+import dnd_companion.local_storage.structure.data.system.units.TimeUnitData;
 
-public class LengthComponent implements UnitComponent
+public class TimeStep implements UnitGroupComponent
 {
 	private double value;
 	@Override public double value() {return this.value;}
@@ -14,13 +13,13 @@ public class LengthComponent implements UnitComponent
 	private Unit unit;
 	@Override public Unit unit() {return this.unit;}
 	
-	public LengthComponent(double value, String unit_name) {
+	public TimeStep(double value, String unit_name) {
 		this.value = value;
 		this.unit = new Unit(unit_name);
 	}
 	
 	@Override
-	public LengthComponent convert_to(String unit_name) {
+	public TimeStep convert_to(String unit_name) {
 		Unit new_unit = new Unit(unit_name);
 		this.value = this.value * (new_unit.normalizing_factor() / this.unit.normalizing_factor());
 		return this;
@@ -38,8 +37,8 @@ public class LengthComponent implements UnitComponent
 		@Override public double normalizing_factor() {return this.normalizing_factor;}
 
 		public Unit(String name) {
-			UnitData data = (UnitData) new DataHandler()
-					.retrieve(new DataKey(new LengthUnitData().collection(), name, LengthUnitData.class))
+			Unit data = (Unit) new DataHandler()
+					.retrieve(new DataKey(new TimeUnitData().collection(), name, TimeUnitData.class))
 					.result();
 			this.name = data.name();
 			this.abbreviation = data.abbreviation();

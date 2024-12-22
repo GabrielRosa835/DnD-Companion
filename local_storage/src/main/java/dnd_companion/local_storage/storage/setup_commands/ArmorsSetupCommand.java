@@ -1,8 +1,8 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.metadata.UnitMetadata;
+import dnd_companion.local_storage.models.common.Command;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorCategoryData;
 import dnd_companion.local_storage.structure.data.items.armors.ArmorData;
 

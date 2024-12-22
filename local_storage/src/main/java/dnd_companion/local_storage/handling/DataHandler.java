@@ -1,9 +1,9 @@
 package dnd_companion.local_storage.handling;
 
-import dnd_companion.local_storage.common.CommandManager;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.handling.commands.*;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.CommandManager;
+import dnd_companion.local_storage.models.data.Data;
 
 public class DataHandler extends CommandManager
 {

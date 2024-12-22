@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.structure.data.system.units;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.UnitData;
+import dnd_companion.local_storage.models.data.UnitData;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public record CurrencyUnitData (

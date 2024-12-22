@@ -2,10 +2,10 @@ package dnd_companion.local_storage.handling.commands;
 
 import java.util.Arrays;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.Command;
+import dnd_companion.local_storage.models.data.Data;
 
 public class UpdateMultipleCommand extends Command<Data[]>
 {

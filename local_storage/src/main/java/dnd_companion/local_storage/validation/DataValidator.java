@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.validation;
 
-import dnd_companion.local_storage.common.CommandManager;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.CommandManager;
+import dnd_companion.local_storage.models.data.Data;
 
 public class DataValidator extends CommandManager
 {

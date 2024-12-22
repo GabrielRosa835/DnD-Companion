@@ -1,10 +1,10 @@
 package dnd_companion.local_storage.validation;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.exceptions.DataNotFoundException;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.Command;
+import dnd_companion.local_storage.models.data.Data;
 
 public class ValidateDataCommand extends Command<Data>
 {

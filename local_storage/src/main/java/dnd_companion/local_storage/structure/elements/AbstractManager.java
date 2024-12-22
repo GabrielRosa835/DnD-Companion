@@ -1,4 +1,4 @@
-package dnd_companion.local_storage.structure.components;
+package dnd_companion.local_storage.structure.elements;
 
 import java.lang.reflect.Array;
 import java.util.Collection;

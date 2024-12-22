@@ -2,7 +2,7 @@ package dnd_companion.local_storage.archived.components.atomic.saving_throw;
 
 import java.util.Collection;
 
-import dnd_companion.local_storage.structure.components.AbstractManager;
+import dnd_companion.local_storage.structure.elements.AbstractManager;
 
 public class SavingThrowManager extends AbstractManager<SavingThrow, SavingThrowTechnique, SavingThrowManager>
 {

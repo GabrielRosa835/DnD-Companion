@@ -1,14 +1,14 @@
 package dnd_companion.local_storage.structure.data.items.armors;
 
 import dnd_companion.local_storage.common.ToolBox;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.data.Data;
 import dnd_companion.local_storage.validation.DataValidator;
 
 public record ArmorCategoryData (
 	String name,
-	double don_time,
+	double don_time_value,
 	String don_time_unit,
-	double doff_time,
+	double doff_time_value,
 	String doff_time_unit
 ) implements Data {
 	@Override public String collection() {return "armor-categories";}

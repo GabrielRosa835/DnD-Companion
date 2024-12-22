@@ -1,11 +1,11 @@
-package dnd_companion.local_storage.structure.components.system.units;
+package dnd_companion.local_storage.structure.elements.system.units;
 
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.components.UnitComponent;
-import dnd_companion.local_storage.structure.data.system.units.TimeUnitData;
+import dnd_companion.local_storage.structure.components.UnitGroupComponent;
+import dnd_companion.local_storage.structure.data.system.units.WeightUnitData;
 
-public class TimeComponent implements UnitComponent
+public class Weight implements UnitGroupComponent
 {
 	private double value;
 	@Override public double value() {return this.value;}
@@ -13,13 +13,13 @@ public class TimeComponent implements UnitComponent
 	private Unit unit;
 	@Override public Unit unit() {return this.unit;}
 	
-	public TimeComponent(double value, String unit_name) {
+	public Weight(double value, String unit_name) {
 		this.value = value;
 		this.unit = new Unit(unit_name);
 	}
 	
 	@Override
-	public TimeComponent convert_to(String unit_name) {
+	public Weight convert_to(String unit_name) {
 		Unit new_unit = new Unit(unit_name);
 		this.value = this.value * (new_unit.normalizing_factor() / this.unit.normalizing_factor());
 		return this;
@@ -38,7 +38,7 @@ public class TimeComponent implements UnitComponent
 
 		public Unit(String name) {
 			Unit data = (Unit) new DataHandler()
-					.retrieve(new DataKey(new TimeUnitData().collection(), name, TimeUnitData.class))
+					.retrieve(new DataKey(new WeightUnitData().collection(), name, WeightUnitData.class))
 					.result();
 			this.name = data.name();
 			this.abbreviation = data.abbreviation();

@@ -32,6 +32,7 @@ public abstract class StorageMetadata
 	private static final String campaigns_directory = "campaigns";
 	private static final String items_directory = "items";
 	private static final String units_directory = "units";
+	private static final String effects_directory = "effects";
 
 	static {
 //		add(new DirRef(,));
@@ -53,10 +54,11 @@ public abstract class StorageMetadata
 		add(new DirRef(new WeaponData().collection(), new WeaponPropertyData().collection()));
 		add(new DirRef(new WeaponData().collection(), new WeaponTypeData().collection()));
 		
-		add(new DirRef(items_directory, new DamageTypeData().collection()));
-		add(new DirRef(items_directory, new DiceData().collection()));
-		add(new DirRef(items_directory, new ActionTypeData().collection()));
-		add(new DirRef(items_directory, units_directory));
+		add(new DirRef(system_directory, new DamageTypeData().collection()));
+		add(new DirRef(system_directory, new DiceData().collection()));
+		add(new DirRef(system_directory, new ActionTypeData().collection()));
+		add(new DirRef(system_directory, effects_directory));
+		add(new DirRef(system_directory, units_directory));
 		
 		add(new DirRef(units_directory, new CurrencyUnitData().collection()));
 		add(new DirRef(units_directory, new LengthUnitData().collection()));

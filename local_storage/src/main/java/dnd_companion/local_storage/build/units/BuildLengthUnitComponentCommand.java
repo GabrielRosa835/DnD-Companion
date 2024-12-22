@@ -1,8 +1,8 @@
 package dnd_companion.local_storage.build.units;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.exceptions.InvalidDataException;
+import dnd_companion.local_storage.models.common.Command;
 import dnd_companion.local_storage.structure.components.system.units.length.LengthUnitComponent;
 import dnd_companion.local_storage.structure.data.system.units.LengthUnitData;
 import dnd_companion.local_storage.validation.DataValidator;

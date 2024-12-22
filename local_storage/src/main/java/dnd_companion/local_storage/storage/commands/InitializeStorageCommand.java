@@ -1,6 +1,6 @@
 package dnd_companion.local_storage.storage.commands;
 
-import dnd_companion.local_storage.common.Command;
+import dnd_companion.local_storage.models.common.Command;
 import dnd_companion.local_storage.storage.StorageBuilder;
 import dnd_companion.local_storage.storage.StorageSetup;
 

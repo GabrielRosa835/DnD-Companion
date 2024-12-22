@@ -4,22 +4,25 @@ import java.util.Arrays;
 
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.components.ItemComponent;
+import dnd_companion.local_storage.models.components.Retrievable;
+import dnd_companion.local_storage.models.components.item.ItemComponent;
 import dnd_companion.local_storage.structure.components.items.tags.ItemTagComponent;
-import dnd_companion.local_storage.structure.components.system.units.PriceComponent;
-import dnd_companion.local_storage.structure.components.system.units.WeightComponent;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
+import dnd_companion.local_storage.structure.elements.WeaponDamage;
+import dnd_companion.local_storage.structure.elements.WeaponRange;
+import dnd_companion.local_storage.structure.elements.system.units.Price;
+import dnd_companion.local_storage.structure.elements.system.units.Weight;
 
-public class WeaponComponent implements ItemComponent
+public class WeaponComponent implements ItemComponent, Retrievable
 {
 	private String name;
 	@Override public String name() {return this.name;}
 	
-	private PriceComponent price;
-	@Override public PriceComponent price() {return this.price;}
+	private Price price;
+	@Override public Price price() {return this.price;}
 	
-	private WeightComponent weight;
-	@Override public WeightComponent weight() {return this.weight;}
+	private Weight weight;
+	@Override public Weight weight() {return this.weight;}
 	
 	private ItemTagComponent[] tags;
 	@Override public ItemTagComponent[] tags() {return this.tags;}
@@ -45,24 +48,67 @@ public class WeaponComponent implements ItemComponent
 	private WeaponRange range;
 	public WeaponRange range() {return this.range;}
 
-	public WeaponComponent(String weapon_name) {
-		WeaponData data = (WeaponData) new DataHandler()
-				.retrieve(new DataKey(new WeaponData().collection(), weapon_name, WeaponData.class))
+	private WeaponComponent(
+		String name, 
+		Price price, 
+		Weight weight, 
+		ItemTagComponent[] tags,
+		String description, 
+		WeaponTypeComponent type, 
+		WeaponCategoryComponent category,
+		WeaponMasteryComponent mastery, 
+		WeaponPropertyComponent[] properties, 
+		WeaponDamage damage,
+		WeaponRange range
+	) {
+		this.name = name;
+		this.price = price;
+		this.weight = weight;
+		this.tags = tags;
+		this.description = description;
+		this.type = type;
+		this.category = category;
+		this.mastery = mastery;
+		this.properties = properties;
+		this.damage = damage;
+		this.range = range;
+	}
+	public WeaponComponent() {
+		this(null, null, null, null, null, null, null, null, null, null, null);
+	}
+	public WeaponComponent(WeaponData data) {
+		this(
+			data.name(),
+			new Price(data.price_value(), data.price_unit()),
+			new Weight(data.weight_value(), data.weight_unit()),
+			Arrays.stream(data.tags())
+					.map(ItemTagComponent::new)
+					.toArray(ItemTagComponent[]::new),
+			data.description(),
+			new WeaponTypeComponent(data.type()),
+			new WeaponCategoryComponent(data.category()),
+			new WeaponMasteryComponent(data.mastery()),
+			Arrays.stream(data.properties())
+					.map(WeaponPropertyComponent::new)
+					.toArray(WeaponPropertyComponent[]::new),
+			null,
+			new WeaponRange(data)
+		);
+	}
+	public WeaponComponent(String name) {
+		this(new WeaponComponent().retrieve(name));
+	}
+	
+	@Override public WeaponData retrieve(String name) {
+		return (WeaponData) new DataHandler()
+				.retrieve(new DataKey(new WeaponData().collection(), name, WeaponData.class))
 				.result();
-		this.name = data.name();
-		this.price = new PriceComponent(data.price_value(), data.price_unit());
-		this.weight = new WeightComponent(data.weight_value(), data.weight_unit());
-		this.tags = Arrays.stream(data.tags())
-				.map(ItemTagComponent::new)
-				.toArray(ItemTagComponent[]::new);
-		this.description = data.description();
-		this.type = new WeaponTypeComponent(data.type());
-		this.category = new WeaponCategoryComponent(data.category());
-		this.mastery = new WeaponMasteryComponent(data.mastery());
-		this.properties = Arrays.stream(data.properties())
-				.map(WeaponPropertyComponent::new)
-				.toArray(WeaponPropertyComponent[]::new);
-		this.damage = null;
-		this.range = new WeaponRange(data);
+	}
+	@Override public WeaponComponent copy() {
+		if (this.name == null) {
+			return new WeaponComponent();
+		} else {			
+			return new WeaponComponent(this.name);
+		}
 	}
 }

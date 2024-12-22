@@ -6,11 +6,11 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
-import dnd_companion.local_storage.common.Command;
 import dnd_companion.local_storage.common.DataKey;
 import dnd_companion.local_storage.common.ToolBox;
 import dnd_companion.local_storage.common.exceptions.DataNotFoundException;
-import dnd_companion.local_storage.structure.data.Data;
+import dnd_companion.local_storage.models.common.Command;
+import dnd_companion.local_storage.models.data.Data;
 
 public class RetrieveCommand extends Command<Data>
 {

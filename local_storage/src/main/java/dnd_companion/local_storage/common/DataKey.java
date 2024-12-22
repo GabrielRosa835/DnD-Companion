@@ -1,6 +1,8 @@
 package dnd_companion.local_storage.common;
 
-import dnd_companion.local_storage.structure.data.Data;
+import java.lang.reflect.InvocationTargetException;
+
+import dnd_companion.local_storage.models.data.Data;
 
 public class DataKey
 {
@@ -13,22 +15,21 @@ public class DataKey
 	private Class<? extends Data> type;
 	public Class<? extends Data> type() {return this.type;}
 
-	public DataKey() {
-		this.collection = null;
-		this.file_name = null;
-		this.type = null;
-	}
-
 	public DataKey(String collection, String file_name, Class<? extends Data> type) {
 		this.collection = ToolBox.to_snake_case(collection);
 		this.file_name = ToolBox.to_snake_case(file_name);
 		this.type = type;
 	}
-
-	public DataKey (Data data) {
-		this.collection = data.collection();
-		this.file_name = data.file_name();
-		this.type = data.getClass();
+	public DataKey() {
+		this(null, null, null);
+	}
+	public DataKey(Data data) {
+		this(data.collection(), data.file_name(), data.getClass());
+	}
+	public DataKey(String file_name, Class<? extends Data> type) 
+		throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException 
+	{
+		this(type.getConstructor().newInstance().collection(), file_name, type);
 	}
 	
 	@Override public String toString() {
