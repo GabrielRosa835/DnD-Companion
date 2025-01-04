@@ -13,7 +13,10 @@ public class DataKey
 
 	public DataKey(CollectionREF collection, String file_name) {
 		this.collection = collection;
-		this.file_name = file_name;
+		if (!file_name.endsWith(".json")) {
+			file_name += ".json";
+		}
+		this.file_name = file_name;			
 	}
 	public DataKey(Data data) {
 		this(data.collection(), data.file_name());

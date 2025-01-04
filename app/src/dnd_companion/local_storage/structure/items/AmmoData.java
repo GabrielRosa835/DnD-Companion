@@ -1,8 +1,8 @@
 package dnd_companion.local_storage.structure.items;
 
-import dnd_companion.common.ToolBox;
 import dnd_companion.common.metadata.CollectionREF;
-import dnd_companion.common.metadata.Collections;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
 import dnd_companion.local_storage.structure.models.ItemData;
 
 public record AmmoData(
@@ -14,6 +14,6 @@ public record AmmoData(
 	String[] tags,
 	String description
 ) implements ItemData {
-	@Override public CollectionREF collection() {return Collections.ammunitions;}
+	@Override public CollectionREF collection() {return new CollectionsMetadata().ammunitions;}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
 }

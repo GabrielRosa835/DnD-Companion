@@ -1,0 +1,6 @@
+{
+  "name" : "Meter",
+  "plural_name" : "Meters",
+  "abbreviation" : "m",
+  "normalizing_factor" : 1.0
+}

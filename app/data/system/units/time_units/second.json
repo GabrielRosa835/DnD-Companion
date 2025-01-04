@@ -1,0 +1,6 @@
+{
+  "name" : "Second",
+  "plural_name" : "Seconds",
+  "abbreviation" : "s",
+  "normalizing_factor" : 3600.0
+}

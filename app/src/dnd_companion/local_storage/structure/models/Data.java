@@ -1,5 +1,7 @@
 package dnd_companion.local_storage.structure.models;
 
+import java.io.File;
+
 import dnd_companion.common.metadata.CollectionREF;
 import dnd_companion.local_storage.tools.ValidateDataCommand;
 
@@ -12,6 +14,6 @@ public interface Data
 		return new ValidateDataCommand(data).execute();
 	}
 	public static String path(Data data) {
-		return data.collection().path() + "\\" + data.file_name();
+		return data.collection().path() + File.separator + data.file_name();
 	}
 }

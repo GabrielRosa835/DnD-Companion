@@ -2,7 +2,7 @@ package dnd_companion.local_storage.storage.setup_commands;
 
 import dnd_companion.common.Command;
 import dnd_companion.common.metadata.CollectionREF;
-import dnd_companion.common.metadata.Collections;
+import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.local_storage.storage.StorageBuilder;
 
 public class FolderHierarquySetupCommand extends Command<Boolean>
@@ -14,7 +14,7 @@ public class FolderHierarquySetupCommand extends Command<Boolean>
 	}
 	
 	@Override public void code() {
-		for (CollectionREF collection : Collections.all()) {
+		for (CollectionREF collection : new CollectionsMetadata().all()) {
 			storage_builder.create_directory(collection.path());
 		}
 		this.result = true;

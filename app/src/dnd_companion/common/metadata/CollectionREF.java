@@ -1,7 +1,9 @@
 package dnd_companion.common.metadata;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import dnd_companion.local_storage.structure.models.Data;
@@ -49,15 +51,32 @@ public class CollectionREF
 	public String path() {
 		String path = this.name;
 		CollectionREF next_parent = this.parent;
-		do {
-			path = String.format("%s\\%s", next_parent.name(), path);
-			next_parent = next_parent.parent();
-		} while(next_parent != null);
+		while(!next_parent.name().equals("seed")) {
+			path = next_parent.name() + File.separator + path;
+			next_parent = next_parent.parent();			
+		}
 		return path;
 	}
-	@Override
-    public String toString() {
+	
+	@Override public String toString() {
+		List<String> children = Arrays.stream(this.children())
+						.map(c -> c.name())
+						.collect(Collectors.toList());
+		String children_text = children.isEmpty()? "none" : Arrays.toString(children.toArray());
+		String parent_text = this.parent != null ? this.parent.name() : "none"; 
         return String.format("Collection[name=%s,parent=%s,children=%s]", 
-                this.name(), this.parent != null ? this.parent.name() : "null", Arrays.toString(this.children()));
+                this.name(), 
+                parent_text,
+                children_text);
     }
+	@Override public boolean equals(Object obj) {
+	    if (this == obj) {
+	        return true;
+	    }
+	    if (obj == null || getClass() != obj.getClass()) {
+	        return false;
+	    }
+	    CollectionREF other = (CollectionREF) obj;
+	    return this.name.equals(other.name());
+	}
 }

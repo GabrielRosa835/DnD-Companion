@@ -1,5 +1,7 @@
 package dnd_companion.common;
 
+import dnd_companion.common.tools.ToolBox;
+
 public abstract class Command<Result>
 {
 	protected boolean status = false;

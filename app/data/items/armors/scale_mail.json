@@ -1,0 +1,13 @@
+{
+  "name" : "Scale Mail",
+  "price_value" : 50.0,
+  "price_unit" : "Gold Piece",
+  "weight_value" : 45.0,
+  "weight_unit" : "Pound",
+  "tags" : [ "Armor" ],
+  "description" : "No description",
+  "category" : "Medium",
+  "armor_class" : 14,
+  "strength_requirement" : 0,
+  "stealth_disadvantage" : true
+}

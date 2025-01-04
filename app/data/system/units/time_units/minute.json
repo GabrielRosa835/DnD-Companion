@@ -1,0 +1,6 @@
+{
+  "name" : "Minute",
+  "plural_name" : "Minutes",
+  "abbreviation" : "m",
+  "normalizing_factor" : 60.0
+}

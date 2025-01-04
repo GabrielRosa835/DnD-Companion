@@ -1,8 +1,8 @@
 package dnd_companion.local_storage.structure.items.armors;
 
-import dnd_companion.common.ToolBox;
 import dnd_companion.common.metadata.CollectionREF;
-import dnd_companion.common.metadata.Collections;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
 import dnd_companion.local_storage.structure.models.ItemData;
 
 public record ArmorData(
@@ -18,6 +18,6 @@ public record ArmorData(
 	int strength_requirement,
 	boolean stealth_disadvantage
 ) implements ItemData {
-	@Override public CollectionREF collection() {return Collections.armors;}
+	@Override public CollectionREF collection() {return new CollectionsMetadata().armors;}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
 }

@@ -1,7 +1,7 @@
 package dnd_companion.local_storage.storage.setup_commands;
 
 import dnd_companion.common.Command;
-import dnd_companion.common.metadata.UnitMetadata;
+import dnd_companion.common.metadata.UnitsMetadata;
 import dnd_companion.local_storage.handling.DataHandler;
 import dnd_companion.local_storage.structure.items.weapons.WeaponCategoryData;
 import dnd_companion.local_storage.structure.items.weapons.WeaponData;
@@ -50,8 +50,8 @@ public class WeaponsSetupCommand extends Command<Boolean>
 		data_handler.save_multiple(
 			new WeaponData(
 				"Shortsword",
-				10, UnitMetadata.get_name("gp"),
-				2, UnitMetadata.get_name("lbs"),
+				10, new UnitsMetadata().get_name("gp"),
+				2, new UnitsMetadata().get_name("lbs"),
 				new String[] {"Weapon"},
 				"No description",
 				"Martial",
@@ -59,12 +59,12 @@ public class WeaponsSetupCommand extends Command<Boolean>
 				1, "d6", "Slashing",
 				new String[] {"Finesse", "Light"},
 				"Vex",
-				1, 1, UnitMetadata.get_name("sq"),
+				1, 1, new UnitsMetadata().get_name("sq"),
 				null),
 			new WeaponData(
 				"Longsword",
-				15, UnitMetadata.get_name("gp"),
-				3, UnitMetadata.get_name("lbs"),
+				15, new UnitsMetadata().get_name("gp"),
+				3, new UnitsMetadata().get_name("lbs"),
 				new String[] {"Weapon"},
 				"No description",
 				"Martial",
@@ -72,12 +72,12 @@ public class WeaponsSetupCommand extends Command<Boolean>
 				1, "d8", "Slashing",
 				new String[] {"Versatile"},
 				"Sap",
-				1, 1, UnitMetadata.get_name("sq"),
+				1, 1, new UnitsMetadata().get_name("sq"),
 				"d10"),
 			new WeaponData(
 				"Greatsword",
-				50, UnitMetadata.get_name("gp"),
-				6, UnitMetadata.get_name("lbs"),
+				50, new UnitsMetadata().get_name("gp"),
+				6, new UnitsMetadata().get_name("lbs"),
 				new String[] {"Weapon"},
 				"No description",
 				"Martial",
@@ -85,7 +85,7 @@ public class WeaponsSetupCommand extends Command<Boolean>
 				2, "d6", "Slashing",
 				new String[] {"Heavy", "Two-Handed"},
 				"Graze",
-				1, 1, UnitMetadata.get_name("sq"),
+				1, 1, new UnitsMetadata().get_name("sq"),
 				null)
 		);
 		this.result = true;

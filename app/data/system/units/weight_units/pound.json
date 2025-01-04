@@ -1,0 +1,6 @@
+{
+  "name" : "Pound",
+  "plural_name" : "Pounds",
+  "abbreviation" : "lbs",
+  "normalizing_factor" : 2.20462
+}

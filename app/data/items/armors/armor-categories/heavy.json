@@ -1,0 +1,7 @@
+{
+  "name" : "Heavy",
+  "don_time_value" : 10.0,
+  "don_time_unit" : "Minutes",
+  "doff_time_value" : 5.0,
+  "doff_time_unit" : "Minutes"
+}

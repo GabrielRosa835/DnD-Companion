@@ -1,9 +1,9 @@
 package dnd_companion.local_storage.storage;
 
 import dnd_companion.common.CommandManager;
-import dnd_companion.local_storage.storage.commands.ClearStorageCommand;
-import dnd_companion.local_storage.storage.commands.CreateDirectoryCommand;
-import dnd_companion.local_storage.storage.commands.InitializeStorageCommand;
+import dnd_companion.local_storage.storage.build_commands.ClearStorageCommand;
+import dnd_companion.local_storage.storage.build_commands.CreateDirectoryCommand;
+import dnd_companion.local_storage.storage.build_commands.InitializeStorageCommand;
 
 public class StorageBuilder extends CommandManager
 {

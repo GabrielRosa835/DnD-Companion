@@ -1,0 +1,20 @@
+{
+  "name" : "Longsword",
+  "price_value" : 15.0,
+  "price_unit" : "Gold Piece",
+  "weight_value" : 3.0,
+  "weight_unit" : "Pound",
+  "tags" : [ "Weapon" ],
+  "description" : "No description",
+  "category" : "Martial",
+  "type" : "Melee",
+  "damage_dice_amount" : 1,
+  "damage_dice_type" : "d8",
+  "damage_type" : "Slashing",
+  "properties" : [ "Versatile" ],
+  "mastery" : "Sap",
+  "min_range_value" : 1.0,
+  "max_range_value" : 1.0,
+  "range_unit" : "Square",
+  "versatile_dice_type" : "d10"
+}
