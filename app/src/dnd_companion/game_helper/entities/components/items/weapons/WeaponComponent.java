@@ -2,15 +2,15 @@ package dnd_companion.game_helper.entities.components.items.weapons;
 
 import java.util.Arrays;
 
-import dnd_companion.app.local_storage.handling.DataHandler;
-import dnd_companion.app.local_storage.tools.DataKey;
-import dnd_companion.game_helper.entities.components.items.tags.ItemTagComponent;
-import dnd_companion.game_helper.entities.data.items.weapons.WeaponData;
-import dnd_companion.game_helper.entities.elements.WeaponDamage;
-import dnd_companion.game_helper.entities.elements.WeaponRange;
-import dnd_companion.game_helper.entities.elements.system.units.Price;
-import dnd_companion.game_helper.entities.elements.system.units.Weight;
-import dnd_companion.local_storage.structure.models.components.item.ItemComponent;
+import dnd_companion.game_helper.entities.WeaponDamage;
+import dnd_companion.game_helper.entities.WeaponRange;
+import dnd_companion.game_helper.entities.items.tags.ItemTagComponent;
+import dnd_companion.game_helper.entities.measures.Price;
+import dnd_companion.game_helper.entities.measures.Weight;
+import dnd_companion.game_helper.entities.models.ItemComponent;
+import dnd_companion.local_storage.handling.DataHandler;
+import dnd_companion.local_storage.structure.items.weapons.WeaponData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class WeaponComponent implements ItemComponent
 {
@@ -48,6 +48,39 @@ public class WeaponComponent implements ItemComponent
 	public WeaponRange range() {return this.range;}
 
 	private WeaponComponent(
+		String name,
+		double price_value, String price_unit,
+		double weight_value, String weight_unit,
+		String[] tags,
+		String description,
+		String type,
+		String category,
+		String mastery,
+		String[] properties,
+		double min_range_value, double max_range_value, String range_unit,
+		String versatile_dice_type
+	) {
+		this.name = name;
+		this.price = new Price(price_value, price_unit);
+		this.weight = new Weight(weight_value, weight_unit);
+		this.tags = Arrays.stream(tags)
+				.map(ItemTagComponent::new)
+				.toArray(ItemTagComponent[]::new);
+		this.description = description;
+		this.type = new WeaponTypeComponent(type);
+		this.category = new WeaponCategoryComponent(category);
+		this.mastery = new WeaponMasteryComponent(mastery);
+		this.properties = Arrays.stream(properties)
+				.map(WeaponPropertyComponent::new)
+				.toArray(WeaponPropertyComponent[]::new);
+		this.range = new WeaponRange(
+				new Range(min_range_value, range_unit), 
+				new Range(max_range_value, range_unit));
+		this.
+		
+		
+	}
+	private WeaponComponent(
 		String name, 
 		Price price, 
 		Weight weight, 
@@ -71,9 +104,6 @@ public class WeaponComponent implements ItemComponent
 		this.properties = properties;
 		this.damage = damage;
 		this.range = range;
-	}
-	public WeaponComponent() {
-		this(null, null, null, null, null, null, null, null, null, null, null);
 	}
 	public WeaponComponent(WeaponData data) {
 		this(

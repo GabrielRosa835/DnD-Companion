@@ -1,6 +1,6 @@
-package dnd_companion.game_helper.entities.elements;
+package dnd_companion.game_helper.entities;
 
-import dnd_companion.game_helper.entities.elements.system.units.LengthComponent;
+import dnd_companion.game_helper.entities.components.system.units.LengthComponent;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
 
 public class WeaponRange 

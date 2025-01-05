@@ -1,4 +1,4 @@
-package dnd_companion.game_helper.entities.models.components.unit;
+package dnd_companion.game_helper.entities.models;
 
 public interface UnitAttributes
 {

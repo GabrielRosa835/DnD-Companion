@@ -1,9 +1,11 @@
 package dnd_companion.game_helper.entities.components.items.weapons;
 
-import dnd_companion.app.local_storage.handling.DataHandler;
-import dnd_companion.app.local_storage.tools.DataKey;
-import dnd_companion.game_helper.entities.data.items.weapons.WeaponPropertyData;
-import dnd_companion.local_storage.structure.models.components.Component;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
+import dnd_companion.game_helper.entities.models.Component;
+import dnd_companion.local_storage.handling.DataHandler;
+import dnd_companion.local_storage.structure.items.weapons.WeaponPropertyData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class WeaponPropertyComponent implements Component
 {
@@ -17,26 +19,21 @@ public class WeaponPropertyComponent implements Component
 		this.name = name;
 		this.description = description;
 	}
-	public WeaponPropertyComponent() {
-		this(null, null);
-	}
 	public WeaponPropertyComponent(WeaponPropertyData data) {
-		this(data.name(), data.description());
+		this (data.name(), data.description());
 	}
 	public WeaponPropertyComponent(String name) {
-		this(new WeaponPropertyComponent().retrieve(name));
+		this ((WeaponPropertyData) new DataHandler()
+				.retrieve(new DataKey(
+						new CollectionsMetadata().weapon_properties, 
+						ToolBox.to_snake_case(name).concat(".json")))
+				.result());
 	}
-	
-	@Override public WeaponPropertyData retrieve(String name) {
-		return (WeaponPropertyData) new DataHandler()
-				.retrieve(new DataKey(new WeaponPropertyData().collection(), name, WeaponPropertyData.class))
-				.result();
-	}
+
 	@Override public WeaponPropertyComponent copy() {
-		if (this.name == null) {
-			return new WeaponPropertyComponent();
-		} else {
-			return new WeaponPropertyComponent(this.name);
-		}
+		return new WeaponPropertyComponent(
+			this.name,
+			this.description
+		);
 	}
 }

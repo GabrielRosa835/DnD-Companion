@@ -19,6 +19,9 @@ public class DataHandler extends CommandManager
 	public UpdateMultipleCommand update_multiple(Data... data_collection) {
 		return new UpdateMultipleCommand(data_collection).execute();
 	}
+	public RetrieveCommand retrieve(CollectionREF collection, String file_name) {
+		return new RetrieveCommand(new DataKey(collection, file_name)).execute();
+	}
 	public RetrieveCommand retrieve(DataKey key) {
 		return new RetrieveCommand(key).execute();
 	}

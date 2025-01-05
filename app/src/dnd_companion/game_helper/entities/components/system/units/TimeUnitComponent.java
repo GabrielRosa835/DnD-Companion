@@ -1,9 +1,11 @@
 package dnd_companion.game_helper.entities.components.system.units;
 
-import dnd_companion.game_helper.entities.data.system.units.TimeUnitData;
-import dnd_companion.local_storage.common.DataKey;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
+import dnd_companion.game_helper.entities.models.UnitComponent;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.models.components.unit.UnitComponent;
+import dnd_companion.local_storage.structure.system.units.TimeUnitData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class TimeUnitComponent implements UnitComponent 
 {
@@ -28,14 +30,13 @@ public class TimeUnitComponent implements UnitComponent
 		this(null, null, 0);
 	}
 	public TimeUnitComponent(String name) {
-		this(new TimeUnitComponent().retrieve(name));
+		this ((TimeUnitData) new DataHandler()
+				.retrieve(new DataKey(
+						new CollectionsMetadata().time_units, 
+						ToolBox.to_snake_case(name).concat(".json")))
+				.result());
 	}
 	
-	@Override public TimeUnitData retrieve(String name) {
-		return (TimeUnitData) new DataHandler()
-				.retrieve(new DataKey(new TimeUnitData().collection(), name, TimeUnitData.class))
-				.result();
-	}
 	@Override public TimeUnitComponent copy() {
 		return new TimeUnitComponent(
 			this.name,

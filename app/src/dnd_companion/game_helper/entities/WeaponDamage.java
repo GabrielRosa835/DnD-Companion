@@ -1,6 +1,5 @@
-package dnd_companion.game_helper.entities.elements;
+package dnd_companion.game_helper.entities;
 
-import dnd_companion.game_helper.entities.elements.system.SimpleDamage;
 import dnd_companion.local_storage.structure.components.system.DiceComponent;
 import dnd_companion.local_storage.structure.data.items.weapons.WeaponData;
 

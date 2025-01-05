@@ -2,13 +2,15 @@ package dnd_companion.game_helper.entities.components.items;
 
 import java.util.Arrays;
 
-import dnd_companion.app.local_storage.handling.DataHandler;
-import dnd_companion.app.local_storage.tools.DataKey;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
 import dnd_companion.game_helper.entities.components.items.tags.ItemTagComponent;
-import dnd_companion.game_helper.entities.data.items.GenericItemData;
-import dnd_companion.game_helper.entities.elements.system.units.Price;
-import dnd_companion.game_helper.entities.elements.system.units.Weight;
-import dnd_companion.local_storage.structure.models.components.item.ItemComponent;
+import dnd_companion.game_helper.entities.measures.Price;
+import dnd_companion.game_helper.entities.measures.Weight;
+import dnd_companion.game_helper.entities.models.ItemComponent;
+import dnd_companion.local_storage.handling.DataHandler;
+import dnd_companion.local_storage.structure.items.GenericItemData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class GenericItemComponent implements ItemComponent
 {
@@ -27,19 +29,6 @@ public class GenericItemComponent implements ItemComponent
 	private String description;
 	@Override public String description() {return this.description;}
 	
-	private GenericItemComponent (
-		String name, 
-		Price price, 
-		Weight weight, 
-		ItemTagComponent[] tags, 
-		String description
-	) {
-		this.name = name;
-		this.price = price;
-		this.weight = weight;
-		this.tags = tags;
-		this.description = description;
-	}
 	private GenericItemComponent(
 		String name,
 		double price_value, String price_unit,
@@ -55,6 +44,19 @@ public class GenericItemComponent implements ItemComponent
 			description
 		);
 	}
+	private GenericItemComponent (
+		String name, 
+		Price price, 
+		Weight weight, 
+		ItemTagComponent[] tags, 
+		String description
+	) {
+		this.name = name;
+		this.price = price;
+		this.weight = weight;
+		this.tags = tags;
+		this.description = description;
+	}
 	private GenericItemComponent(GenericItemData data) {
 		this(
 			data.name(),
@@ -66,18 +68,14 @@ public class GenericItemComponent implements ItemComponent
 			data.description()
 		);
 	}
-	public GenericItemComponent() {
-		this(null, null, null, null, null);
-	}
 	public GenericItemComponent(String name) {
-		this(new GenericItemComponent().retrieve(name));
+		this ((GenericItemData) new DataHandler()
+				.retrieve(new DataKey(
+						new CollectionsMetadata().generic_items, 
+						ToolBox.to_snake_case(name).concat(".json")))
+				.result());
 	}
 	
-	@Override public GenericItemData retrieve(String name) {
-		return (GenericItemData) new DataHandler()
-				.retrieve(new DataKey(new GenericItemData().collection(), name, GenericItemData.class))
-				.result();
-	}
 	@Override public GenericItemComponent copy() {
 		return new GenericItemComponent(
 			this.name,

@@ -1,9 +1,11 @@
 package dnd_companion.game_helper.entities.components.system.units;
 
-import dnd_companion.game_helper.entities.data.system.units.LengthUnitData;
-import dnd_companion.local_storage.common.DataKey;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
+import dnd_companion.game_helper.entities.models.UnitComponent;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.models.components.unit.UnitComponent;
+import dnd_companion.local_storage.structure.system.units.LengthUnitData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class LengthUnitComponent implements UnitComponent 
 {
@@ -24,18 +26,14 @@ public class LengthUnitComponent implements UnitComponent
 	private LengthUnitComponent(LengthUnitData data) {
 		this(data.name(), data.abbreviation(), data.normalizing_factor());
 	}
-	public LengthUnitComponent() {
-		this(null, null, 0);
-	}
 	public LengthUnitComponent(String name) {
-		this(new LengthUnitComponent().retrieve(name));
+		this ((LengthUnitData) new DataHandler()
+				.retrieve(new DataKey(
+						new CollectionsMetadata().length_units, 
+						ToolBox.to_snake_case(name).concat(".json")))
+				.result());
 	}
 	
-	@Override public LengthUnitData retrieve(String name) {
-		return (LengthUnitData) new DataHandler()
-				.retrieve(new DataKey(new LengthUnitData().collection(), name, LengthUnitData.class))
-				.result();
-	}
 	@Override public LengthUnitComponent copy() {
 		return new LengthUnitComponent(
 			this.name,

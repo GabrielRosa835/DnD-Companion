@@ -1,4 +1,4 @@
-package dnd_companion.game_helper.entities.elements.system;
+package dnd_companion.game_helper.entities;
 
 import dnd_companion.local_storage.structure.components.system.DamageTypeComponent;
 import dnd_companion.local_storage.structure.components.system.DiceComponent;

@@ -3,7 +3,7 @@ package dnd_companion.game_helper.entities.components.items.armors;
 import dnd_companion.app.local_storage.handling.DataHandler;
 import dnd_companion.app.local_storage.tools.DataKey;
 import dnd_companion.game_helper.entities.data.items.armors.ArmorCategoryData;
-import dnd_companion.game_helper.entities.elements.system.units.TimeStep;
+import dnd_companion.game_helper.entities.measures.TimeStep;
 import dnd_companion.local_storage.structure.models.components.Component;
 
 public class ArmorCategoryComponent implements Component

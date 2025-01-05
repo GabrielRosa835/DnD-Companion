@@ -1,8 +1,8 @@
-package dnd_companion.game_helper.entities.models.components.item;
+package dnd_companion.game_helper.entities.models;
 
 import dnd_companion.game_helper.entities.components.items.tags.ItemTagComponent;
-import dnd_companion.game_helper.entities.elements.system.units.Price;
-import dnd_companion.game_helper.entities.elements.system.units.Weight;
+import dnd_companion.game_helper.entities.measures.Price;
+import dnd_companion.game_helper.entities.measures.Weight;
 
 public interface ItemAttributes
 {

@@ -1,9 +1,11 @@
 package dnd_companion.game_helper.entities.components.system.units;
 
-import dnd_companion.game_helper.entities.data.system.units.CurrencyUnitData;
-import dnd_companion.local_storage.common.DataKey;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
+import dnd_companion.game_helper.entities.models.UnitComponent;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.models.components.unit.UnitComponent;
+import dnd_companion.local_storage.structure.system.units.CurrencyUnitData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class CurrencyUnitComponent implements UnitComponent 
 {
@@ -24,18 +26,14 @@ public class CurrencyUnitComponent implements UnitComponent
 	private CurrencyUnitComponent(CurrencyUnitData data) {
 		this (data.name(), data.abbreviation(), data.normalizing_factor());
 	}
-	public CurrencyUnitComponent() {
-		this (null, null, 0);
-	}
 	public CurrencyUnitComponent(String name) {
-		this (new CurrencyUnitComponent().retrieve(name));
+		this ((CurrencyUnitData) new DataHandler()
+				.retrieve(new DataKey(
+						new CollectionsMetadata().currencies, 
+						ToolBox.to_snake_case(name).concat(".json")))
+				.result());
 	}
 	
-	@Override public CurrencyUnitData retrieve(String name) {
-		return (CurrencyUnitData) new DataHandler()
-				.retrieve(new DataKey(new CurrencyUnitData().collection(), name, CurrencyUnitData.class))
-				.result();
-	}
 	@Override public CurrencyUnitComponent copy() {
 		return new CurrencyUnitComponent(
 			this.name,

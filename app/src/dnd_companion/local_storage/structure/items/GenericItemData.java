@@ -14,6 +14,6 @@ public record GenericItemData(
 	String[] tags,
 	String description
 ) implements ItemData {
-	@Override public CollectionREF collection() {return new CollectionsMetadata().generics;}
+	@Override public CollectionREF collection() {return new CollectionsMetadata().generic_items;}
 	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
 }

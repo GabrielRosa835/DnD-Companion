@@ -1,4 +1,4 @@
-package dnd_companion.game_helper.entities.elements;
+package dnd_companion.game_helper.entities.models;
 
 import java.lang.reflect.Array;
 import java.util.Collection;

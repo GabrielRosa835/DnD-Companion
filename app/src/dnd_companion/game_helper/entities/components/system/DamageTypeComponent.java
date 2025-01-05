@@ -1,9 +1,11 @@
 package dnd_companion.game_helper.entities.components.system;
 
-import dnd_companion.game_helper.entities.data.system.DamageTypeData;
-import dnd_companion.local_storage.common.DataKey;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
+import dnd_companion.game_helper.entities.models.Component;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.models.components.Component;
+import dnd_companion.local_storage.structure.system.DamageTypeData;
+import dnd_companion.local_storage.tools.DataKey;
 
 public class DamageTypeComponent implements Component	 
 {
@@ -13,18 +15,17 @@ public class DamageTypeComponent implements Component
 	private DamageTypeComponent(DamageTypeData data) {
 		this.name = data.name();
 	}
-	public DamageTypeComponent() {
-		this.name = null;
+	private DamageTypeComponent() {
+		this.name = null; 
 	}
 	public DamageTypeComponent(String name) {
-		this(new DamageTypeComponent().retrieve(name));
+		this ((DamageTypeData) new DataHandler()
+				.retrieve(new DataKey(
+						new CollectionsMetadata().damage_types, 
+						ToolBox.to_snake_case(name).concat(".json")))
+				.result());
 	}
 	
-	@Override public DamageTypeData retrieve(String name) {
-		return (DamageTypeData) new DataHandler()
-				.retrieve(new DataKey(new DamageTypeData().collection(), name, DamageTypeData.class))
-				.result();
-	}
 	@Override public DamageTypeComponent copy() {
 		DamageTypeComponent temp = new DamageTypeComponent();
 		temp.name = this.name;

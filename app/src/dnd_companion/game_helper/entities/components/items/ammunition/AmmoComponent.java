@@ -6,8 +6,8 @@ import dnd_companion.app.local_storage.handling.DataHandler;
 import dnd_companion.app.local_storage.tools.DataKey;
 import dnd_companion.game_helper.entities.components.items.tags.ItemTagComponent;
 import dnd_companion.game_helper.entities.data.items.ammunition.AmmoData;
-import dnd_companion.game_helper.entities.elements.system.units.Price;
-import dnd_companion.game_helper.entities.elements.system.units.Weight;
+import dnd_companion.game_helper.entities.measures.Price;
+import dnd_companion.game_helper.entities.measures.Weight;
 import dnd_companion.local_storage.structure.models.components.item.ItemComponent;
 
 public class AmmoComponent implements ItemComponent
