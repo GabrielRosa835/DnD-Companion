@@ -4,6 +4,8 @@ import dnd_companion.common.tools.ToolBox;
 
 public abstract class Command<Result>
 {
+	private static ToolBox tools = new ToolBox();
+	
 	protected boolean status = false;
 	public boolean status() {return this.status;}
 
@@ -19,7 +21,7 @@ public abstract class Command<Result>
 			this.code();
 			this.status = true;
 		} catch (Exception e) {
-			ToolBox.print(e);
+			tools.print(e);
 		}
 		return (T) this;
 	}

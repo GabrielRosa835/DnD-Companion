@@ -12,6 +12,9 @@ public record ArmorCategoryData (
 	double doff_time_value,
 	String doff_time_unit
 ) implements Data {
-	@Override public CollectionREF collection() {return new CollectionsMetadata().armor_categories;}
-	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
+	private static CollectionsMetadata collections = new CollectionsMetadata();
+	private static ToolBox tools = new ToolBox();
+	
+	@Override public CollectionREF collection() {return collections.armor_categories();}
+	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
 }

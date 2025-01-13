@@ -14,14 +14,14 @@ public class ToolBox
 		exception.printStackTrace();
 	}
 
-	public String to_snake_case(String input) {
+	public String toSnakeCase(String input) {
 		return (input == null) ? null : input.toLowerCase().replace(" ", "_");
 	}
-	public String[] to_snake_case(String[] input) {
-		return Arrays.stream(input).map(s -> to_snake_case(s)).toArray(String[]::new);
+	public String[] toSnakeCase(String[] input) {
+		return Arrays.stream(input).map(s -> toSnakeCase(s)).toArray(String[]::new);
 	}
 	
-	public String to_file_name(String name) {
-		return this.to_snake_case(name).concat(".json");
+	public String toFileName(String name) {
+		return this.toSnakeCase(name).concat(".json");
 	}
 }

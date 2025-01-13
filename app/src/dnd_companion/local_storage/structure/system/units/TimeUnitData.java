@@ -11,6 +11,9 @@ public record TimeUnitData (
 	String abbreviation,
 	double normalizing_factor
 ) implements UnitData {
-	@Override public CollectionREF collection() {return new CollectionsMetadata().time_units;}
-	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
+	private static CollectionsMetadata collections = new CollectionsMetadata();
+	private static ToolBox tools = new ToolBox();
+	
+	@Override public CollectionREF collection() {return collections.time_units();}
+	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
 }

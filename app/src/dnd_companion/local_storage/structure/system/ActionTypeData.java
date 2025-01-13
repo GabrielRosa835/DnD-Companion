@@ -8,6 +8,9 @@ import dnd_companion.local_storage.structure.models.Data;
 public record ActionTypeData (
 	String name
 ) implements Data {
-	@Override public CollectionREF collection() {return new CollectionsMetadata().action_types;}
-	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
+	private static CollectionsMetadata collections = new CollectionsMetadata();
+	private static ToolBox tools = new ToolBox();
+	
+	@Override public CollectionREF collection() {return collections.action_types();}
+	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
 }

@@ -1,21 +1,22 @@
 package dnd_companion.game_helper.entities.measures;
 
-import dnd_companion.local_storage.common.DataKey;
+import dnd_companion.game_helper.entities.components.system.units.TimeUnitComponent;
+import dnd_companion.game_helper.entities.models.Measure;
 import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.components.UnitGroupComponent;
-import dnd_companion.local_storage.structure.data.system.units.TimeUnitData;
+import dnd_companion.local_storage.structure.system.units.TimeUnitData;
+import dnd_companion.local_storage.tools.DataKey;
 
-public class TimeStep implements UnitGroupComponent
+public class TimeStep implements Measure
 {
 	private double value;
 	@Override public double value() {return this.value;}
 	
-	private Unit unit;
-	@Override public Unit unit() {return this.unit;}
+	private TimeUnitComponent unit;
+	@Override public TimeUnitComponent unit() {return this.unit;}
 	
 	public TimeStep(double value, String unit_name) {
 		this.value = value;
-		this.unit = new Unit(unit_name);
+		this.unit = new TimeUnitComponent(unit_name);
 	}
 	
 	@Override

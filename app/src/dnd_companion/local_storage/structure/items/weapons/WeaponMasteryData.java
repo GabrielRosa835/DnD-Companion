@@ -9,6 +9,9 @@ public record WeaponMasteryData (
 	String name,
 	String description
 ) implements Data {
-	@Override public CollectionREF collection() {return new CollectionsMetadata().weapon_masteries;}
-	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
+	private static CollectionsMetadata collections = new CollectionsMetadata();
+	private static ToolBox tools = new ToolBox();
+	
+	@Override public CollectionREF collection() {return collections.weapon_masteries();}
+	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
 }

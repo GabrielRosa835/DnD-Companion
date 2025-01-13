@@ -25,6 +25,9 @@ public record WeaponData(
 	String range_unit,
 	String versatile_dice_type
 ) implements ItemData {
-	@Override public CollectionREF collection() {return new CollectionsMetadata().weapons;}
-	@Override public String file_name() {return ToolBox.to_snake_case(this.name) + ".json";}
+	private static CollectionsMetadata collections = new CollectionsMetadata();
+	private static ToolBox tools = new ToolBox();
+	
+	@Override public CollectionREF collection() {return collections.weapons();}
+	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
 }

@@ -19,7 +19,7 @@ public class UnitsMetadata
 	
 	public UnitsMetadata() {
 		List<UnitData> units = Arrays.stream(collections.all())
-				.filter(collection -> collection.parent().equals(collections.units))
+				.filter(collection -> collection.parent().equals(collections.units()))
 				.map(collection -> handler.retrieve_multiple(collection).result())
 				.flatMap(Arrays::stream)
 				.map(data -> (UnitData) data)
