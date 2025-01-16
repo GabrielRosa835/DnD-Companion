@@ -20,7 +20,7 @@ public class RetrieveCommand extends Command<Data>
 		this.message = "Failed to retrieved data: " + key.toString();
 	}
 
-	@Override public void code() throws IOException, DataNotFoundException, ClassNotFoundException {
+	@Override public void code() throws IOException, DataNotFoundException {
 		ObjectReader reader = new ObjectMapper().readerFor(key.collection().type());
 		File file = new File(key.collection().path() + File.separator + key.file_name());
 		Data data = reader.readValue(file);

@@ -1,7 +1,0 @@
-{
-  "name" : "Light",
-  "don_time_value" : 1.0,
-  "don_time_unit" : "Minutes",
-  "doff_time_value" : 1.0,
-  "doff_time_unit" : "Minutes"
-}

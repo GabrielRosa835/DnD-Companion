@@ -12,7 +12,7 @@ public record DiceTypeData (
 	private static ToolBox tools = new ToolBox();
 	
 	@Override public CollectionREF collection() {return collections.dice_types();}
-	@Override public String file_name() {return tools.to_snake_case(this.name()) + ".json";}
+	@Override public String file_name() {return tools.toFileName(this.name());}
 	
 	public String name() {return String.format("D%d", this.max_value);}
 }

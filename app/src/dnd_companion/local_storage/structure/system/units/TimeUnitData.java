@@ -15,5 +15,5 @@ public record TimeUnitData (
 	private static ToolBox tools = new ToolBox();
 	
 	@Override public CollectionREF collection() {return collections.time_units();}
-	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
+	@Override public String file_name() {return tools.toFileName(this.name);}
 }

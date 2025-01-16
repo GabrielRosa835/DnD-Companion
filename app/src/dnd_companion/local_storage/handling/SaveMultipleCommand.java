@@ -20,7 +20,7 @@ public class SaveMultipleCommand extends Command<Data[]>
 		this.message = "Failed to save the data group: " + Arrays.toString(this.keys);
 	}
 
-	@Override public void code() throws Exception {
+	@Override public void code() {
 		for (Data data : data_group) {
 			handler.save(data);
 		}

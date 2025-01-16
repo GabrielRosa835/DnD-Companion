@@ -15,5 +15,5 @@ public record CurrencyUnitData (
 	private static ToolBox tools = new ToolBox();
 	
 	@Override public CollectionREF collection() {return collections.currencies();}
-	@Override public String file_name() {return tools.to_snake_case(this.name) + ".json";}
+	@Override public String file_name() {return tools.toFileName(this.name);}
 }

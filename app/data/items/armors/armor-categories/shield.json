@@ -1,7 +1,0 @@
-{
-  "name" : "Shield",
-  "don_time_value" : 1.0,
-  "don_time_unit" : "Actions",
-  "doff_time_value" : 1.0,
-  "doff_time_unit" : "Actions"
-}

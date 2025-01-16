@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import dnd_companion.common.Command;
-import dnd_companion.common.exceptions.DataNotFoundException;
 import dnd_companion.common.metadata.CollectionREF;
 import dnd_companion.local_storage.structure.models.Data;
 import dnd_companion.local_storage.tools.DataKey;
@@ -38,8 +37,7 @@ public class RetrieveMultipleCommand extends Command<Data[]>
         this.message = "Failed to retrieve data collection: " + collection.toString();
     }
 
-    @Override
-    public void code() throws IOException, DataNotFoundException {
+    @Override public void code() throws IOException {
         List<Data> data_list = new ArrayList<Data>();
         Pattern pattern = Pattern.compile(regex);
         try (Stream<Path> paths = Files.walk(Paths.get(collection.path()))) {

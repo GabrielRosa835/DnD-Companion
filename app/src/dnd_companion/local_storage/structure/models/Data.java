@@ -3,10 +3,15 @@ package dnd_companion.local_storage.structure.models;
 import java.io.File;
 
 import dnd_companion.common.metadata.CollectionREF;
+import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.tools.ToolBox;
 import dnd_companion.local_storage.tools.ValidateDataCommand;
 
 public interface Data
 {
+	final CollectionsMetadata collections = new CollectionsMetadata();
+	final ToolBox tools = new ToolBox();
+	
 	public CollectionREF collection();
 	public String file_name();
 	

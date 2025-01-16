@@ -6,12 +6,13 @@ import dnd_companion.local_storage.storage.StorageInitializer;
 
 public class InitializeStorageCommand extends Command<Boolean>
 {
+	private static StorageBuilder builder = new StorageBuilder();
+	private static StorageInitializer init = new StorageInitializer();
+	
 	public InitializeStorageCommand() {
 		this.message = "Failed to initialize data storage";
 	}
 	@Override public void code() {
-		StorageBuilder builder = new StorageBuilder();
-		StorageInitializer init = new StorageInitializer();
 		builder.clear_data();
 		init.setup_collections();
 		init.setup_options();

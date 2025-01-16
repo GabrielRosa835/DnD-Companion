@@ -17,7 +17,7 @@ public class UpdateMultipleCommand extends Command<Data[]>
 		this.message = String.format("Failed to save the data collection: %s", Arrays.toString(this.keys));
 	}
 
-	@Override public void code() throws Exception {
+	@Override public void code() {
 		DataHandler data_handler = new DataHandler();
 		for (Data data : data_collection) {
 			data_handler.update(data);
