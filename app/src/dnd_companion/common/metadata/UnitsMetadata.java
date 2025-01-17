@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dnd_companion.local_storage.handling.DataHandler;
-import dnd_companion.local_storage.structure.models.UnitData;
+import dnd_companion.archives.local_storage.handling.DataHandler;
+import dnd_companion.archives.local_storage.structure.models.UnitData;
 
 public class UnitsMetadata 
 {

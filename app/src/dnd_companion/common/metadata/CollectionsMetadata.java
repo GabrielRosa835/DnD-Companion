@@ -2,24 +2,24 @@ package dnd_companion.common.metadata;
 
 import java.util.Arrays;
 
+import dnd_companion.archives.local_storage.structure.items.AmmoData;
+import dnd_companion.archives.local_storage.structure.items.GenericItemData;
+import dnd_companion.archives.local_storage.structure.items.ItemTagData;
+import dnd_companion.archives.local_storage.structure.items.armors.ArmorCategoryData;
+import dnd_companion.archives.local_storage.structure.items.armors.ArmorData;
+import dnd_companion.archives.local_storage.structure.items.weapons.WeaponCategoryData;
+import dnd_companion.archives.local_storage.structure.items.weapons.WeaponData;
+import dnd_companion.archives.local_storage.structure.items.weapons.WeaponMasteryData;
+import dnd_companion.archives.local_storage.structure.items.weapons.WeaponPropertyData;
+import dnd_companion.archives.local_storage.structure.items.weapons.WeaponTypeData;
+import dnd_companion.archives.local_storage.structure.system.ActionTypeData;
+import dnd_companion.archives.local_storage.structure.system.DamageTypeData;
+import dnd_companion.archives.local_storage.structure.system.DiceTypeData;
+import dnd_companion.archives.local_storage.structure.system.units.CurrencyUnitData;
+import dnd_companion.archives.local_storage.structure.system.units.LengthUnitData;
+import dnd_companion.archives.local_storage.structure.system.units.TimeUnitData;
+import dnd_companion.archives.local_storage.structure.system.units.WeightUnitData;
 import dnd_companion.common.tools.ToolBox;
-import dnd_companion.local_storage.structure.items.AmmoData;
-import dnd_companion.local_storage.structure.items.GenericItemData;
-import dnd_companion.local_storage.structure.items.ItemTagData;
-import dnd_companion.local_storage.structure.items.armors.ArmorCategoryData;
-import dnd_companion.local_storage.structure.items.armors.ArmorData;
-import dnd_companion.local_storage.structure.items.weapons.WeaponCategoryData;
-import dnd_companion.local_storage.structure.items.weapons.WeaponData;
-import dnd_companion.local_storage.structure.items.weapons.WeaponMasteryData;
-import dnd_companion.local_storage.structure.items.weapons.WeaponPropertyData;
-import dnd_companion.local_storage.structure.items.weapons.WeaponTypeData;
-import dnd_companion.local_storage.structure.system.ActionTypeData;
-import dnd_companion.local_storage.structure.system.DamageTypeData;
-import dnd_companion.local_storage.structure.system.DiceTypeData;
-import dnd_companion.local_storage.structure.system.units.CurrencyUnitData;
-import dnd_companion.local_storage.structure.system.units.LengthUnitData;
-import dnd_companion.local_storage.structure.system.units.TimeUnitData;
-import dnd_companion.local_storage.structure.system.units.WeightUnitData;
 
 public  class CollectionsMetadata
 {

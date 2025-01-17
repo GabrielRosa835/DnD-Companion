@@ -1,0 +1,17 @@
+package dnd_companion.archives.local_storage.structure.items;
+
+import dnd_companion.archives.local_storage.structure.models.ItemData;
+import dnd_companion.common.metadata.CollectionREF;
+
+public record GenericItemData(
+	String name,
+	double price_value,
+	String price_unit,
+	double weight_value,
+	String weight_unit,
+	String[] tags,
+	String description
+) implements ItemData {
+	@Override public CollectionREF collection() {return collections.generic_items();}
+	@Override public String file_name() {return tools.toFileName(this.name);}
+}

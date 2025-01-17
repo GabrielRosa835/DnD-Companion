@@ -1,6 +1,6 @@
 package dnd_companion.common.metadata;
 
-import dnd_companion.local_storage.structure.models.UnitData;
+import dnd_companion.archives.local_storage.structure.models.UnitData;
 
 public class UnitREF 
 {

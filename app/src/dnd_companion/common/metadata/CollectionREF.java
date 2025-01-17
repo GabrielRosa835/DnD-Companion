@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dnd_companion.local_storage.structure.models.Data;
+import dnd_companion.archives.local_storage.structure.models.Data;
 
 public class CollectionREF
 {
