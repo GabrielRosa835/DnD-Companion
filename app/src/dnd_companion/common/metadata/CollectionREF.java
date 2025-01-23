@@ -6,8 +6,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
-
 public class CollectionREF
 {
 	private String name;
@@ -16,26 +14,19 @@ public class CollectionREF
 	private CollectionREF parent;
 	public CollectionREF parent() {return this.parent;}
 	
-	private Class<? extends Data> type;
-	public Class<? extends Data> type() {return this.type;}
-	
 	private Collection<CollectionREF> children;
 	public CollectionREF[] children() {return this.children.toArray(CollectionREF[]::new);}
 	
-	public CollectionREF(CollectionREF parent, String name, Class<? extends Data> type, CollectionREF... children) {
+	public CollectionREF(CollectionREF parent, String name, CollectionREF... children) {
 		this.parent = parent;
 		this.name = name;
-		this.type = type;
 		this.children = Arrays.stream(children).collect(Collectors.toList());
 		if (parent != null) {
 			parent.add_child(this);
 		}
 	}
 	public CollectionREF(CollectionREF parent, String name) {
-		this(parent, name, Data.class, new CollectionREF[] {});
-	}
-	public CollectionREF(CollectionREF parent, String name, Class<? extends Data> type) {
-		this(parent, name, type, new CollectionREF[] {});
+		this(parent, name, new CollectionREF[] {});
 	}
 	
 	public CollectionREF child(String child_name) {

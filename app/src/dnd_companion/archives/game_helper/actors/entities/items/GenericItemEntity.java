@@ -3,13 +3,13 @@ package dnd_companion.archives.game_helper.actors.entities.items;
 import java.util.Arrays;
 
 import dnd_companion.archives.game_helper.actors.models.ItemComponent;
-import dnd_companion.archives.local_storage.handling.DataHandler;
-import dnd_companion.archives.local_storage.structure.items.GenericItemData;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.common.tools.ToolBox;
-import dnd_companion.entities.components.Price;
-import dnd_companion.entities.components.Weight;
+import dnd_companion.entities.addons.components.Price;
+import dnd_companion.entities.addons.components.Weight;
+import dnd_companion.entities.item_related.GenericItemData;
+import dnd_companion.storage.archives.handling.DataHandler;
 
 public class GenericItemEntity implements ItemComponent
 {

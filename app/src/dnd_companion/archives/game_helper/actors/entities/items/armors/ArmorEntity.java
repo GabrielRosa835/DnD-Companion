@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 import dnd_companion.archives.game_helper.actors.entities.items.ItemTagEntity;
 import dnd_companion.archives.game_helper.actors.models.ItemComponent;
-import dnd_companion.archives.local_storage.handling.DataHandler;
 import dnd_companion.archives.local_storage.structure.items.armors.ArmorData;
 import dnd_companion.archives.local_storage.tools.DataKey;
-import dnd_companion.entities.components.Price;
-import dnd_companion.entities.components.Weight;
+import dnd_companion.entities.addons.components.Price;
+import dnd_companion.entities.addons.components.Weight;
+import dnd_companion.storage.archives.handling.DataHandler;
 
 public class ArmorComponent implements ItemComponent
 {

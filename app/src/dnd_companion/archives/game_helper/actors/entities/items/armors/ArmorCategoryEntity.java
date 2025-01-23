@@ -4,7 +4,7 @@ import dnd_companion.app.local_storage.handling.DataHandler;
 import dnd_companion.app.local_storage.tools.DataKey;
 import dnd_companion.archives.game_helper.actors.data.items.armors.ArmorCategoryData;
 import dnd_companion.archives.local_storage.structure.models.components.Component;
-import dnd_companion.entities.components.TimeStep;
+import dnd_companion.entities.addons.components.TimeStep;
 
 public class ArmorCategoryEntity implements Component
 {

@@ -1,20 +1,33 @@
 package dnd_companion.entities.armor_related.armor;
 
-import dnd_companion.entities.armor_related.armor.data.*;
-import dnd_companion.entities.models.EntityFactory;
+import java.util.Arrays;
+import java.util.List;
+
+import dnd_companion.entities.addons.models.Entity;
+import dnd_companion.entities.addons.models.EntityFactory;
+import dnd_companion.entities.armor_related.armor.data.ChainMail;
+import dnd_companion.entities.armor_related.armor.data.LeatherArmor;
+import dnd_companion.entities.armor_related.armor.data.ScaleMail;
+import dnd_companion.entities.armor_related.armor.data.Unarmored;
 
 public class ArmorFactory implements EntityFactory
 {
-	public Unarmored unarmored() {
+	ArmorFactory() {}
+	
+	@Override public List<Entity> dataList() {
+		return Arrays.asList(unarmored(), leather_armor(), scale_mail(), chain_mail());
+	}
+	
+	public ArmorEntity unarmored() {
 		return new Unarmored();
 	}
-	public LeatherArmor leather_armor() {
+	public ArmorEntity leather_armor() {
 		return new LeatherArmor();
 	}
-	public ScaleMail scale_mail() {
+	public ArmorEntity scale_mail() {
 		return new ScaleMail();
 	}
-	public ChainMail chain_mail() {
+	public ArmorEntity chain_mail() {
 		return new ChainMail();
 	}
 }

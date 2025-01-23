@@ -3,7 +3,7 @@ package dnd_companion.archives.game_helper.actors.builders;
 import dnd_companion.archives.game_helper.actors.entities.system.DamageTypeEntity;
 import dnd_companion.archives.game_helper.actors.models.Entity;
 import dnd_companion.archives.game_helper.actors.models.EntityBuilder;
-import dnd_companion.archives.local_storage.structure.system.DamageTypeData;
+import dnd_companion.entities.system_related.DamageTypeData;
 
 public class DamageTypeBuilder implements EntityBuilder
 {

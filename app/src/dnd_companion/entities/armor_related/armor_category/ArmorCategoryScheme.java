@@ -1,12 +1,14 @@
 package dnd_companion.entities.armor_related.armor_category;
 
-import dnd_companion.entities.models.Entity;
-import dnd_companion.entities.models.EntityScheme;
+import dnd_companion.entities.addons.models.Entity;
+import dnd_companion.entities.addons.models.EntityScheme;
 
-public class ArmorCategoryScheme implements EntityScheme 
+class ArmorCategoryScheme implements EntityScheme 
 {
 	private String name;
 	private String description;
+	
+	ArmorCategoryScheme() {}
 	
 	@Override public ArmorCategoryScheme loadEntity(Entity entity) {
 		ArmorCategoryEntity cast_entity = (ArmorCategoryEntity) entity;

@@ -1,6 +1,6 @@
 package dnd_companion.entities.armor_related.armor_category;
 
-import dnd_companion.entities.models.Entity;
+import dnd_companion.entities.addons.models.Entity;
 
 public class ArmorCategoryEntity implements Entity
 {
@@ -14,7 +14,7 @@ public class ArmorCategoryEntity implements Entity
 		this.name = name;
 		this.description = description;
 	}
-	private ArmorCategoryEntity(ArmorCategoryEntity entity) {
+	protected ArmorCategoryEntity(ArmorCategoryEntity entity) {
 		this(entity.name, entity.description);
 	}
 	

@@ -1,11 +1,11 @@
 package dnd_companion.archives.game_helper.actors.entities.system;
 
 import dnd_companion.archives.game_helper.actors.models.Component;
-import dnd_companion.archives.local_storage.handling.DataHandler;
-import dnd_companion.archives.local_storage.structure.system.DiceTypeData;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.common.tools.ToolBox;
+import dnd_companion.entities.system_related.DiceTypeData;
+import dnd_companion.storage.archives.handling.DataHandler;
 
 public class DiceEntity implements Component
 {		

@@ -2,54 +2,42 @@ package dnd_companion.common.metadata;
 
 import java.util.Arrays;
 
-import dnd_companion.archives.local_storage.structure.items.AmmoData;
-import dnd_companion.archives.local_storage.structure.items.GenericItemData;
 import dnd_companion.archives.local_storage.structure.items.ItemTagData;
-import dnd_companion.archives.local_storage.structure.items.armors.ArmorCategoryData;
 import dnd_companion.archives.local_storage.structure.items.armors.ArmorData;
-import dnd_companion.archives.local_storage.structure.items.weapons.WeaponCategoryData;
-import dnd_companion.archives.local_storage.structure.items.weapons.WeaponData;
-import dnd_companion.archives.local_storage.structure.items.weapons.WeaponMasteryData;
-import dnd_companion.archives.local_storage.structure.items.weapons.WeaponPropertyData;
-import dnd_companion.archives.local_storage.structure.items.weapons.WeaponTypeData;
-import dnd_companion.archives.local_storage.structure.system.ActionTypeData;
-import dnd_companion.archives.local_storage.structure.system.DamageTypeData;
-import dnd_companion.archives.local_storage.structure.system.DiceTypeData;
 import dnd_companion.archives.local_storage.structure.system.units.CurrencyUnitData;
 import dnd_companion.archives.local_storage.structure.system.units.LengthUnitData;
 import dnd_companion.archives.local_storage.structure.system.units.TimeUnitData;
 import dnd_companion.archives.local_storage.structure.system.units.WeightUnitData;
-import dnd_companion.common.tools.ToolBox;
+import dnd_companion.common.design_patterns.Singleton;
+import dnd_companion.entities.armor_related.ArmorCategoryData;
+import dnd_companion.entities.item_related.GenericItemData;
+import dnd_companion.entities.item_related.ammo.AmmoData;
+import dnd_companion.entities.system_related.ActionTypeData;
+import dnd_companion.entities.system_related.DamageTypeData;
+import dnd_companion.entities.system_related.DiceTypeData;
+import dnd_companion.entities.weapon_related.WeaponCategoryData;
+import dnd_companion.entities.weapon_related.WeaponData;
+import dnd_companion.entities.weapon_related.WeaponMasteryData;
+import dnd_companion.entities.weapon_related.WeaponPropertyData;
+import dnd_companion.entities.weapon_related.WeaponTypeData;
 
-public  class CollectionsMetadata
+public class CollectionsMetadata implements Singleton
 {
-//================================================================================
-	/*
-	 * Dependencies' Injections
-	 */
-	private static ToolBox tools = new ToolBox();
-//================================================================================
+	private static CollectionsMetadata instance;
 	
- // ===============================================================================
-	/*
-	 * Virtual seed for the hierarchy, not a real collection
-	 * It's only reason to exist is such that data.parent() doesn't return null
-	 */
-	private CollectionREF seed = new CollectionREF(null, "seed");
- // ===============================================================================
+	private CollectionsMetadata() {}
 	
- // ===============================================================================
-	/*
-	 * Collections with SEED as parent
-	 */
-	private CollectionREF data = new CollectionREF(seed, "data");
-	public  CollectionREF data() {return this.data;}
- // ===============================================================================
+	public static CollectionsMetadata get() {
+		if(instance == null) {
+			instance = new CollectionsMetadata();
+		}
+		return instance;
+	}
 	
- // ===============================================================================
-	/*
-	 * Collections with DATA as parent
-	 */
+	 // ===============================================================================
+	private CollectionREF data = new CollectionREF(null, "data");
+	public  CollectionREF data() {return instance.data;}
+	 // ===============================================================================
 	private CollectionREF system = new CollectionREF(data, "system");
 	public  CollectionREF system() {return this.system;}
 	
@@ -59,99 +47,74 @@ public  class CollectionsMetadata
 	private CollectionREF campaigns = new CollectionREF(data, "campaigns");
 	public  CollectionREF campaigns() {return this.campaigns;}
  // ===============================================================================
-	
- // ===============================================================================
-	/*
-	 * Collections with SYSTEM as parent
-	 */
 	private CollectionREF units = new CollectionREF(system, "units");
 	public  CollectionREF units() {return this.units;}
 	
-	private CollectionREF damage_types = new CollectionREF(system, "damage-types", DamageTypeData.class);
+	private CollectionREF damage_types = new CollectionREF(system, "damage-types");
 	public  CollectionREF damage_types() {return this.damage_types;}
 	
-	private CollectionREF dice_types = new CollectionREF(system, "dice-types", DiceTypeData.class);
+	private CollectionREF dice_types = new CollectionREF(system, "dice-types");
 	public  CollectionREF dice_types() {return this.dice_types;}
 	
-	private CollectionREF action_types = new CollectionREF(system, "action-types", ActionTypeData.class);
+	private CollectionREF action_types = new CollectionREF(system, "action-types");
 	public  CollectionREF action_types() {return this.action_types;}
  // ===============================================================================
-	
- // ===============================================================================
-	/*
-	 * Collections with UNITS as parent
-	 */
-	private CollectionREF currencies = new CollectionREF(units, "currencies", CurrencyUnitData.class);
+	private CollectionREF currencies = new CollectionREF(units, "currencies");
 	public  CollectionREF currencies() {return this.currencies;}
 	
-	private CollectionREF length_units = new CollectionREF(units, "length-units", LengthUnitData.class);
+	private CollectionREF length_units = new CollectionREF(units, "length-units");
 	public  CollectionREF length_units() {return this.length_units;}
 	
-	private CollectionREF weight_units = new CollectionREF(units, "weight_units", WeightUnitData.class);
+	private CollectionREF weight_units = new CollectionREF(units, "weight_units");
 	public  CollectionREF weight_units() {return this.weight_units;}
 	
-	private CollectionREF time_units = new CollectionREF(units, "time_units", TimeUnitData.class);
+	private CollectionREF time_units = new CollectionREF(units, "time_units");
 	public  CollectionREF time_units() {return this.time_units;}
  // ===============================================================================
-	
- // ===============================================================================
-	/*
-	 * Collections with ITEMS as parent
-	 */
-	private CollectionREF ammunitions = new CollectionREF(items, "ammunitions", AmmoData.class);
+	private CollectionREF ammunitions = new CollectionREF(items, "ammunitions");
 	public  CollectionREF ammunitions() {return this.ammunitions;}
 	
-	private CollectionREF item_tags = new CollectionREF(items, "item-tags", ItemTagData.class);
+	private CollectionREF item_tags = new CollectionREF(items, "item-tags");
 	public  CollectionREF item_tags() {return this.item_tags;}
 	
-	private CollectionREF armors = new CollectionREF(items, "armors", ArmorData.class);
+	private CollectionREF armors = new CollectionREF(items, "armors");
 	public  CollectionREF armors() {return this.armors;}
 	
-	private CollectionREF weapons = new CollectionREF(items, "weapons", WeaponData.class);
+	private CollectionREF weapons = new CollectionREF(items, "weapons");
 	public  CollectionREF weapons() {return this.weapons;}
 	
-	private CollectionREF generic_items = new CollectionREF(items, "generics-items", GenericItemData.class);
+	private CollectionREF generic_items = new CollectionREF(items, "generics-items");
 	public  CollectionREF generic_items() {return this.generic_items;}
  // ===============================================================================
-	
- // ===============================================================================
-	/*
-	 * Collections with ARMORS as parent
-	 */
-	private CollectionREF armor_categories  = new CollectionREF(armors, "armor-categories", ArmorCategoryData.class);
+	private CollectionREF armor_categories = new CollectionREF(armors, "armor-categories");
 	public  CollectionREF armor_categories() {return this.armor_categories;}
  // ===============================================================================
-	
- // ===============================================================================
-	/*
-	 * Collections with WEAPONS as parent
-	 */
-	private CollectionREF weapon_types      = new CollectionREF(weapons, "weapon-types", WeaponTypeData.class);
+	private CollectionREF weapon_types = new CollectionREF(weapons, "weapon-types");
 	public  CollectionREF weapon_types() {return this.weapon_types;}
 	
-	private CollectionREF weapon_categories = new CollectionREF(weapons, "weapon-categories", WeaponCategoryData.class);
+	private CollectionREF weapon_categories = new CollectionREF(weapons, "weapon-categories");
 	public  CollectionREF weapon_categories() {return this.weapon_categories;}
 	
-	private CollectionREF weapon_masteries  = new CollectionREF(weapons, "weapon-masteries", WeaponMasteryData.class);
+	private CollectionREF weapon_masteries = new CollectionREF(weapons, "weapon-masteries");
 	public  CollectionREF weapon_masteries() {return this.weapon_masteries;}
 	
-	private CollectionREF weapon_properties = new CollectionREF(weapons, "weapon-properties", WeaponPropertyData.class);
+	private CollectionREF weapon_properties = new CollectionREF(weapons, "weapon-properties");
 	public  CollectionREF weapon_properties() {return this.weapon_properties;}
  // ===============================================================================	
-	
- // ===============================================================================
 	/*
 	 * Method that returns all collections in a single array,
 	 * used for getting a group of collections through filtering
 	 */
-	public  CollectionREF[] all() {
-		return Arrays.stream(this.getClass().getDeclaredMethods())
-				.map(m -> {
-					try {return m.invoke(this);} 
-					catch (Exception e) {tools.print(e); return null;}
-				})
-				.filter(c -> !c.equals(this.seed))
-				.toArray(CollectionREF[]::new);
+	public CollectionREF[] all() {
+		return Arrays.asList(
+				data(), 
+				system(), campaigns(), items(), 
+				units(), damage_types(), dice_types(), action_types(),
+				currencies(), length_units(), weight_units(), time_units(),
+				ammunitions(), item_tags(), armors(), weapons(), generic_items(),
+				armor_categories(),
+				weapon_types(), weapon_categories(), weapon_masteries(), weapon_properties()
+				).toArray(CollectionREF[]::new);
 	}
  // ===============================================================================
 }

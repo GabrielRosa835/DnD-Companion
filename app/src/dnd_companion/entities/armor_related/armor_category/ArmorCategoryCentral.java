@@ -5,8 +5,9 @@ import java.io.File;
 import dnd_companion.common.metadata.CollectionREF;
 import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.common.tools.ToolBox;
-import dnd_companion.entities.models.Entity;
-import dnd_companion.entities.models.EntityCentral;
+import dnd_companion.entities.addons.models.Entity;
+import dnd_companion.entities.addons.models.EntityCentral;
+import dnd_companion.storage.DataHandler;
 
 public class ArmorCategoryCentral implements EntityCentral
 {
@@ -28,5 +29,10 @@ public class ArmorCategoryCentral implements EntityCentral
 	}
 	@Override public String path(String entity_name) {
 		return collection().path() + File.separator + ToolBox.toFileName(entity_name);
+	}
+	@Override public ArmorCategoryEntity retrieve(String entity_name) {
+		return (ArmorCategoryEntity) new DataHandler()
+				.retrieve(this, entity_name)
+				.get();
 	}
 }

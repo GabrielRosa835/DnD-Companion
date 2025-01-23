@@ -2,27 +2,28 @@ package dnd_companion.entities.armor_related.armor;
 
 import java.util.Arrays;
 
+import dnd_companion.entities.addons.components.Price;
+import dnd_companion.entities.addons.components.Weight;
+import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.armor_related.armor_category.ArmorCategoryEntity;
-import dnd_companion.entities.components.Price;
-import dnd_companion.entities.components.Weight;
-import dnd_companion.entities.models.Entity;
+import dnd_companion.entities.item_related.item_tags.ItemTagEntity;
 
 public class ArmorEntity implements Entity
 {
-	private String name = "No name";
-	private Price price = new Price(0, "none");
-	private Weight weight = new Weight(0, "none");
-	private String[] tags = new String[] {"No tags"};
-	private String description = "No description";
-	private ArmorCategoryEntity category = null;
-	private int armor_class = 0;
-	private int strength_requirement = 0;
-	private boolean stealth_disadvantage = false;
+	private String name;
+	private Price price;
+	private Weight weight;
+	private ItemTagEntity[] tags;
+	private String description;
+	private ArmorCategoryEntity category;
+	private int armor_class;
+	private int strength_requirement;
+	private boolean stealth_disadvantage;
 	
 	@Override public String name() {return name;}
 	public Price price() {return price;}
 	public Weight weight() {return weight;}
-	public String[] tags() {return tags;}
+	public ItemTagEntity[] tags() {return tags;}
 	public String description() {return description;}
 	public ArmorCategoryEntity category() {return this.category;}
 	public int armor_class() {return this.armor_class;}
@@ -33,7 +34,7 @@ public class ArmorEntity implements Entity
 		String name, 
 		Price price, 
 		Weight weight, 
-		String[] tags, 
+		ItemTagEntity[] tags, 
 		String description,
 		ArmorCategoryEntity category,
 		int armor_class,
@@ -55,7 +56,9 @@ public class ArmorEntity implements Entity
 			entity.name, 
 			entity.price.clone(), 
 			entity.weight.clone(), 
-			entity.tags, 
+			Arrays.stream(entity.tags)
+				.map(t -> t.clone())
+				.toArray(ItemTagEntity[]::new), 
 			entity.description,
 			entity.category.clone(),
 			entity.armor_class,

@@ -1,13 +1,13 @@
 package dnd_companion.archives.game_helper.actors.entities.system.units;
 
 import dnd_companion.archives.game_helper.actors.models.Component;
-import dnd_companion.archives.local_storage.handling.DataHandler;
 import dnd_companion.archives.local_storage.structure.models.Data;
 import dnd_companion.archives.local_storage.structure.system.units.CurrencyUnitData;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.common.tools.ToolBox;
-import dnd_companion.entities.models.types.Unit;
+import dnd_companion.entities.addons.models.types.Unit;
+import dnd_companion.storage.archives.handling.DataHandler;
 
 public class CurrencyUnitEntity implements Unit 
 {
