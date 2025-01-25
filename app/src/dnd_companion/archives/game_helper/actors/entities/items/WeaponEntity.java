@@ -20,34 +20,34 @@ public class WeaponComponent implements ItemComponent
 {
 	private String name;
 	@Override public String name() {return this.name;}
-	
+
 	private Price price;
 	@Override public Price price() {return this.price;}
-	
+
 	private Weight weight;
 	@Override public Weight weight() {return this.weight;}
-	
+
 	private ItemTagComponent[] tags;
 	@Override public ItemTagComponent[] tags() {return this.tags;}
-	
+
 	private String description;
 	@Override public String description() {return this.description;}
-	
+
 	private WeaponTypeComponent type;
 	public WeaponTypeComponent type() {return this.type;}
-	
+
 	private WeaponCategoryComponent category;
 	public WeaponCategoryComponent category() {return this.category;}
-	
+
 	private WeaponMasteryComponent mastery;
 	public WeaponMasteryComponent mastery() {return this.mastery;}
-	
+
 	private WeaponPropertyComponent[] properties;
 	public WeaponPropertyComponent[] properties() {return this.properties;}
-	
+
 	private WeaponDamage damage;
 	public WeaponDamage damage() {return this.damage;}
-	
+
 	private WeaponRange range;
 	public WeaponRange range() {return this.range;}
 
@@ -78,22 +78,22 @@ public class WeaponComponent implements ItemComponent
 				.map(WeaponPropertyComponent::new)
 				.toArray(WeaponPropertyComponent[]::new);
 		this.range = new WeaponRange(
-				new Range(min_range_value, range_unit), 
+				new Range(min_range_value, range_unit),
 				new Range(max_range_value, range_unit));
 		this.
-		
-		
+
+
 	}
 	private WeaponComponent(
-		String name, 
-		Price price, 
-		Weight weight, 
+		String name,
+		Price price,
+		Weight weight,
 		ItemTagComponent[] tags,
-		String description, 
-		WeaponTypeComponent type, 
+		String description,
+		WeaponTypeComponent type,
 		WeaponCategoryComponent category,
-		WeaponMasteryComponent mastery, 
-		WeaponPropertyComponent[] properties, 
+		WeaponMasteryComponent mastery,
+		WeaponPropertyComponent[] properties,
 		WeaponDamage damage,
 		WeaponRange range
 	) {
@@ -131,7 +131,7 @@ public class WeaponComponent implements ItemComponent
 	public WeaponComponent(String name) {
 		this(new WeaponComponent().retrieve(name));
 	}
-	
+
 	@Override public WeaponData retrieve(String name) {
 		return (WeaponData) new DataHandler()
 				.retrieve(new DataKey(new WeaponData().collection(), name, WeaponData.class))
@@ -140,7 +140,7 @@ public class WeaponComponent implements ItemComponent
 	@Override public WeaponComponent copy() {
 		if (this.name == null) {
 			return new WeaponComponent();
-		} else {			
+		} else {
 			return new WeaponComponent(this.name);
 		}
 	}

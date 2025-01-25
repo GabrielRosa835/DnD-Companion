@@ -8,10 +8,10 @@ public class Weight implements Component, Measure
 {
 	private double value;
 	@Override public double value() {return this.value;}
-	
+
 	private WeightUnitEntity unit;
 	@Override public WeightUnitEntity unit() {return this.unit;}
-	
+
 	public Weight(double value, WeightUnitEntity unit) {
 		this.value = value;
 		this.unit = unit;
@@ -19,7 +19,7 @@ public class Weight implements Component, Measure
 	private Weight(Weight Weight) {
 		this(Weight.value, Weight.unit.clone());
 	}
-	
+
 	@Override public Weight clone() {
 		return new Weight(this);
 	}

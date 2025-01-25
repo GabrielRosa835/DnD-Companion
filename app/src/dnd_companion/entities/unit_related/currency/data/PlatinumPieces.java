@@ -6,14 +6,11 @@ import dnd_companion.entities.unit_related.currency.CurrencyUnitEntity;
 public final class PlatinumPieces extends CurrencyUnitEntity
 {
 	public PlatinumPieces() {
-		super(create());
-	}
-	private static PlatinumPieces create() {
-		return (PlatinumPieces) new CurrencyUnitCentral().builder()
-				.name("Platinum piece")
-				.plural("Platinum pieces")
+		super(new CurrencyUnitCentral().builder()
+				.name("Platinum pieces")
+				.singular("Platinum piece")
 				.abbreviation("pp")
 				.normalizing_factor(1000)
-				.build();
+				.build());
 	}
 }

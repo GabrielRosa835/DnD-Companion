@@ -1,0 +1,6 @@
+{
+  "name" : "Electrum pieces",
+  "singular" : "Electrum piece",
+  "abbreviation" : "ep",
+  "normalizing_factor" : 50.0
+}

@@ -1,20 +1,22 @@
 package dnd_companion.storage.archives.handling;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
+import javax.xml.crypto.Data;
+
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.CommandManager;
 import dnd_companion.common.metadata.CollectionREF;
+import dnd_companion.storage.handling.RetrieveMultipleCommand;
 
 public class DataHandler extends CommandManager
 {
 	public SaveCommand save(Data data) {
-		return new SaveCommand(data).execute(); 
+		return new SaveCommand(data).execute();
 	}
 	public SaveMultipleCommand save_multiple(Data... data_collection) {
 		return new SaveMultipleCommand(data_collection).execute();
 	}
 	public UpdateCommand update(Data data) {
-		return new UpdateCommand(data).execute(); 
+		return new UpdateCommand(data).execute();
 	}
 	public UpdateMultipleCommand update_multiple(Data... data_collection) {
 		return new UpdateMultipleCommand(data_collection).execute();

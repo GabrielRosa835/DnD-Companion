@@ -6,14 +6,11 @@ import dnd_companion.entities.unit_related.weight.WeightUnitEntity;
 public final class Grams extends WeightUnitEntity
 {
 	public Grams() {
-		super(create());
-	}
-	private static Grams create() {
-		return (Grams) new WeightUnitCentral().builder()
-				.name("Gram")
-				.plural("Grams")
+		super(new WeightUnitCentral().builder()
+				.name("Grams")
+				.singular("Gram")
 				.abbreviation("g")
 				.normalizing_factor(1000)
-				.build();
+				.build());
 	}
 }

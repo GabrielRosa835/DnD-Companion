@@ -1,11 +1,10 @@
 package dnd_companion.archives.game_helper.actors.builders;
 
 import dnd_companion.archives.game_helper.actors.entities.system.units.LengthUnitEntity;
-import dnd_companion.archives.game_helper.actors.models.Entity;
-import dnd_companion.archives.game_helper.actors.models.EntityBuilder;
 import dnd_companion.archives.local_storage.structure.system.units.LengthUnitData;
+import dnd_companion.entities.addons.models.EntityBuilder;
 
-public class LengthUnitBuilder implements EntityBuilder 
+public class LengthUnitBuilder implements EntityBuilder
 {
 	@Override public LengthUnitEntity buildNull() {
 		return new LengthUnitEntity(null, null, null);
@@ -17,7 +16,7 @@ public class LengthUnitBuilder implements EntityBuilder
 				.result();
 		return new LengthUnitEntity(
 			data.name(),
-			data.abbreviation(), 
+			data.abbreviation(),
 			data.normalizing_factor()
 		);
 	}

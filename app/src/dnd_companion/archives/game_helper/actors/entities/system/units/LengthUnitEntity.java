@@ -1,17 +1,15 @@
 package dnd_companion.archives.game_helper.actors.entities.system.units;
 
-import dnd_companion.archives.game_helper.actors.models.Entity;
-
 public class LengthUnitEntity implements Entity
 {
 	private String name;
 	private String abbreviation;
 	private Double normalizing_factor;
-	
+
 	public String name() {return this.name;}
 	public String abbreviation() {return this.abbreviation;}
 	public Double normalizing_factor() {return this.normalizing_factor;}
-	
+
 	public LengthUnitEntity name(String name) {
 		this.name = name;
 		return this;
@@ -24,7 +22,7 @@ public class LengthUnitEntity implements Entity
 		this.normalizing_factor = normalizing_factor;
 		return this;
 	}
-	
+
 	public LengthUnitEntity(String name, String abbreviation, Double normalizing_factor) {
 		this.name = name;
 		this.abbreviation = abbreviation;

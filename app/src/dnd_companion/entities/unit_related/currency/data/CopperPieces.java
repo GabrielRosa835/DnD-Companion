@@ -6,14 +6,11 @@ import dnd_companion.entities.unit_related.currency.CurrencyUnitEntity;
 public final class CopperPieces extends CurrencyUnitEntity
 {
 	public CopperPieces() {
-		super(create());
-	}
-	private static CopperPieces create() {
-		return (CopperPieces) new CurrencyUnitCentral().builder()
-				.name("Copper piece")
-				.plural("Copper pieces")
+		super(new CurrencyUnitCentral().builder()
+				.name("Copper pieces")
+				.singular("Copper piece")
 				.abbreviation("cp")
 				.normalizing_factor(1)
-				.build();
+				.build());
 	}
 }

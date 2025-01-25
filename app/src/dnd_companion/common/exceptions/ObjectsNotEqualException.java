@@ -1,6 +1,6 @@
 package dnd_companion.common.exceptions;
 
-public class ObjectsNotEqualException extends Exception 
+public class ObjectsNotEqualException extends Exception
 {
 	private static final long serialVersionUID = 1L;
 

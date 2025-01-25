@@ -1,0 +1,6 @@
+{
+  "name" : "Feet",
+  "singular" : "Foot",
+  "abbreviation" : "ft",
+  "normalizing_factor" : 3.28084
+}

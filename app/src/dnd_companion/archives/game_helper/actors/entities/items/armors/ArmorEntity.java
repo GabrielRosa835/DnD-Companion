@@ -14,28 +14,28 @@ public class ArmorComponent implements ItemComponent
 {
 	private String name;
 	@Override public String name() {return this.name;}
-	
+
 	private Price price;
 	@Override public Price price() {return this.price;}
-	
+
 	private Weight weight;
 	@Override public Weight weight() {return this.weight;}
-	
+
 	private ItemTagEntity[] tags;
 	@Override public ItemTagEntity[] tags() {return this.tags;}
-	
+
 	private String description;
 	@Override public String description() {return this.description;}
- 	
+
 	private ArmorCategoryEntity category;
 	public ArmorCategoryEntity category() {return this.category;}
-	
+
 	private int armor_class;
 	public int armor_class() {return this.armor_class;}
-	
+
 	private int strength_requirement;
 	public int strength_requirement() {return this.strength_requirement;}
-	
+
 	private boolean stealth_disadvantage;
 	public boolean stealth_disadvantage() {return this.stealth_disadvantage;}
 

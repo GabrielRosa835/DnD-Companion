@@ -3,10 +3,11 @@ package dnd_companion.storage.archives.handling;
 import java.io.File;
 import java.io.IOException;
 
+import javax.xml.crypto.Data;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.Command;
 import dnd_companion.common.exceptions.DataNotFoundException;

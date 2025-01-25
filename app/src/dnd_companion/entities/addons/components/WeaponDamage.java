@@ -7,7 +7,7 @@ public class WeaponDamage extends SimpleDamage
 {
 	private DiceEntity versatile_dice;
 	public DiceEntity versatile_dice() {return this.versatile_dice;}
-	
+
 	public WeaponDamage(int dice_amount, String dice_name, String damage_type_name, String versatile_dice_name) {
 		super(dice_amount, dice_name, damage_type_name);
 		this.versatile_dice = new DiceEntity(versatile_dice_name);

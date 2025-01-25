@@ -6,14 +6,11 @@ import dnd_companion.entities.unit_related.weight.WeightUnitEntity;
 public final class Kilograms extends WeightUnitEntity
 {
 	public Kilograms() {
-		super(create());
-	}
-	private static Kilograms create() {
-		return (Kilograms) new WeightUnitCentral().builder()
-				.name("Kilogram")
-				.plural("Kilograms")
+		super(new WeightUnitCentral().builder()
+				.name("Kilograms")
+				.singular("Kilogram")
 				.abbreviation("kg")
 				.normalizing_factor(1)
-				.build();
+				.build());
 	}
 }

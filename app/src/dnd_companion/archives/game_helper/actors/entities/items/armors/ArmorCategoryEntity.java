@@ -1,22 +1,21 @@
 package dnd_companion.archives.game_helper.actors.entities.items.armors;
 
-import dnd_companion.app.local_storage.handling.DataHandler;
 import dnd_companion.app.local_storage.tools.DataKey;
-import dnd_companion.archives.game_helper.actors.data.items.armors.ArmorCategoryData;
-import dnd_companion.archives.local_storage.structure.models.components.Component;
 import dnd_companion.entities.addons.components.TimeStep;
+import dnd_companion.entities.addons.models.Component;
+import dnd_companion.entities.armor_related.armor_category.ArmorCategoryData;
 
 public class ArmorCategoryEntity implements Component
 {
 	private String name;
 	public String name() {return this.name;}
-	
+
 	private TimeStep don_time;
 	public TimeStep don_time() {return this.don_time;}
-	
+
 	private TimeStep doff_time;
 	public TimeStep doff_time() {return this.doff_time;}
-	
+
 	private ArmorCategoryEntity(String name, TimeStep don_time, TimeStep doff_time) {
 		this.name = name;
 		this.don_time = don_time;
@@ -51,9 +50,9 @@ public class ArmorCategoryEntity implements Component
 				.result();
 		this.name = data.name();
 		this.don_time = new TimeStep(data.don_time(), data.doff_time_unit());
-		this.doff_time = new TimeStep(data.doff_time(), data.doff_time_unit());	
+		this.doff_time = new TimeStep(data.doff_time(), data.doff_time_unit());
 	}
-	
+
 	@Override public ArmorCategoryData retrieve(String name) {
 		return (ArmorCategoryData) new DataHandler()
 				.retrieve(new DataKey(name, ArmorCategoryData.class))

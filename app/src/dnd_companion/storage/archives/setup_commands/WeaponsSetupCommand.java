@@ -14,7 +14,7 @@ public class WeaponsSetupCommand extends Command<Boolean>
 	public WeaponsSetupCommand() {
 		this.message = "Failed to setup weapons";
 	}
-	
+
 	@Override public void code() {
 		DataHandler data_handler = new DataHandler();
 		data_handler.save_multiple(

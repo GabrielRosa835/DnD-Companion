@@ -1,15 +1,14 @@
 package dnd_companion.entities.addons.models;
 
-import dnd_companion.common.design_patterns.Singleton;
-import dnd_companion.common.metadata.CollectionREF;
+import dnd_companion.common.design_patterns.Facade;
+import dnd_companion.common.metadata.Collections;
 
-public interface EntityCentral extends Singleton
+public interface EntityCentral extends Facade
 {
-	public Class<? extends Entity> type();
 	public EntityBuilder builder();
 	public EntityFactory factory();
 	public EntityScheme scheme();
-	public CollectionREF collection();
+	public Collections collection();
 	public String path(String entity_name);
 	public Entity retrieve(String entity_name);
 }

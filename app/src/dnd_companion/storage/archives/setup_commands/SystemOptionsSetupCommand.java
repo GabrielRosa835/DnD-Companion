@@ -1,8 +1,8 @@
 package dnd_companion.storage.archives.setup_commands;
 
 import dnd_companion.common.Command;
-import dnd_companion.entities.system_related.ActionTypeData;
-import dnd_companion.entities.system_related.DamageTypeData;
+import dnd_companion.entities.rule_related.action_types.ActionTypeData;
+import dnd_companion.entities.rule_related.damage_types.DamageTypeData;
 import dnd_companion.entities.system_related.DiceTypeData;
 import dnd_companion.storage.archives.handling.DataHandler;
 
@@ -11,7 +11,7 @@ public class SystemOptionsSetupCommand extends Command<Boolean>
 	public SystemOptionsSetupCommand() {
 		this.message = "Failed to setup system options";
 	}
-	
+
 	@Override public void code() {
 		DataHandler data_handler = new DataHandler();
 		data_handler.save_multiple(

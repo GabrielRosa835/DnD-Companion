@@ -1,21 +1,23 @@
 package dnd_companion.entities.unit_related.currency;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.addons.models.EntityScheme;
 
-public class CurrencyUnitScheme implements EntityScheme 
+public class CurrencyUnitScheme implements EntityScheme
 {
-	private String name;
-	private String plural;
-	private String abbreviation;
-	private double normalizing_factor;
-	
+	@JsonProperty private String name;
+	@JsonProperty private String singular;
+	@JsonProperty private String abbreviation;
+	@JsonProperty private double normalizing_factor;
+
 	CurrencyUnitScheme() {}
-	
+
 	@Override public CurrencyUnitScheme loadEntity(Entity entity) {
 		CurrencyUnitEntity cast_entity = (CurrencyUnitEntity) entity;
 		this.name = cast_entity.name;
-		this.plural = cast_entity.plural;
+		this.singular = cast_entity.singular;
 		this.abbreviation = cast_entity.abbreviation;
 		this.normalizing_factor = cast_entity.normalizing_factor;
 		return this;
@@ -23,7 +25,7 @@ public class CurrencyUnitScheme implements EntityScheme
 	@Override public CurrencyUnitEntity retrieveEntity() {
 		return new CurrencyUnitBuilder()
 				.name(name)
-				.plural(plural)
+				.singular(singular)
 				.abbreviation(abbreviation)
 				.normalizing_factor(normalizing_factor)
 				.build();

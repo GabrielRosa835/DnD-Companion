@@ -6,7 +6,7 @@ import dnd_companion.entities.addons.components.Price;
 import dnd_companion.entities.addons.components.Weight;
 import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.armor_related.armor_category.ArmorCategoryEntity;
-import dnd_companion.entities.item_related.item_tags.ItemTagEntity;
+import dnd_companion.entities.item_related.item_tag.ItemTagEntity;
 
 public class ArmorEntity implements Entity
 {
@@ -19,7 +19,7 @@ public class ArmorEntity implements Entity
 	private int armor_class;
 	private int strength_requirement;
 	private boolean stealth_disadvantage;
-	
+
 	@Override public String name() {return name;}
 	public Price price() {return price;}
 	public Weight weight() {return weight;}
@@ -29,12 +29,12 @@ public class ArmorEntity implements Entity
 	public int armor_class() {return this.armor_class;}
 	public int strength_requirement() {return this.strength_requirement;}
 	public boolean stealth_disadvantage() {return this.stealth_disadvantage;}
-	
+
 	ArmorEntity(
-		String name, 
-		Price price, 
-		Weight weight, 
-		ItemTagEntity[] tags, 
+		String name,
+		Price price,
+		Weight weight,
+		ItemTagEntity[] tags,
 		String description,
 		ArmorCategoryEntity category,
 		int armor_class,
@@ -53,12 +53,12 @@ public class ArmorEntity implements Entity
 	}
 	protected ArmorEntity(ArmorEntity entity) {
 		this(
-			entity.name, 
-			entity.price.clone(), 
-			entity.weight.clone(), 
+			entity.name,
+			entity.price.clone(),
+			entity.weight.clone(),
 			Arrays.stream(entity.tags)
 				.map(t -> t.clone())
-				.toArray(ItemTagEntity[]::new), 
+				.toArray(ItemTagEntity[]::new),
 			entity.description,
 			entity.category.clone(),
 			entity.armor_class,
@@ -66,7 +66,7 @@ public class ArmorEntity implements Entity
 			entity.stealth_disadvantage
 		);
 	}
-	
+
 	@Override public ArmorEntity clone() {
 		return new ArmorEntity(this);
 	}

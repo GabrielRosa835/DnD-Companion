@@ -2,12 +2,14 @@ package dnd_companion.entities.armor_related.armor;
 
 import java.util.Arrays;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.addons.models.EntityScheme;
 import dnd_companion.entities.armor_related.armor_category.ArmorCategoryCentral;
 import dnd_companion.entities.armor_related.armor_category.ArmorCategoryEntity;
-import dnd_companion.entities.item_related.item_tags.ItemTagCentral;
-import dnd_companion.entities.item_related.item_tags.ItemTagEntity;
+import dnd_companion.entities.item_related.item_tag.ItemTagCentral;
+import dnd_companion.entities.item_related.item_tag.ItemTagEntity;
 import dnd_companion.entities.unit_related.currency.CurrencyUnitCentral;
 import dnd_companion.entities.unit_related.currency.CurrencyUnitEntity;
 import dnd_companion.entities.unit_related.weight.WeightUnitCentral;
@@ -15,20 +17,20 @@ import dnd_companion.entities.unit_related.weight.WeightUnitEntity;
 
 public class ArmorScheme implements EntityScheme
 {
-	private String name;
-	private double price_value;
-	private String price_unit;
-	private double weight_value;
-	private String weight_unit;
-	private String[] tags;
-	private String description;
-	private String category;
-	private int armor_class;
-	private int strength_requirement;
-	private boolean stealth_disadvantage;
-	
+	@JsonProperty private String name;
+	@JsonProperty private double price_value;
+	@JsonProperty private String price_unit;
+	@JsonProperty private double weight_value;
+	@JsonProperty private String weight_unit;
+	@JsonProperty private String[] tags;
+	@JsonProperty private String description;
+	@JsonProperty private String category;
+	@JsonProperty private int armor_class;
+	@JsonProperty private int strength_requirement;
+	@JsonProperty private boolean stealth_disadvantage;
+
 	ArmorScheme() {}
-	
+
 	@Override public ArmorScheme loadEntity(Entity entity) {
 		ArmorEntity cast_entity = (ArmorEntity) entity;
 		this.name = cast_entity.name();
@@ -46,7 +48,7 @@ public class ArmorScheme implements EntityScheme
 		this.stealth_disadvantage = cast_entity.stealth_disadvantage();
 		return this;
 	}
-	
+
 	@Override public ArmorEntity retrieveEntity() {
 		CurrencyUnitEntity price_unit_entity = new CurrencyUnitCentral().retrieve(price_unit);
 		WeightUnitEntity weight_unit_entity = new WeightUnitCentral().retrieve(weight_unit);
@@ -66,5 +68,5 @@ public class ArmorScheme implements EntityScheme
 				.stealth_disadvantage(stealth_disadvantage)
 				.build();
 	}
-	
+
 }

@@ -2,18 +2,13 @@ package dnd_companion.entities.unit_related.currency;
 
 import java.io.File;
 
-import dnd_companion.common.metadata.CollectionREF;
-import dnd_companion.common.metadata.CollectionsMetadata;
+import dnd_companion.common.metadata.Collections;
 import dnd_companion.common.tools.ToolBox;
-import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.addons.models.EntityCentral;
-import dnd_companion.storage.DataHandler;
+import dnd_companion.storage.handling.DataHandler;
 
 public class CurrencyUnitCentral implements EntityCentral
 {
-	@Override public Class<? extends Entity> type() {
-		return CurrencyUnitEntity.class;
-	}
 	@Override public CurrencyUnitBuilder builder() {
 		return new CurrencyUnitBuilder();
 	}
@@ -23,15 +18,13 @@ public class CurrencyUnitCentral implements EntityCentral
 	@Override public CurrencyUnitScheme scheme() {
 		return new CurrencyUnitScheme();
 	}
-	@Override public CollectionREF collection() {
-		return new CollectionsMetadata().currencies();
+	@Override public Collections collection() {
+		return Collections.CURRENCIES;
 	}
 	@Override public String path(String entity_name) {
 		return collection().path() + File.separator + ToolBox.toFileName(entity_name);
 	}
 	@Override public CurrencyUnitEntity retrieve(String entity_name) {
-		return (CurrencyUnitEntity) new DataHandler()
-				.retrieve(this, entity_name)
-				.get();
+		return (CurrencyUnitEntity) DataHandler.retrieve(this, entity_name);
 	}
 }

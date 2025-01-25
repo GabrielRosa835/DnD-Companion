@@ -6,14 +6,11 @@ import dnd_companion.entities.unit_related.currency.CurrencyUnitEntity;
 public final class SilverPieces extends CurrencyUnitEntity
 {
 	public SilverPieces() {
-		super(create());
-	}
-	private static SilverPieces create() {
-		return (SilverPieces) new CurrencyUnitCentral().builder()
-				.name("Silver piece")
-				.plural("Silver pieces")
+		super(new CurrencyUnitCentral().builder()
+				.name("Silver pieces")
+				.singular("Silver piece")
 				.abbreviation("sp")
 				.normalizing_factor(10)
-				.build();
+				.build());
 	}
 }

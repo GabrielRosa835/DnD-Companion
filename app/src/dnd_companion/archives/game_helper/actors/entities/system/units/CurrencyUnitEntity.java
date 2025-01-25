@@ -1,7 +1,7 @@
 package dnd_companion.archives.game_helper.actors.entities.system.units;
 
-import dnd_companion.archives.game_helper.actors.models.Component;
-import dnd_companion.archives.local_storage.structure.models.Data;
+import javax.xml.crypto.Data;
+
 import dnd_companion.archives.local_storage.structure.system.units.CurrencyUnitData;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.metadata.CollectionsMetadata;
@@ -9,20 +9,23 @@ import dnd_companion.common.tools.ToolBox;
 import dnd_companion.entities.addons.models.types.Unit;
 import dnd_companion.storage.archives.handling.DataHandler;
 
-public class CurrencyUnitEntity implements Unit 
+public class CurrencyUnitEntity implements Unit
 {
 	private static CollectionsMetadata collections = new CollectionsMetadata();
 	private static ToolBox tools = new ToolBox();
-	
+
 	private String name;
+	@Override
 	public String name() {return this.name;}
-	
+
 	private String abbreviation;
+	@Override
 	public String abbreviation() {return this.abbreviation;}
-	
+
 	private double normalizing_factor;
+	@Override
 	public double normalizing_factor() {return this.normalizing_factor;}
-	
+
 	private CurrencyUnitEntity(String name, String abbreviation, double normalizing_factor) {
 		this.name = name;
 		this.abbreviation = abbreviation;
@@ -34,11 +37,11 @@ public class CurrencyUnitEntity implements Unit
 	private CurrencyUnitEntity(String name) {
 		this ((CurrencyUnitData) new DataHandler()
 				.retrieve(new DataKey(
-						collections.currencies(), 
+						collections.currencies(),
 						tools.to_snake_case(name).concat(".json")))
 				.result());
 	}
-	
+
 	@Override public CurrencyUnitEntity buildNull() {
 		return new CurrencyUnitEntity(null, null, 0);
 	}

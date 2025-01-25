@@ -4,7 +4,8 @@ import java.util.List;
 
 import dnd_companion.common.design_patterns.SimpleFactory;
 
-public interface EntityFactory extends SimpleFactory 
+public interface EntityFactory extends SimpleFactory
 {
 	public List<Entity> dataList();
+	public Entity defaultData();
 }

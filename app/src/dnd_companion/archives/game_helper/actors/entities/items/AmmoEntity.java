@@ -13,24 +13,24 @@ public class AmmoComponent implements ItemComponent
 {
 	private String name;
 	@Override public String name() {return this.name;}
-	
+
 	private Price price;
 	@Override public Price price() {return this.price;}
-	
+
 	private Weight weight;
 	@Override public Weight weight() {return this.weight;}
-	
+
 	private ItemTagEntity[] tags;
 	@Override public ItemTagEntity[] tags() {return this.tags;}
-	
+
 	private String description;
 	@Override public String description() {return this.description;}
-	
+
 	private AmmoComponent (
-		String name, 
-		Price price, 
-		Weight weight, 
-		ItemTagEntity[] tags, 
+		String name,
+		Price price,
+		Weight weight,
+		ItemTagEntity[] tags,
 		String description
 	) {
 		this.name = name;
@@ -40,10 +40,10 @@ public class AmmoComponent implements ItemComponent
 		this.description = description;
 	}
 	private AmmoComponent (
-		String name, 
-		double price_value, String price_unit, 
+		String name,
+		double price_value, String price_unit,
 		double weight_value, String weight_unit,
-		String[] tags, 
+		String[] tags,
 		String description
 	) {
 		this(
@@ -56,12 +56,12 @@ public class AmmoComponent implements ItemComponent
 	}
 	private AmmoComponent(AmmoData data) {
 		this(
-			data.name(), 
-			data.price_value(), 
-			data.price_unit(), 
-			data.weight_value(), 
-			data.weight_unit(), 
-			data.tags(), 
+			data.name(),
+			data.price_value(),
+			data.price_unit(),
+			data.weight_value(),
+			data.weight_unit(),
+			data.tags(),
 			data.description()
 		);
 	}
@@ -71,7 +71,7 @@ public class AmmoComponent implements ItemComponent
 	public AmmoComponent(String name) {
 		this(new AmmoComponent().retrieve(name));
 	}
-	
+
 	@Override public AmmoData retrieve(String name) {
 		return (AmmoData) new DataHandler()
 				.retrieve(new DataKey(new AmmoData().collection(), name, AmmoData.class))

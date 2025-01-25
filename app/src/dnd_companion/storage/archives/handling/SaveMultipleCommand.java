@@ -2,18 +2,19 @@ package dnd_companion.storage.archives.handling;
 
 import java.util.Arrays;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
+import javax.xml.crypto.Data;
+
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.Command;
 
 public class SaveMultipleCommand extends Command<Data[]>
 {
 	private final DataHandler handler = new DataHandler();
-	
+
 	private final Data[] data_group;
-	
+
 	private final DataKey[] keys;
-			
+
 	public SaveMultipleCommand(Data[] data_group) {
 		this.data_group = data_group;
 		this.keys = Arrays.stream(data_group).map(data -> new DataKey(data)).toArray(DataKey[]::new);

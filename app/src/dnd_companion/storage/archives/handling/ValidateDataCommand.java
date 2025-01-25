@@ -1,6 +1,7 @@
 package dnd_companion.storage.archives.handling;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
+import javax.xml.crypto.Data;
+
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.Command;
 import dnd_companion.common.exceptions.DataNotFoundException;
@@ -9,7 +10,7 @@ public class ValidateDataCommand extends Command<Data>
 {
 	private final Data data;
 	private final DataKey key;
-	
+
 	public ValidateDataCommand(Data data) {
 		this.data = data;
 		this.key = new DataKey(data);

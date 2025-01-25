@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-22"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-22">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="W:/Meu Drive/MyDrive - Storage/Java Libraries/jackson-annotations-2.18.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="W:/Meu Drive/MyDrive - Storage/Java Libraries/jackson-core-2.18.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="W:/Meu Drive/MyDrive - Storage/Java Libraries/jackson-databind-2.18.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/Documents/1. WOW/Programação/4. Full Projects/DnD-Companion/app/libraries/jackson-annotations-2.18.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/Documents/1. WOW/Programação/4. Full Projects/DnD-Companion/app/libraries/jackson-core-2.18.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/Documents/1. WOW/Programação/4. Full Projects/DnD-Companion/app/libraries/jackson-databind-2.18.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

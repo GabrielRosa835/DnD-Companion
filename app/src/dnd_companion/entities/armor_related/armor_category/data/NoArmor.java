@@ -6,11 +6,8 @@ import dnd_companion.entities.armor_related.armor_category.ArmorCategoryEntity;
 public final class NoArmor extends ArmorCategoryEntity
 {
 	public NoArmor() {
-		super(create());
-	}
-	private static NoArmor create() {
-		return (NoArmor) new ArmorCategoryCentral().builder()
+		super(new ArmorCategoryCentral().builder()
 				.name("Unarmored")
-				.build();
+				.build());
 	}
 }

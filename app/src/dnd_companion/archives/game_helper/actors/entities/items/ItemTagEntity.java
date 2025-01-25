@@ -1,6 +1,5 @@
 package dnd_companion.archives.game_helper.actors.entities.items;
 
-import dnd_companion.app.local_storage.handling.DataHandler;
 import dnd_companion.app.local_storage.tools.DataKey;
 import dnd_companion.archives.game_helper.actors.data.items.tags.ItemTagData;
 

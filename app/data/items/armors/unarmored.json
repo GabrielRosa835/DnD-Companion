@@ -1,0 +1,13 @@
+{
+  "name" : "Unarmored",
+  "price_value" : 0.0,
+  "price_unit" : "No Currency",
+  "weight_value" : 0.0,
+  "weight_unit" : "No name",
+  "tags" : [ ],
+  "description" : "No description",
+  "category" : "Unarmored",
+  "armor_class" : 10,
+  "strength_requirement" : 0,
+  "stealth_disadvantage" : false
+}

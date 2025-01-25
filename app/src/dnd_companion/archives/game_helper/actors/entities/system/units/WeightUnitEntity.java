@@ -7,7 +7,7 @@ import dnd_companion.common.tools.ToolBox;
 import dnd_companion.entities.addons.models.types.Unit;
 import dnd_companion.storage.archives.handling.DataHandler;
 
-public class WeightUnitEntity implements Unit 
+public class WeightUnitEntity implements Unit
 {
  // ===============================================================================
 	/*
@@ -18,38 +18,41 @@ public class WeightUnitEntity implements Unit
 	private static UnitsMetadata units = new UnitsMetadata();
 	private static ToolBox tools = new ToolBox();
  // ===============================================================================
-	
+
  // ===============================================================================
 	/*
 	 * Attributes definitions and their getters
 	 */
 	private String name;
+	@Override
 	public String name() {return this.name;}
-	
+
 	private String abbreviation;
+	@Override
 	public String abbreviation() {return this.abbreviation;}
-	
+
 	private double normalizing_factor;
+	@Override
 	public double normalizing_factor() {return this.normalizing_factor;}
  // ===============================================================================
-	
+
  // ===============================================================================
 	/*
 	 * Component Constructors
 	 */
-	
+
 	// Primitive Constructor
 	private WeightUnitEntity(String name, String abbreviation, double normalizing_factor) {
 		this.name = name;
 		this.abbreviation = abbreviation;
 		this.normalizing_factor = normalizing_factor;
 	}
-	
+
 	// Data Constructor
 	private WeightUnitEntity(WeightUnitData data) {
 		this(data.name(), data.abbreviation(), data.normalizing_factor());
 	}
-	
+
 	// Naming Constructor
 	public WeightUnitEntity(String name) {
 		this ((WeightUnitData) handler
@@ -57,7 +60,7 @@ public class WeightUnitEntity implements Unit
 				.result());
 	}
  // ===============================================================================
-	
+
  // ===============================================================================
 	/*
 	 * Method that creates a new and non-referenced component

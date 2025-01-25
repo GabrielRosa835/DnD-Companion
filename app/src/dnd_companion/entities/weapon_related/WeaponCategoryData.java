@@ -1,6 +1,7 @@
 package dnd_companion.entities.weapon_related;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
+import javax.xml.crypto.Data;
+
 import dnd_companion.common.metadata.CollectionREF;
 
 public record WeaponCategoryData (

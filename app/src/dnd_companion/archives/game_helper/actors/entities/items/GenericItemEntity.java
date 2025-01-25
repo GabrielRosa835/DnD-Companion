@@ -8,26 +8,26 @@ import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.common.tools.ToolBox;
 import dnd_companion.entities.addons.components.Price;
 import dnd_companion.entities.addons.components.Weight;
-import dnd_companion.entities.item_related.GenericItemData;
+import dnd_companion.entities.item_related.generic_item.GenericItemData;
 import dnd_companion.storage.archives.handling.DataHandler;
 
 public class GenericItemEntity implements ItemComponent
 {
 	private String name;
 	@Override public String name() {return this.name;}
-	
+
 	private Price price;
 	@Override public Price price() {return this.price;}
-	
+
 	private Weight weight;
 	@Override public Weight weight() {return this.weight;}
-	
+
 	private ItemTagEntity[] tags;
 	@Override public ItemTagEntity[] tags() {return this.tags;}
-	
+
 	private String description;
 	@Override public String description() {return this.description;}
-	
+
 	private GenericItemEntity(
 		String name,
 		double price_value, String price_unit,
@@ -44,10 +44,10 @@ public class GenericItemEntity implements ItemComponent
 		);
 	}
 	private GenericItemEntity (
-		String name, 
-		Price price, 
-		Weight weight, 
-		ItemTagEntity[] tags, 
+		String name,
+		Price price,
+		Weight weight,
+		ItemTagEntity[] tags,
 		String description
 	) {
 		this.name = name;
@@ -70,11 +70,11 @@ public class GenericItemEntity implements ItemComponent
 	public GenericItemEntity(String name) {
 		this ((GenericItemData) new DataHandler()
 				.retrieve(new DataKey(
-						new CollectionsMetadata().generic_items, 
+						new CollectionsMetadata().generic_items,
 						ToolBox.to_snake_case(name).concat(".json")))
 				.result());
 	}
-	
+
 	@Override public GenericItemEntity copy() {
 		return new GenericItemEntity(
 			this.name,

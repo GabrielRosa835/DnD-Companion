@@ -8,6 +8,6 @@ public interface Item
 	public String name();
 	public Price price();
 	public Weight weight();
-	public String[] tags();	
+	public String[] tags();
 	public String description();
 }

@@ -1,0 +1,6 @@
+{
+  "name" : "Minutes",
+  "singular" : "Minute",
+  "abbreviation" : "min",
+  "normalizing_factor" : 60.0
+}

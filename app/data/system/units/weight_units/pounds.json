@@ -1,0 +1,6 @@
+{
+  "name" : "Pounds",
+  "singular" : "Pound",
+  "abbreviation" : "lbs",
+  "normalizing_factor" : 2.20462
+}

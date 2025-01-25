@@ -1,0 +1,6 @@
+{
+  "name" : "Gold pieces",
+  "singular" : "Gold piece",
+  "abbreviation" : "gp",
+  "normalizing_factor" : 100.0
+}

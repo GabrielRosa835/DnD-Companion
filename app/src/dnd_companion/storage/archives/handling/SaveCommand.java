@@ -6,10 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import javax.xml.crypto.Data;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.Command;
 import dnd_companion.common.exceptions.DataAlreadyExistsException;

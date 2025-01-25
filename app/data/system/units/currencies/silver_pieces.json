@@ -1,0 +1,6 @@
+{
+  "name" : "Silver pieces",
+  "singular" : "Silver piece",
+  "abbreviation" : "sp",
+  "normalizing_factor" : 10.0
+}

@@ -2,7 +2,8 @@ package dnd_companion.storage.archives.handling;
 
 import java.util.Arrays;
 
-import dnd_companion.archives.local_storage.structure.models.Data;
+import javax.xml.crypto.Data;
+
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.Command;
 
@@ -10,7 +11,7 @@ public class UpdateMultipleCommand extends Command<Data[]>
 {
 	private final Data[] data_collection;
 	private final DataKey[] keys;
-			
+
 	public UpdateMultipleCommand(Data[] data_collection) {
 		this.data_collection = data_collection;
 		this.keys = Arrays.stream(data_collection).map(data -> new DataKey(data)).toArray(DataKey[]::new);

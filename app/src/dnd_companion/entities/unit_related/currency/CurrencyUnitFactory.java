@@ -6,23 +6,23 @@ import java.util.List;
 import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.addons.models.EntityFactory;
 import dnd_companion.entities.unit_related.currency.data.CopperPieces;
+import dnd_companion.entities.unit_related.currency.data.DefaultCurrencyUnit;
 import dnd_companion.entities.unit_related.currency.data.ElectrumPieces;
 import dnd_companion.entities.unit_related.currency.data.GoldPieces;
-import dnd_companion.entities.unit_related.currency.data.NullCurrencyUnit;
 import dnd_companion.entities.unit_related.currency.data.PlatinumPieces;
 import dnd_companion.entities.unit_related.currency.data.SilverPieces;
 
 public class CurrencyUnitFactory implements EntityFactory
 {
 	CurrencyUnitFactory() {}
-	
+
 	@Override public List<Entity> dataList() {
-		return Arrays.asList(nullCurrencyUnit(), copperPieces(), silverPieces(), electrumPieces(), goldPieces(), platinumPieces());
+		return Arrays.asList(copperPieces(), silverPieces(), electrumPieces(), goldPieces(), platinumPieces());
 	}
-	
-	public CurrencyUnitEntity nullCurrencyUnit() {
-		return new NullCurrencyUnit();
+	@Override public Entity defaultData() {
+		return new DefaultCurrencyUnit();
 	}
+
 	public CurrencyUnitEntity copperPieces() {
 		return new CopperPieces();
 	}

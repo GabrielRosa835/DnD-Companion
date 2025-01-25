@@ -6,14 +6,11 @@ import dnd_companion.entities.unit_related.weight.WeightUnitEntity;
 public final class Ounces extends WeightUnitEntity
 {
 	public Ounces() {
-		super(create());
-	}
-	private static Ounces create() {
-		return (Ounces) new WeightUnitCentral().builder()
-				.name("Ounce")
-				.plural("Ounces")
+		super(new WeightUnitCentral().builder()
+				.name("Ounces")
+				.singular("Ounce")
 				.abbreviation("oz")
 				.normalizing_factor(35.274)
-				.build();
+				.build());
 	}
 }
