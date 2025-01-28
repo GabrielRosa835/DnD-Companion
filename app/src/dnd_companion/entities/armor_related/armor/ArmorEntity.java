@@ -2,8 +2,8 @@ package dnd_companion.entities.armor_related.armor;
 
 import java.util.Arrays;
 
-import dnd_companion.entities.addons.components.Price;
-import dnd_companion.entities.addons.components.Weight;
+import dnd_companion.entities.addons.components.measure.Price;
+import dnd_companion.entities.addons.components.measure.Weight;
 import dnd_companion.entities.addons.models.Entity;
 import dnd_companion.entities.armor_related.armor_category.ArmorCategoryEntity;
 import dnd_companion.entities.item_related.item_tag.ItemTagEntity;

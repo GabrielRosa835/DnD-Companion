@@ -61,10 +61,8 @@ public class RetrieveMultipleCommand implements Command
 
     private List<String> limitFilter(int limit, List<String> list) {
     	int size = list.size();
-    	if (limit == 0
-			|| size == 0
-			|| limit >= size
-			|| limit <= -size
+    	if (limit == 0 || size == 0
+			|| Integer.compareUnsigned(limit, size) <= 0
 		) {
     		return list;
         }

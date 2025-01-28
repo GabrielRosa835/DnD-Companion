@@ -6,7 +6,7 @@
   "weight_unit" : "Pounds",
   "tags" : [ "Armor" ],
   "description" : "No description",
-  "category" : "Heavy",
+  "category" : "Light",
   "armor_class" : 16,
   "strength_requirement" : 13,
   "stealth_disadvantage" : true
