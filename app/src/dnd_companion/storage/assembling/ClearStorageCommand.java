@@ -8,13 +8,13 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
+import dnd_companion.common.BaseCollections;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.common.metadata.Collections;
 
 public class ClearStorageCommand implements Command
 {
 	public void execute() {
-		Path path = Paths.get(Collections.DATA.path());
+		Path path = Paths.get(BaseCollections.DATA.path());
 		if(!Files.exists(path)) {
 			return;
 		}

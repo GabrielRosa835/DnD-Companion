@@ -3,18 +3,18 @@ package dnd_companion.storage.assembling;
 import java.util.Arrays;
 import java.util.List;
 
+import dnd_companion.actors.entities.armor.ArmorCentral;
+import dnd_companion.actors.entities.armor.category.ArmorCategoryCentral;
+import dnd_companion.actors.entities.item.item_tag.ItemTagCentral;
+import dnd_companion.actors.entities.rules.condition.ConditionCentral;
+import dnd_companion.actors.entities.system.unit.currency.CurrencyUnitCentral;
+import dnd_companion.actors.entities.system.unit.length.LengthUnitCentral;
+import dnd_companion.actors.entities.system.unit.time.TimeUnitCentral;
+import dnd_companion.actors.entities.system.unit.weight.WeightUnitCentral;
+import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.common.BaseCollections;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.common.metadata.Collections;
-import dnd_companion.entities.addons.models.Entity;
-import dnd_companion.entities.addons.models.EntityCentral;
-import dnd_companion.entities.armor_related.armor.ArmorCentral;
-import dnd_companion.entities.armor_related.armor_category.ArmorCategoryCentral;
-import dnd_companion.entities.item_related.item_tag.ItemTagCentral;
-import dnd_companion.entities.rule_related.condition.ConditionCentral;
-import dnd_companion.entities.unit_related.currency.CurrencyUnitCentral;
-import dnd_companion.entities.unit_related.length.LengthUnitCentral;
-import dnd_companion.entities.unit_related.time.TimeUnitCentral;
-import dnd_companion.entities.unit_related.weight.WeightUnitCentral;
 import dnd_companion.storage.handling.DataHandler;
 
 public class SetupStorageCommand implements Command
@@ -33,7 +33,7 @@ public class SetupStorageCommand implements Command
 	public void execute() {
 		StorageAssembler.clearData();
 
-		for (Collections collection : Collections.mapping().keySet()) {
+		for (BaseCollections collection : BaseCollections.mapping().keySet()) {
 			StorageAssembler.createDirectory(collection.path());
 		}
 

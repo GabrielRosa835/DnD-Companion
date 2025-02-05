@@ -1,10 +1,9 @@
 package dnd_companion.common;
 
-import dnd_companion.common.tools.ToolBox;
+import dnd_companion.actors.components.rules.Health;
 import dnd_companion.effects.health.DoubleDamageDealEffect;
 import dnd_companion.effects.health.SimpleDamageDealEffect;
 import dnd_companion.effects.health.SimpleHealEffect;
-import dnd_companion.entities.addons.components.Health;
 
 public class Main
 {

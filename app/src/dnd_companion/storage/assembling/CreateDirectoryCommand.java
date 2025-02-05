@@ -5,8 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import dnd_companion.common.ToolBox;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.common.tools.ToolBox;
 
 public class CreateDirectoryCommand implements Command
 {

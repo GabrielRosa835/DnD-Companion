@@ -6,10 +6,10 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
+import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.EntityScheme;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.entities.addons.models.Entity;
-import dnd_companion.entities.addons.models.EntityCentral;
-import dnd_companion.entities.addons.models.EntityScheme;
 
 public class RetrieveEntityCommand implements Command
 {
@@ -33,6 +33,7 @@ public class RetrieveEntityCommand implements Command
 			result = scheme.retrieveEntity();
 		} catch (IOException e) {
 			e.printStackTrace();
+			result = null;
 		}
 		return this;
 	}

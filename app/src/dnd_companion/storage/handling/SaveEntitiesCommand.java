@@ -6,11 +6,11 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.common.ToolBox;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.common.tools.ToolBox;
-import dnd_companion.entities.addons.models.Entity;
-import dnd_companion.entities.addons.models.EntityCentral;
-import dnd_companion.entities.addons.models.EntityScheme;
 
 public class SaveEntitiesCommand implements Command
 {
@@ -24,7 +24,7 @@ public class SaveEntitiesCommand implements Command
 		this.entities = entities;
 	}
 
-	public void execute() {
+	public boolean execute() {
 		for (Entity entity : entities) {
 			String path = central.path(entity.name());
 			File file = new File(path);
@@ -33,7 +33,9 @@ public class SaveEntitiesCommand implements Command
 				mapper.writeValue(file, scheme);
 			} catch (IOException e) {
 				ToolBox.exceptionHandler(e);
+				return false;
 			}
 		}
+		return true;
 	}
 }

@@ -10,10 +10,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.common.ToolBox;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.common.tools.ToolBox;
-import dnd_companion.entities.addons.models.Entity;
-import dnd_companion.entities.addons.models.EntityCentral;
 
 public class RetrieveMultipleCommand implements Command
 {
