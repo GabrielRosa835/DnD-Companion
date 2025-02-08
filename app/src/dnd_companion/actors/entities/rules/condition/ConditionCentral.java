@@ -15,7 +15,7 @@ public class ConditionCentral implements EntityCentral
 	private static ConditionCentral instance;
 	private ConditionCentral() {}
 	public static ConditionCentral use() {
-		return instance != null? new ConditionCentral() : instance;
+		return instance == null? new ConditionCentral() : instance;
 	}
 	
 	@Override public ConditionBuilder builder() {

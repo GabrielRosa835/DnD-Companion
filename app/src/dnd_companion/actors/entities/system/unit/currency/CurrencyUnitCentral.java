@@ -19,7 +19,7 @@ public class CurrencyUnitCentral implements EntityCentral
 	private static CurrencyUnitCentral instance;
 	private CurrencyUnitCentral() {}
 	public static CurrencyUnitCentral use() {
-		return instance != null? new CurrencyUnitCentral() : instance;
+		return instance == null? new CurrencyUnitCentral() : instance;
 	}
 	
 	@Override public CurrencyUnitBuilder builder() {

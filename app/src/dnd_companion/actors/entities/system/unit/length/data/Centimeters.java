@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.length.LengthUnitEntity;
 public class Centimeters extends LengthUnitEntity
 {
 	public Centimeters() {
-		super(new LengthUnitCentral().builder()
+		super(LengthUnitCentral.use().builder()
 				.name("Centimeters")
 				.singularForm("Centimeter")
 				.abbreviation("cm")

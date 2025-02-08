@@ -17,7 +17,7 @@ public class WeightUnitCentral implements EntityCentral
 	private static WeightUnitCentral instance;
 	private WeightUnitCentral() {}
 	public static WeightUnitCentral use() {
-		if (instance != null) {
+		if (instance == null) {
 			return new WeightUnitCentral();
 		} else {
 			return instance;

@@ -1,6 +1,6 @@
 {
   "name" : "Silver pieces",
-  "singular" : "Silver piece",
+  "singularForm" : "Silver piece",
   "abbreviation" : "sp",
-  "normalizing_factor" : 10.0
+  "normalizingFactor" : 10.0
 }

@@ -20,14 +20,14 @@ import dnd_companion.storage.handling.DataHandler;
 public class SetupStorageCommand implements Command
 {
 	private List<EntityCentral> centralList = Arrays.asList(
-			new ArmorCentral(),
-			new ArmorCategoryCentral(),
-			new ItemTagCentral(),
-			new ConditionCentral(),
-			new	CurrencyUnitCentral(),
-			new LengthUnitCentral(),
-			new TimeUnitCentral(),
-			new WeightUnitCentral()
+			ArmorCentral.use(),
+			ArmorCategoryCentral.use(),
+			ItemTagCentral.use(),
+			ConditionCentral.use(),
+			CurrencyUnitCentral.use(),
+			LengthUnitCentral.use(),
+			TimeUnitCentral.use(),
+			WeightUnitCentral.use()
 			);
 
 	public void execute() {
@@ -38,8 +38,8 @@ public class SetupStorageCommand implements Command
 		}
 
 		for (EntityCentral central : centralList) {
-			List<Entity> entityList = central.factory().dataList();
-			DataHandler.save(central, entityList.toArray(Entity[]::new));
+			Entity[] entities = central.data();
+			DataHandler.save(central, entities);
 		}
 	}
 }

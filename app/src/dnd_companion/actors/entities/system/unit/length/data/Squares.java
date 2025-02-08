@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.length.LengthUnitEntity;
 public class Squares extends LengthUnitEntity
 {
 	public Squares() {
-		super(new LengthUnitCentral().builder()
+		super(LengthUnitCentral.use().builder()
 				.name("Squares")
 				.singularForm("Square")
 				.abbreviation("sq")

@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.weight.WeightUnitEntity;
 public final class Ounces extends WeightUnitEntity
 {
 	public Ounces() {
-		super(new WeightUnitCentral().builder()
+		super(WeightUnitCentral.use().builder()
 				.name("Ounces")
 				.singularForm("Ounce")
 				.abbreviation("oz")

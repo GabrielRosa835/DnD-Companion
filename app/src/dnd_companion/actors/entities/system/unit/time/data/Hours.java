@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.time.TimeUnitEntity;
 public class Hours extends TimeUnitEntity
 {
 	public Hours() {
-		super(new TimeUnitCentral().builder()
+		super(TimeUnitCentral.use().builder()
 				.name("Hours")
 				.singularForm("Hour")
 				.abbreviation("h")

@@ -17,7 +17,7 @@ public class ArmorCentral implements EntityCentral
 	private static ArmorCentral instance;
 	private ArmorCentral() {}
 	public static ArmorCentral use() {
-		return instance != null? new ArmorCentral() : instance;
+		return instance == null? new ArmorCentral() : instance;
 	}
 	
 	@Override public ArmorBuilder builder() {

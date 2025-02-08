@@ -6,6 +6,6 @@ import dnd_companion.actors.entities.system.unit.weight.WeightUnitEntity;
 public class NormalWeightUnit extends WeightUnitEntity
 {
 	public NormalWeightUnit() {
-		super(new WeightUnitCentral().builder().build());
+		super(WeightUnitCentral.use().builder().build());
 	}
 }

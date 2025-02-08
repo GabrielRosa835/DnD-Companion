@@ -1,6 +1,6 @@
 {
   "name" : "Platinum pieces",
-  "singular" : "Platinum piece",
+  "singularForm" : "Platinum piece",
   "abbreviation" : "pp",
-  "normalizing_factor" : 1000.0
+  "normalizingFactor" : 1000.0
 }

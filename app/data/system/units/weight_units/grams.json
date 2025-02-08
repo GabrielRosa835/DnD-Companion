@@ -1,6 +1,6 @@
 {
   "name" : "Grams",
-  "singular" : "Gram",
+  "singularForm" : "Gram",
   "abbreviation" : "g",
-  "normalizing_factor" : 1000.0
+  "normalizingFactor" : 1000.0
 }

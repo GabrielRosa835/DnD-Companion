@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.length.LengthUnitEntity;
 public class Inches extends LengthUnitEntity
 {
 	public Inches() {
-		super(new LengthUnitCentral().builder()
+		super(LengthUnitCentral.use().builder()
 				.name("Inches")
 				.singularForm("Inch")
 				.abbreviation("in")

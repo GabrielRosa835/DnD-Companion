@@ -1,6 +1,6 @@
 {
   "name" : "Weeks",
-  "singular" : "Week",
+  "singularForm" : "Week",
   "abbreviation" : "wk",
-  "normalizing_factor" : 0.00595238
+  "normalizingFactor" : 0.00595238
 }

@@ -21,7 +21,7 @@ public class ItemTagCentral implements EntityCentral
 	private static ItemTagCentral instance;
 	private ItemTagCentral() {}
 	public static ItemTagCentral use() {
-		return instance != null? new ItemTagCentral() : instance;
+		return instance == null? new ItemTagCentral() : instance;
 	}
 	
 	@Override public ItemTagBuilder builder() {

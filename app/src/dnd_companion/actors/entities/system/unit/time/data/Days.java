@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.time.TimeUnitEntity;
 public class Days extends TimeUnitEntity
 {
 	public Days() {
-		super(new TimeUnitCentral().builder()
+		super(TimeUnitCentral.use().builder()
 				.name("Days")
 				.singularForm("Day")
 				.abbreviation("dd")

@@ -6,6 +6,6 @@ import dnd_companion.actors.entities.system.unit.time.TimeUnitEntity;
 public class NormalTimeUnit extends TimeUnitEntity
 {
 	public NormalTimeUnit() {
-		super(new TimeUnitCentral().builder().build());
+		super(TimeUnitCentral.use().builder().build());
 	}
 }

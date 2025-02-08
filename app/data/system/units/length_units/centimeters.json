@@ -1,6 +1,6 @@
 {
   "name" : "Centimeters",
-  "singular" : "Centimeter",
+  "singularForm" : "Centimeter",
   "abbreviation" : "cm",
-  "normalizing_factor" : 100.0
+  "normalizingFactor" : 100.0
 }

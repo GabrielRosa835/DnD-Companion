@@ -1,6 +1,6 @@
 {
   "name" : "Hours",
-  "singular" : "Hour",
+  "singularForm" : "Hour",
   "abbreviation" : "h",
-  "normalizing_factor" : 1.0
+  "normalizingFactor" : 1.0
 }

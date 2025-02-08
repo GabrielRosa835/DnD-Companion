@@ -1,6 +1,6 @@
 {
   "name" : "Copper pieces",
-  "singular" : "Copper piece",
+  "singularForm" : "Copper piece",
   "abbreviation" : "cp",
-  "normalizing_factor" : 1.0
+  "normalizingFactor" : 1.0
 }

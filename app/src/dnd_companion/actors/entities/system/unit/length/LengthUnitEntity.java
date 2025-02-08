@@ -2,7 +2,6 @@ package dnd_companion.actors.entities.system.unit.length;
 
 import dnd_companion.actors.models.Entity;
 import dnd_companion.actors.models.types.Unit;
-import dnd_companion.effects.Effect;
 
 public class LengthUnitEntity implements Entity, Unit
 {
@@ -35,21 +34,5 @@ public class LengthUnitEntity implements Entity, Unit
 	}
 	@Override public LengthUnitEntity clone() {
 		return new LengthUnitEntity(this);
-	}
-	@Override public LengthUnitEntity applyEffect(Effect e) {
-		InterEffect effect = (InterEffect) e;
-		effect.loadObject(this);
-		this.name = effect.changeName();
-		this.singularForm = effect.changeSingularForm();
-		this.abbreviation = effect.changeAbbreviation();
-		this.normalizingFactor = effect.changeNormalizingFactor();
-		return this;
-	}
-	
-	public interface InterEffect extends Effect {
-		public String changeName();
-		public String changeSingularForm();
-		public String changeAbbreviation();
-		public double changeNormalizingFactor();
 	}
 }

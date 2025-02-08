@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.time.TimeUnitEntity;
 public class Weeks extends TimeUnitEntity
 {
 	public Weeks() {
-		super(new TimeUnitCentral().builder()
+		super(TimeUnitCentral.use().builder()
 				.name("Weeks")
 				.singularForm("Week")
 				.abbreviation("wk")

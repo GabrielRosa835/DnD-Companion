@@ -1,6 +1,6 @@
 {
   "name" : "Days",
-  "singular" : "Day",
+  "singularForm" : "Day",
   "abbreviation" : "dd",
-  "normalizing_factor" : 0.0416667
+  "normalizingFactor" : 0.0416667
 }

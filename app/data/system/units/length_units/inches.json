@@ -1,6 +1,6 @@
 {
   "name" : "Inches",
-  "singular" : "Inch",
+  "singularForm" : "Inch",
   "abbreviation" : "in",
-  "normalizing_factor" : 39.3701
+  "normalizingFactor" : 39.3701
 }

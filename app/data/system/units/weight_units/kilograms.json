@@ -1,6 +1,6 @@
 {
   "name" : "Kilograms",
-  "singular" : "Kilogram",
+  "singularForm" : "Kilogram",
   "abbreviation" : "kg",
-  "normalizing_factor" : 1.0
+  "normalizingFactor" : 1.0
 }

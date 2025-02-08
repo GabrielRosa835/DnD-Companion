@@ -17,7 +17,7 @@ public class ArmorCategoryCentral implements EntityCentral
 	private static ArmorCategoryCentral instance;
 	private ArmorCategoryCentral() {}
 	public static ArmorCategoryCentral use() {
-		return instance != null? new ArmorCategoryCentral() : instance;
+		return instance == null? new ArmorCategoryCentral() : instance;
 	}
 	
 	@Override public ArmorCategoryBuilder builder() {

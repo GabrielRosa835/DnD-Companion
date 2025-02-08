@@ -1,6 +1,6 @@
 {
   "name" : "Seconds",
-  "singular" : "Second",
+  "singularForm" : "Second",
   "abbreviation" : "s",
-  "normalizing_factor" : 3600.0
+  "normalizingFactor" : 3600.0
 }

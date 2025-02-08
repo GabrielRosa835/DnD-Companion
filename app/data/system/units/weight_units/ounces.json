@@ -1,6 +1,6 @@
 {
   "name" : "Ounces",
-  "singular" : "Ounce",
+  "singularForm" : "Ounce",
   "abbreviation" : "oz",
-  "normalizing_factor" : 35.274
+  "normalizingFactor" : 35.274
 }

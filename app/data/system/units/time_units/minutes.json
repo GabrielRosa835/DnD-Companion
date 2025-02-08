@@ -1,6 +1,6 @@
 {
   "name" : "Minutes",
-  "singular" : "Minute",
+  "singularForm" : "Minute",
   "abbreviation" : "min",
-  "normalizing_factor" : 60.0
+  "normalizingFactor" : 60.0
 }

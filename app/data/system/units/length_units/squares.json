@@ -1,6 +1,6 @@
 {
   "name" : "Squares",
-  "singular" : "Square",
+  "singularForm" : "Square",
   "abbreviation" : "sq",
-  "normalizing_factor" : 1.5
+  "normalizingFactor" : 1.5
 }

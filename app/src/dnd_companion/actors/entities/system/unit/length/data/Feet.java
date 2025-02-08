@@ -6,7 +6,7 @@ import dnd_companion.actors.entities.system.unit.length.LengthUnitEntity;
 public class Feet extends LengthUnitEntity
 {
 	public Feet() {
-		super(new LengthUnitCentral().builder()
+		super(LengthUnitCentral.use().builder()
 				.name("Feet")
 				.singularForm("Foot")
 				.abbreviation("ft")
