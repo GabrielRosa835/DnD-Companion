@@ -9,12 +9,12 @@ import dnd_companion.actors.entities.system.unit.time.data.Minutes;
 import dnd_companion.actors.entities.system.unit.time.data.NormalTimeUnit;
 import dnd_companion.actors.entities.system.unit.time.data.Seconds;
 import dnd_companion.actors.entities.system.unit.time.data.Weeks;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class TimeUnitCentral implements EntityCentral
+public class TimeUnitCentral implements IEntityCentral
 {
 	private static TimeUnitCentral instance;
 	private TimeUnitCentral() {}

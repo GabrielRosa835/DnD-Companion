@@ -3,15 +3,15 @@ package dnd_companion.actors.entities.item.weapons;
 import java.util.Arrays;
 import java.util.List;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityFactory;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntity;
 
 public class WeaponFactory implements EntityFactory
 {
-	@Override public List<Entity> dataList() {
+	@Override public List<IEntity> dataList() {
 		 return Arrays.asList(null);
 	}
-	@Override public Entity defaultData() {
+	@Override public IEntity defaultData() {
 		return new DefaultWeapon();
 	}
 	

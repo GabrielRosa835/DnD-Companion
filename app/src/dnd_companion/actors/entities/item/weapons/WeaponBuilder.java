@@ -13,9 +13,9 @@ import dnd_companion.actors.entities.item.weapons.type.WeaponTypeEntity;
 import dnd_companion.actors.entities.system.unit.currency.data.NormalCurrencyUnit;
 import dnd_companion.actors.entities.system.unit.length.LengthUnitEntity;
 import dnd_companion.actors.entities.system.unit.weight.data.NormalWeightUnit;
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class WeaponBuilder implements EntityBuilder
+public class WeaponBuilder implements IEntityBuilder
 {
 	private String name = "No name";
 	private Price price = new Price(1, new NormalCurrencyUnit());

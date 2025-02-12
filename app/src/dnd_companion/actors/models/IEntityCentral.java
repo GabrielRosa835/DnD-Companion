@@ -4,12 +4,12 @@ import dnd_companion.common.BaseCollections;
 import dnd_companion.common.design_patterns.Facade;
 import dnd_companion.common.design_patterns.Singleton;
 
-public interface EntityCentral extends Facade, Singleton
+public interface IEntityCentral extends Facade, Singleton
 {
-	public EntityBuilder builder();
-	public EntityScheme scheme();
+	public IEntityBuilder builder();
+	public IEntityScheme scheme();
 	public BaseCollections collection();
 	public String path(String entity_name);
-	public Entity retrieve(String entity_name);
-	public Entity[] data();
+	public IEntity retrieve(String entity_name);
+	public IData[] data();
 }

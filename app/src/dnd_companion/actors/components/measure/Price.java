@@ -1,12 +1,12 @@
 package dnd_companion.actors.components.measure;
 
 import dnd_companion.actors.entities.system.unit.currency.CurrencyUnitEntity;
-import dnd_companion.actors.models.Component;
+import dnd_companion.actors.models.IComponent;
 import dnd_companion.actors.models.types.Measure;
-import dnd_companion.effects.Effect;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class Price implements Component, Measure, Effectable
+public class Price implements IComponent, Measure, Effectable
 {
 	private double value;
 	@Override public double value() {return this.value;}
@@ -29,7 +29,7 @@ public class Price implements Component, Measure, Effectable
 		return String.format("Price[value=%.2f, unit=%s]",
 				value, unit.toString());
 	}
-	@Override public Price applyEffect(Effect e) {
+	@Override public Price applyEffect(IEffect e) {
 		PriceEffect effect = (PriceEffect) e;
 		effect.loadObject(this);
 		this.value = effect.changeValue();

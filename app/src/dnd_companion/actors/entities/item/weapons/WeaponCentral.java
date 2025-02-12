@@ -1,12 +1,12 @@
 package dnd_companion.actors.entities.item.weapons;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityCentral;
-import dnd_companion.actors.models.EntityFactory;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityCentral;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 import dnd_companion.common.BaseCollections;
 
-public class WeaponCentral implements EntityCentral
+public class WeaponCentral implements IEntityCentral
 {
 	@Override public WeaponBuilder builder() {
 		return new WeaponBuilder();
@@ -19,7 +19,7 @@ public class WeaponCentral implements EntityCentral
 	}
 
 	@Override
-	public EntityScheme scheme() {
+	public IEntityScheme scheme() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,7 +37,7 @@ public class WeaponCentral implements EntityCentral
 	}
 
 	@Override
-	public Entity retrieve(String entity_name) {
+	public IEntity retrieve(String entity_name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

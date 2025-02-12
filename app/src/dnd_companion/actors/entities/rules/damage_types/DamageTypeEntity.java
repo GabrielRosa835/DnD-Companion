@@ -1,8 +1,8 @@
 package dnd_companion.actors.entities.rules.damage_types;
 
-import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.IEntity;
 
-public class DamageTypeEntity implements Entity
+public class DamageTypeEntity implements IEntity
 {
 	private String name;
 	

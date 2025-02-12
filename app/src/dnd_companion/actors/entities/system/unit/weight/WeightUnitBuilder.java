@@ -1,8 +1,8 @@
 package dnd_companion.actors.entities.system.unit.weight;
 
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class WeightUnitBuilder implements EntityBuilder
+public class WeightUnitBuilder implements IEntityBuilder
 {
 	private String name = "Normal";
 	private String singularForm = "Normal";

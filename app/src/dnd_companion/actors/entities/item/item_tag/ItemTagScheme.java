@@ -1,17 +1,15 @@
 package dnd_companion.actors.entities.item.item_tag;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityScheme;
-
-public class ItemTagScheme implements EntityScheme
+public class ItemTagScheme implements IEntityScheme
 {
-	@JsonProperty private String name;
+	private String name;
 
 	ItemTagScheme() {}
 
-	@Override public ItemTagScheme loadEntity(Entity entity) {
+	@Override public ItemTagScheme loadEntity(IEntity entity) {
 		ItemTagEntity cast_entity = (ItemTagEntity) entity;
 		this.name = cast_entity.name();
 		return this;

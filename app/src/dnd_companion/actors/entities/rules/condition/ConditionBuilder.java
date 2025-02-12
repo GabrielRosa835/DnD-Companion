@@ -1,8 +1,8 @@
 package dnd_companion.actors.entities.rules.condition;
 
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class ConditionBuilder implements EntityBuilder
+public class ConditionBuilder implements IEntityBuilder
 {
 	private String name = "No name";
 	private String description = "No description";

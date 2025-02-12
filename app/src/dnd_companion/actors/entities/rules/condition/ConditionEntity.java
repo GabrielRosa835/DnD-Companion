@@ -1,9 +1,9 @@
 package dnd_companion.actors.entities.rules.condition;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.effects.IEffect;
 
-public class ConditionEntity implements Entity
+public class ConditionEntity implements IEntity
 {
 	private String name;
 	private String description;
@@ -27,7 +27,7 @@ public class ConditionEntity implements Entity
 				name, description);
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public String changeName();
 		public String changeDescription();
 	}

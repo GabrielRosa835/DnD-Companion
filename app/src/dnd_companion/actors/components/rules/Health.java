@@ -1,10 +1,10 @@
 package dnd_companion.actors.components.rules;
 
-import dnd_companion.actors.models.Component;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IComponent;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class Health implements Component, Effectable
+public class Health implements IComponent, Effectable
 {
 	private int currentHitPoints;
 	private int maximumHitPoints;
@@ -31,7 +31,7 @@ public class Health implements Component, Effectable
 				currentHitPoints, maximumHitPoints, temporaryHitPoints);
 	}
 	
-	@Override public Health applyEffect(Effect e) {
+	@Override public Health applyEffect(IEffect e) {
 		HealthEffect effect = (HealthEffect) e;
 		effect.loadObject(this);
 		this.currentHitPoints = effect.changeCurrentHitPoints();
@@ -40,7 +40,7 @@ public class Health implements Component, Effectable
 		return this;
 	}
 	
-	public interface HealthEffect extends Effect {		
+	public interface HealthEffect extends IEffect {		
 		public int changeCurrentHitPoints();
 		public int changeMaximumHitPoints();
 		public int changeTemporaryHitPoints();

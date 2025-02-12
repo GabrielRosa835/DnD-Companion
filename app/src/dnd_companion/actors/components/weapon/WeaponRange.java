@@ -1,11 +1,11 @@
 package dnd_companion.actors.components.weapon;
 
 import dnd_companion.actors.components.measure.Length;
-import dnd_companion.actors.models.Component;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IComponent;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class WeaponRange implements Component, Effectable
+public class WeaponRange implements IComponent, Effectable
 {
 	private Length minRange;
 	private Length maxRange;
@@ -25,7 +25,7 @@ public class WeaponRange implements Component, Effectable
 	@Override public WeaponRange clone() {
 		return new WeaponRange(this);
 	}
-	@Override public WeaponRange applyEffect(Effect effect) {
+	@Override public WeaponRange applyEffect(IEffect effect) {
 		InterEffect e = (InterEffect) effect;
 		e.loadObject(this);
 		this.minRange = e.changeMinRange();
@@ -33,7 +33,7 @@ public class WeaponRange implements Component, Effectable
 		return this;
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public Length changeMinRange();
 		public Length changeMaxRange();
 	}

@@ -11,15 +11,15 @@ import dnd_companion.actors.entities.system.unit.currency.CurrencyUnitCentral;
 import dnd_companion.actors.entities.system.unit.length.LengthUnitCentral;
 import dnd_companion.actors.entities.system.unit.time.TimeUnitCentral;
 import dnd_companion.actors.entities.system.unit.weight.WeightUnitCentral;
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.design_patterns.Command;
 import dnd_companion.storage.handling.DataHandler;
 
 public class SetupStorageCommand implements Command
 {
-	private List<EntityCentral> centralList = Arrays.asList(
+	private List<IEntityCentral> centralList = Arrays.asList(
 			ArmorCentral.use(),
 			ArmorCategoryCentral.use(),
 			ItemTagCentral.use(),
@@ -37,8 +37,8 @@ public class SetupStorageCommand implements Command
 			StorageAssembler.createDirectory(collection.path());
 		}
 
-		for (EntityCentral central : centralList) {
-			Entity[] entities = central.data();
+		for (IEntityCentral central : centralList) {
+			IEntity[] entities = central.data();
 			DataHandler.save(central, entities);
 		}
 	}

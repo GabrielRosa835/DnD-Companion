@@ -1,9 +1,9 @@
 package dnd_companion.actors.entities.item.weapons.category;
 
-import dnd_companion.actors.models.Component;
+import dnd_companion.actors.models.IComponent;
 import dnd_companion.app.local_storage.tools.DataKey;
 
-public class WeaponCategoryEntity implements Component
+public class WeaponCategoryEntity implements IComponent
 {
 	private String name;
 	public String name() {return this.name;}

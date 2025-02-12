@@ -1,8 +1,8 @@
 package dnd_companion.actors.entities.system.unit.time;
 
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class TimeUnitBuilder implements EntityBuilder
+public class TimeUnitBuilder implements IEntityBuilder
 {
 	private String name = "Normal";
 	private String singularForm = "Normal";

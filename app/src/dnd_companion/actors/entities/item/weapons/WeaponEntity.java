@@ -11,12 +11,12 @@ import dnd_companion.actors.entities.item.weapons.category.WeaponCategoryEntity;
 import dnd_companion.actors.entities.item.weapons.mastery.WeaponMasteryEntity;
 import dnd_companion.actors.entities.item.weapons.properties.WeaponPropertyEntity;
 import dnd_companion.actors.entities.item.weapons.type.WeaponTypeEntity;
-import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.IEntity;
 import dnd_companion.actors.models.types.Item;
-import dnd_companion.effects.Effect;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class WeaponEntity implements Entity, Item, Effectable
+public class WeaponEntity implements IEntity, Item, Effectable
 {
 	private String name;
 	private Price price;
@@ -92,7 +92,7 @@ public class WeaponEntity implements Entity, Item, Effectable
 				name, price.toString(), weight.toString(), Arrays.toString(tags), description, type.toString(),
 				category.toString(), mastery.toString(), Arrays.toString(properties), damage.toString(), range.toString());
 	}
-	@Override public WeaponEntity applyEffect(Effect e) {
+	@Override public WeaponEntity applyEffect(IEffect e) {
 		InterEffect effect = (InterEffect) e;
 		effect.loadObject(this);
 		this.name = effect.changeName();
@@ -109,7 +109,7 @@ public class WeaponEntity implements Entity, Item, Effectable
 		return this;
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public String changeName();
 		public Price changePrice();
 		public Weight changeWeight();

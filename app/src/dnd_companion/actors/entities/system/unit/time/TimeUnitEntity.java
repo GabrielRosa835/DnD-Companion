@@ -1,9 +1,9 @@
 package dnd_companion.actors.entities.system.unit.time;
 
-import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.IEntity;
 import dnd_companion.actors.models.types.Unit;
 
-public class TimeUnitEntity implements Entity, Unit
+public class TimeUnitEntity implements IEntity, Unit
 {
 	private String name;
 	private String singularForm;

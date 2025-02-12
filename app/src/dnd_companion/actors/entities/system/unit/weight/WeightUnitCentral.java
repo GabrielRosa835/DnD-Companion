@@ -7,12 +7,12 @@ import dnd_companion.actors.entities.system.unit.weight.data.Grams;
 import dnd_companion.actors.entities.system.unit.weight.data.Kilograms;
 import dnd_companion.actors.entities.system.unit.weight.data.Ounces;
 import dnd_companion.actors.entities.system.unit.weight.data.Pounds;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class WeightUnitCentral implements EntityCentral
+public class WeightUnitCentral implements IEntityCentral
 {
 	private static WeightUnitCentral instance;
 	private WeightUnitCentral() {}

@@ -2,10 +2,10 @@ package dnd_companion.actors.entities.system.unit.time;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 
-public class TimeUnitScheme implements EntityScheme
+public class TimeUnitScheme implements IEntityScheme
 {
 	@JsonProperty private String name;
 	@JsonProperty private String singularForm;
@@ -14,7 +14,7 @@ public class TimeUnitScheme implements EntityScheme
 
 	TimeUnitScheme() {}
 
-	@Override public TimeUnitScheme loadEntity(Entity entity) {
+	@Override public TimeUnitScheme loadEntity(IEntity entity) {
 		TimeUnitEntity cast_entity = (TimeUnitEntity) entity;
 		this.name = cast_entity.name();
 		this.singularForm = cast_entity.singularForm();

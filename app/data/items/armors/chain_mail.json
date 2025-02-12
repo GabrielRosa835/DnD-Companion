@@ -1,12 +1,32 @@
 {
   "name" : "Chain Mail",
-  "priceValue" : 75.0,
-  "priceUnit" : "Gold pieces",
-  "weightValue" : 55.0,
-  "weightUnit" : "Pounds",
-  "tags" : [ "Armor" ],
+  "price" : {
+    "value" : 75.0,
+    "unit" : {
+      "name" : "Gold pieces",
+      "singularForm" : "Gold piece",
+      "abbreviation" : "gp",
+      "normalizingFactor" : 100.0
+    }
+  },
+  "weight" : {
+    "value" : 55.0,
+    "unit" : {
+      "name" : "Pounds",
+      "singularForm" : "Pound",
+      "abbreviation" : "lbs",
+      "normalizingFactor" : 2.20462
+    }
+  },
+  "tags" : [ {
+    "name" : "Armor",
+    "id" : 0
+  } ],
   "description" : "No description",
-  "category" : "Heavy",
+  "category" : {
+    "name" : "Heavy",
+    "description" : "No description"
+  },
   "armorClass" : 16,
   "strengthRequirement" : 13,
   "stealthDisadvantage" : true

@@ -1,8 +1,8 @@
 package dnd_companion.actors.entities.system.unit.length;
 
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class LengthUnitBuilder implements EntityBuilder
+public class LengthUnitBuilder implements IEntityBuilder
 {
 	private String name = "Normal";
 	private String singularForm = "Normal";

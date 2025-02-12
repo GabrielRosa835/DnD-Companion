@@ -1,12 +1,12 @@
 package dnd_companion.actors.components.measure;
 
 import dnd_companion.actors.entities.system.unit.length.LengthUnitEntity;
-import dnd_companion.actors.models.Component;
+import dnd_companion.actors.models.IComponent;
 import dnd_companion.actors.models.types.Measure;
-import dnd_companion.effects.Effect;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class Length implements Component, Measure, Effectable
+public class Length implements IComponent, Measure, Effectable
 {
 	private double value;
 	private LengthUnitEntity unit;
@@ -30,7 +30,7 @@ public class Length implements Component, Measure, Effectable
 				value, unit.toString());
 	}
 	
-	@Override public Length applyEffect(Effect e) {
+	@Override public Length applyEffect(IEffect e) {
 		LengthEffect effect = (LengthEffect) e;
 		effect.loadObject(this);
 		this.value = effect.changeValue();

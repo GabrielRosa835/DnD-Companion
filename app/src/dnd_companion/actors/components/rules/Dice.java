@@ -1,9 +1,9 @@
 package dnd_companion.actors.components.rules;
 
-import dnd_companion.actors.models.Component;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IComponent;
+import dnd_companion.effects.IEffect;
 
-public class Dice implements Component
+public class Dice implements IComponent
 {
 	private int maximumValue;
 	
@@ -21,7 +21,7 @@ public class Dice implements Component
 		return new Dice(this);
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public int changeMaximumValue();
 	}
 }

@@ -1,9 +1,9 @@
 package dnd_companion.actors.entities.system.unit.length;
 
-import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.IEntity;
 import dnd_companion.actors.models.types.Unit;
 
-public class LengthUnitEntity implements Entity, Unit
+public class LengthUnitEntity implements IEntity, Unit
 {
 	private String name;
 	private String singularForm;

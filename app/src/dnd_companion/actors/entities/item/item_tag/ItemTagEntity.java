@@ -1,15 +1,21 @@
 package dnd_companion.actors.entities.item.item_tag;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.effects.Effect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ItemTagEntity implements Entity
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.effects.IEffect;
+
+public class ItemTagEntity implements IEntity
 {
-	private String name;
+	@JsonProperty private String name;
 	@Override public String name() {return name;}
+	
+	@JsonProperty private int id;
+	public int id() {return id;}
 
 	ItemTagEntity(String name) {
 		this.name = name;
+		this.id = (int) Math.floor(Math.random());
 	}
 	protected ItemTagEntity(ItemTagEntity entity) {
 		this(entity.name);
@@ -22,7 +28,7 @@ public class ItemTagEntity implements Entity
 		return String.format("ItemTag[name=%s]", name);
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public String changeName();
 	}
 }

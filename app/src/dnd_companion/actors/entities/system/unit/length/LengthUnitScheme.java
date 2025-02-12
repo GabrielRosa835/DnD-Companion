@@ -2,10 +2,10 @@ package dnd_companion.actors.entities.system.unit.length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 
-public class LengthUnitScheme implements EntityScheme
+public class LengthUnitScheme implements IEntityScheme
 {
 	@JsonProperty private String name;
 	@JsonProperty private String singularForm;
@@ -14,7 +14,7 @@ public class LengthUnitScheme implements EntityScheme
 
 	LengthUnitScheme() {}
 
-	@Override public LengthUnitScheme loadEntity(Entity entity) {
+	@Override public LengthUnitScheme loadEntity(IEntity entity) {
 		LengthUnitEntity cast_entity = (LengthUnitEntity) entity;
 		this.name = cast_entity.name();
 		this.singularForm = cast_entity.singularForm();

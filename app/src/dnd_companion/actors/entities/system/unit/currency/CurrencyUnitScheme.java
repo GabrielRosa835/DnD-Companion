@@ -2,10 +2,10 @@ package dnd_companion.actors.entities.system.unit.currency;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 
-public class CurrencyUnitScheme implements EntityScheme
+public class CurrencyUnitScheme implements IEntityScheme
 {
 	@JsonProperty private String name;
 	@JsonProperty private String singularForm;
@@ -14,7 +14,7 @@ public class CurrencyUnitScheme implements EntityScheme
 
 	CurrencyUnitScheme() {}
 
-	@Override public CurrencyUnitScheme loadEntity(Entity entity) {
+	@Override public CurrencyUnitScheme loadEntity(IEntity entity) {
 		CurrencyUnitEntity cast_entity = (CurrencyUnitEntity) entity;
 		this.name = cast_entity.name();
 		this.singularForm = cast_entity.singularForm();

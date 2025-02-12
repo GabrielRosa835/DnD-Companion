@@ -6,9 +6,9 @@ import dnd_companion.actors.entities.armor.category.ArmorCategoryEntity;
 import dnd_companion.actors.entities.item.item_tag.ItemTagEntity;
 import dnd_companion.actors.entities.system.unit.currency.data.NormalCurrencyUnit;
 import dnd_companion.actors.entities.system.unit.weight.data.NormalWeightUnit;
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class ArmorBuilder implements EntityBuilder
+public class ArmorBuilder implements IEntityBuilder
 {
 	private String name = "No name";
 	private Price price = new Price(1, new NormalCurrencyUnit());

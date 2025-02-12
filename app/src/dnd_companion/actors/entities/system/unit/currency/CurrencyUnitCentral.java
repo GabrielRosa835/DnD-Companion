@@ -9,12 +9,12 @@ import dnd_companion.actors.entities.system.unit.currency.data.GoldPieces;
 import dnd_companion.actors.entities.system.unit.currency.data.NormalCurrencyUnit;
 import dnd_companion.actors.entities.system.unit.currency.data.PlatinumPieces;
 import dnd_companion.actors.entities.system.unit.currency.data.SilverPieces;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class CurrencyUnitCentral implements EntityCentral
+public class CurrencyUnitCentral implements IEntityCentral
 {
 	private static CurrencyUnitCentral instance;
 	private CurrencyUnitCentral() {}

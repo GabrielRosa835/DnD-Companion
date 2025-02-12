@@ -7,12 +7,12 @@ import dnd_companion.actors.entities.armor.category.data.HeavyArmor;
 import dnd_companion.actors.entities.armor.category.data.LightArmor;
 import dnd_companion.actors.entities.armor.category.data.MediumArmor;
 import dnd_companion.actors.entities.armor.category.data.NoArmor;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class ArmorCategoryCentral implements EntityCentral
+public class ArmorCategoryCentral implements IEntityCentral
 {
 	private static ArmorCategoryCentral instance;
 	private ArmorCategoryCentral() {}

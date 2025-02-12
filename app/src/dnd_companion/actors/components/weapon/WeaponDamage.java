@@ -2,11 +2,11 @@ package dnd_companion.actors.components.weapon;
 
 import dnd_companion.actors.components.rules.Dice;
 import dnd_companion.actors.entities.rules.damage_types.DamageTypeEntity;
-import dnd_companion.actors.models.Component;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IComponent;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class WeaponDamage implements Component, Effectable
+public class WeaponDamage implements IComponent, Effectable
 {
 	private int diceAmmount;
 	private Dice dice;
@@ -34,7 +34,7 @@ public class WeaponDamage implements Component, Effectable
 	@Override public WeaponDamage clone() {
 		return new WeaponDamage(this);
 	}
-	@Override public WeaponDamage applyEffect(Effect effect) {
+	@Override public WeaponDamage applyEffect(IEffect effect) {
 		InterEffect e = (InterEffect) effect;
 		e.loadObject(this);
 		this.diceAmmount = e.changeDiceAmmount();
@@ -44,7 +44,7 @@ public class WeaponDamage implements Component, Effectable
 		return this;
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public int changeDiceAmmount();
 		public Dice changeDice();
 		public DamageTypeEntity changeDamageType();

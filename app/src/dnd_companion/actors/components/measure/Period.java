@@ -1,12 +1,12 @@
 package dnd_companion.actors.components.measure;
 
 import dnd_companion.actors.entities.system.unit.time.TimeUnitEntity;
-import dnd_companion.actors.models.Component;
+import dnd_companion.actors.models.IComponent;
 import dnd_companion.actors.models.types.Measure;
-import dnd_companion.effects.Effect;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class Period implements Component, Measure, Effectable
+public class Period implements IComponent, Measure, Effectable
 {
 	private double value;
 	@Override public double value() {return this.value;}
@@ -30,7 +30,7 @@ public class Period implements Component, Measure, Effectable
 				value, unit.toString());
 	}
 	
-	@Override public Period applyEffect(Effect e) {
+	@Override public Period applyEffect(IEffect e) {
 		PeriodEffect effect = (PeriodEffect) e;
 		effect.loadObject(this);
 		this.value = effect.changeValue();

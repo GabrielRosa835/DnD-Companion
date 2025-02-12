@@ -1,12 +1,12 @@
 package dnd_companion.actors.components.measure;
 
 import dnd_companion.actors.entities.system.unit.weight.WeightUnitEntity;
-import dnd_companion.actors.models.Component;
+import dnd_companion.actors.models.IComponent;
 import dnd_companion.actors.models.types.Measure;
-import dnd_companion.effects.Effect;
+import dnd_companion.effects.IEffect;
 import dnd_companion.effects.Effectable;
 
-public class Weight implements Component, Measure, Effectable
+public class Weight implements IComponent, Measure, Effectable
 {
 	private double value;
 	@Override public double value() {return this.value;}
@@ -30,7 +30,7 @@ public class Weight implements Component, Measure, Effectable
 				value, unit.toString());
 	}
 	
-	@Override public Weight applyEffect(Effect e) {
+	@Override public Weight applyEffect(IEffect e) {
 		WeightEffect effect = (WeightEffect) e;
 		effect.loadObject(this);
 		this.value = effect.changeValue();

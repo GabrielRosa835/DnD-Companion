@@ -6,20 +6,20 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityCentral;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityCentral;
+import dnd_companion.actors.models.IEntityScheme;
 import dnd_companion.common.design_patterns.Command;
 
 public class RetrieveEntityCommand implements Command
 {
-	private EntityCentral central;
+	private IEntityCentral central;
 	private String entity_name;
 
-	private Entity result;
-	public Entity result() {return result;}
+	private IEntity result;
+	public IEntity result() {return result;}
 
-	RetrieveEntityCommand(EntityCentral central, String entity_name) {
+	RetrieveEntityCommand(IEntityCentral central, String entity_name) {
 		this.central = central;
 		this.entity_name = entity_name;
 	}
@@ -29,7 +29,7 @@ public class RetrieveEntityCommand implements Command
 		String path = central.path(entity_name);
 		File file = new File(path);
 		try {
-			EntityScheme scheme = reader.readValue(file);
+			IEntityScheme scheme = reader.readValue(file);
 			result = scheme.retrieveEntity();
 		} catch (IOException e) {
 			e.printStackTrace();

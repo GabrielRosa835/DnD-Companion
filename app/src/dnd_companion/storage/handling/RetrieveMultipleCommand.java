@@ -10,19 +10,19 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.ToolBox;
 import dnd_companion.common.design_patterns.Command;
 
 public class RetrieveMultipleCommand implements Command
 {
-	private EntityCentral central;
+	private IEntityCentral central;
     private String regex = ".*";
     private int limit = 0;
 
-    private List<Entity> result;
-    public List<Entity> result() {return result;}
+    private List<IEntity> result;
+    public List<IEntity> result() {return result;}
 
     public RetrieveMultipleCommand filter(String regex) {
     	this.regex = regex;
@@ -33,12 +33,12 @@ public class RetrieveMultipleCommand implements Command
     	return this;
     }
 
-    public RetrieveMultipleCommand(EntityCentral central) {
+    public RetrieveMultipleCommand(IEntityCentral central) {
         this.central = central;
     }
 
     public RetrieveMultipleCommand execute() {
-        List<Entity> entity_list = new ArrayList<>();
+        List<IEntity> entity_list = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
         try (Stream<Path> paths = Files.walk(Paths.get(central.collection().path()))) {
             List<String> file_names = paths
@@ -47,7 +47,7 @@ public class RetrieveMultipleCommand implements Command
                 .collect(Collectors.toList());
             List<String> limited_file_names = limitFilter(limit, file_names);
             for (String file_name : limited_file_names) {
-                Entity entity = DataHandler.retrieve(central, file_name);
+                IEntity entity = DataHandler.retrieve(central, file_name);
                 if (pattern.matcher(entity.name()).matches()) {
                     entity_list.add(entity);
                 }

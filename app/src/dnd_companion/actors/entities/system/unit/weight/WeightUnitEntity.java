@@ -1,10 +1,10 @@
 package dnd_companion.actors.entities.system.unit.weight;
 
-import dnd_companion.actors.models.Entity;
+import dnd_companion.actors.models.IEntity;
 import dnd_companion.actors.models.types.Unit;
-import dnd_companion.effects.Effect;
+import dnd_companion.effects.IEffect;
 
-public class WeightUnitEntity implements Entity, Unit
+public class WeightUnitEntity implements IEntity, Unit
 {
 	private String name;
 	private String singularForm;
@@ -34,7 +34,7 @@ public class WeightUnitEntity implements Entity, Unit
 				name, singularForm, abbreviation, normalizingFactor);
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public String changeName();
 		public String changeSingularForm();
 		public String changeAbbreviation();

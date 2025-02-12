@@ -6,11 +6,11 @@ import dnd_companion.actors.components.measure.Price;
 import dnd_companion.actors.components.measure.Weight;
 import dnd_companion.actors.entities.armor.category.ArmorCategoryEntity;
 import dnd_companion.actors.entities.item.item_tag.ItemTagEntity;
-import dnd_companion.actors.models.Entity;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IEntity;
 import dnd_companion.effects.Effectable;
+import dnd_companion.effects.IEffect;
 
-public class ArmorEntity implements Entity, Effectable
+public class ArmorEntity implements IEntity, Effectable
 {
 	private String name;
 	private Price price;
@@ -53,6 +53,7 @@ public class ArmorEntity implements Entity, Effectable
 		this.strengthRequirement = strengthRequirement;
 		this.stealthDisadvantage = stealthDisadvantage;
 	}
+	
 	protected ArmorEntity(ArmorEntity entity) {
 		this(
 			entity.name,
@@ -68,16 +69,17 @@ public class ArmorEntity implements Entity, Effectable
 			entity.stealthDisadvantage
 		);
 	}
-
 	@Override public ArmorEntity clone() {
 		return new ArmorEntity(this);
 	}
+	
 	@Override public String toString() {
 		return String.format("Armor[name=%s, price=%s, weight=%s, tags=%s, description=%s]",
 				name, price.toString(), weight.toString(), Arrays.toString(tags), description);
 	}
-	@Override public ArmorEntity applyEffect(Effect e) {
-		InterEffect effect = (InterEffect) e;
+	
+	@Override public ArmorEntity applyEffect(IEffect e) {
+		ArmorEffect effect = (ArmorEffect) e;
 		effect.loadObject(this);
 		this.name = effect.changeName();
 		this.price = effect.changePrice();
@@ -89,17 +91,5 @@ public class ArmorEntity implements Entity, Effectable
 		this.strengthRequirement = effect.changeStrengthRequirement();
 		this.stealthDisadvantage = effect.changeStealthDisadvantage();
 		return this;
-	}
-	
-	public interface InterEffect extends Effect {
-		public String changeName();
-		public Price changePrice();
-		public Weight changeWeight();
-		public ItemTagEntity[] changeTags();
-		public String changeDescription();
-		public ArmorCategoryEntity changeCategory();
-		public int changeArmorClass();
-		public int changeStrengthRequirement();
-		public boolean changeStealthDisadvantage();
 	}
 }

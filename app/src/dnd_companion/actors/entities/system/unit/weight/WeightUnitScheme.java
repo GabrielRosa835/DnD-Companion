@@ -2,10 +2,10 @@ package dnd_companion.actors.entities.system.unit.weight;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 
-public class WeightUnitScheme implements EntityScheme
+public class WeightUnitScheme implements IEntityScheme
 {
 	@JsonProperty private String name;
 	@JsonProperty private String singularForm;
@@ -14,7 +14,7 @@ public class WeightUnitScheme implements EntityScheme
 
 	WeightUnitScheme() {}
 
-	@Override public WeightUnitScheme loadEntity(Entity entity) {
+	@Override public WeightUnitScheme loadEntity(IEntity entity) {
 		WeightUnitEntity cast_entity = (WeightUnitEntity) entity;
 		this.name = cast_entity.name();
 		this.singularForm = cast_entity.singularForm();

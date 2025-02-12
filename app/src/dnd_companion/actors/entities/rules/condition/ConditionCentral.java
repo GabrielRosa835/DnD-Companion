@@ -5,12 +5,12 @@ import java.util.Arrays;
 
 import dnd_companion.actors.entities.rules.condition.data.Blinded;
 import dnd_companion.actors.entities.rules.condition.data.Poisoned;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class ConditionCentral implements EntityCentral
+public class ConditionCentral implements IEntityCentral
 {
 	private static ConditionCentral instance;
 	private ConditionCentral() {}

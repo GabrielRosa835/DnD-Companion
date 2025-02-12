@@ -2,5 +2,5 @@ package dnd_companion.effects;
 
 public interface Effectable 
 {
-	public Effectable applyEffect(Effect effect);
+	public Effectable applyEffect(IEffect effect);
 }

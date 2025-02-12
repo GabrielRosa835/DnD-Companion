@@ -2,8 +2,6 @@ package dnd_companion.actors.entities.armor;
 
 import java.util.Arrays;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import dnd_companion.actors.components.measure.Price;
 import dnd_companion.actors.components.measure.Weight;
 import dnd_companion.actors.entities.armor.category.ArmorCategoryCentral;
@@ -12,26 +10,26 @@ import dnd_companion.actors.entities.item.item_tag.ItemTagCentral;
 import dnd_companion.actors.entities.item.item_tag.ItemTagEntity;
 import dnd_companion.actors.entities.system.unit.currency.CurrencyUnitCentral;
 import dnd_companion.actors.entities.system.unit.weight.WeightUnitCentral;
-import dnd_companion.actors.models.Entity;
-import dnd_companion.actors.models.EntityScheme;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IEntityScheme;
 
-public class ArmorScheme implements EntityScheme
+public class ArmorScheme implements IEntityScheme
 {
-	@JsonProperty private String name;
-	@JsonProperty private double priceValue;
-	@JsonProperty private String priceUnit;
-	@JsonProperty private double weightValue;
-	@JsonProperty private String weightUnit;
-	@JsonProperty private String[] tags;
-	@JsonProperty private String description;
-	@JsonProperty private String category;
-	@JsonProperty private int armorClass;
-	@JsonProperty private int strengthRequirement;
-	@JsonProperty private boolean stealthDisadvantage;
+	private String name;
+	private double priceValue;
+	private String priceUnit;
+	private double weightValue;
+	private String weightUnit;
+	private String[] tags;
+	private String description;
+	private String category;
+	private int armorClass;
+	private int strengthRequirement;
+	private boolean stealthDisadvantage;
 
 	ArmorScheme() {}
 
-	@Override public ArmorScheme loadEntity(Entity e) {
+	@Override public ArmorScheme loadEntity(IEntity e) {
 		ArmorEntity entity = (ArmorEntity) e;
 		this.name = entity.name();
 		this.priceValue = entity.price().value();
@@ -68,5 +66,4 @@ public class ArmorScheme implements EntityScheme
 				.stealth_disadvantage(stealthDisadvantage)
 				.build();
 	}
-
 }

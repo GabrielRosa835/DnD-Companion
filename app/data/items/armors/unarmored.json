@@ -1,12 +1,29 @@
 {
   "name" : "Unarmored",
-  "priceValue" : 1.0,
-  "priceUnit" : "Normal",
-  "weightValue" : 1.0,
-  "weightUnit" : "Normal",
+  "price" : {
+    "value" : 1.0,
+    "unit" : {
+      "name" : "Normal",
+      "singularForm" : "Normal",
+      "abbreviation" : "norm",
+      "normalizingFactor" : 1.0
+    }
+  },
+  "weight" : {
+    "value" : 1.0,
+    "unit" : {
+      "name" : "Normal",
+      "singularForm" : "Normal",
+      "abbreviation" : "norm",
+      "normalizingFactor" : 1.0
+    }
+  },
   "tags" : [ ],
   "description" : "No description",
-  "category" : "Unarmored",
+  "category" : {
+    "name" : "Unarmored",
+    "description" : "No description"
+  },
   "armorClass" : 10,
   "strengthRequirement" : 0,
   "stealthDisadvantage" : false

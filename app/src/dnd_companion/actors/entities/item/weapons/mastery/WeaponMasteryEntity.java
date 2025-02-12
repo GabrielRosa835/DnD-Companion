@@ -1,12 +1,12 @@
 package dnd_companion.actors.entities.item.weapons.mastery;
 
-import dnd_companion.actors.models.Component;
+import dnd_companion.actors.models.IComponent;
 import dnd_companion.archives.local_storage.tools.DataKey;
 import dnd_companion.common.ToolBox;
 import dnd_companion.common.metadata.CollectionsMetadata;
 import dnd_companion.storage.archives.handling.DataHandler;
 
-public class WeaponMasteryEntity implements Component
+public class WeaponMasteryEntity implements IComponent
 {
 	private String name;
 	public String name() {return this.name;}

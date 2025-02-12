@@ -1,8 +1,8 @@
 package dnd_companion.actors.entities.armor.category;
 
-import dnd_companion.actors.models.EntityBuilder;
+import dnd_companion.actors.models.IEntityBuilder;
 
-public class ArmorCategoryBuilder implements EntityBuilder
+public class ArmorCategoryBuilder implements IEntityBuilder
 {
 	private String name = "No name";
 	private String description = "No description";

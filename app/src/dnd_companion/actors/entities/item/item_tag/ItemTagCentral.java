@@ -11,12 +11,12 @@ import dnd_companion.actors.entities.item.item_tag.data.InstrumentTag;
 import dnd_companion.actors.entities.item.item_tag.data.MagicalTag;
 import dnd_companion.actors.entities.item.item_tag.data.ToolTag;
 import dnd_companion.actors.entities.item.item_tag.data.WeaponTag;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class ItemTagCentral implements EntityCentral
+public class ItemTagCentral implements IEntityCentral
 {
 	private static ItemTagCentral instance;
 	private ItemTagCentral() {}

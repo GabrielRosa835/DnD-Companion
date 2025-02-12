@@ -2,7 +2,7 @@ package dnd_companion.actors.models;
 
 import dnd_companion.common.design_patterns.Builder;
 
-public interface EntityBuilder extends Builder
+public interface IEntityBuilder extends Builder
 {
-	public Entity build();
+	public IEntity build();
 }

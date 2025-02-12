@@ -1,10 +1,10 @@
 package dnd_companion.actors.entities.armor.category;
 
 import dnd_companion.actors.components.measure.Period;
-import dnd_companion.actors.models.Entity;
-import dnd_companion.effects.Effect;
+import dnd_companion.actors.models.IEntity;
+import dnd_companion.effects.IEffect;
 
-public class ArmorCategoryEntity implements Entity
+public class ArmorCategoryEntity implements IEntity
 {
 	private String name;
 	private String description;
@@ -37,7 +37,7 @@ public class ArmorCategoryEntity implements Entity
 				name, description);
 	}
 	
-	public interface InterEffect extends Effect {
+	public interface InterEffect extends IEffect {
 		public String changeName();
 		public String changeDescription();
 	}

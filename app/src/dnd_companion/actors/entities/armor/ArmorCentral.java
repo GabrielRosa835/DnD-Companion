@@ -7,12 +7,12 @@ import dnd_companion.actors.entities.armor.data.ChainMail;
 import dnd_companion.actors.entities.armor.data.LeatherArmor;
 import dnd_companion.actors.entities.armor.data.ScaleMail;
 import dnd_companion.actors.entities.armor.data.Unarmored;
-import dnd_companion.actors.models.EntityCentral;
+import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.ToolBox;
 import dnd_companion.storage.handling.DataHandler;
 
-public class ArmorCentral implements EntityCentral
+public class ArmorCentral implements IEntityCentral
 {
 	private static ArmorCentral instance;
 	private ArmorCentral() {}
@@ -35,12 +35,7 @@ public class ArmorCentral implements EntityCentral
 	@Override public ArmorEntity retrieve(String entity_name) {
 		return (ArmorEntity) DataHandler.retrieve(this, entity_name);
 	}
-	@Override public ArmorEntity[] data() {
-		return Arrays.asList(
-				new ChainMail(),
-				new LeatherArmor(),
-				new ScaleMail(),
-				new Unarmored())
-				.toArray(ArmorEntity[]::new);
+	@Override public ArmorData[] data() {
+		return ArmorData.values();
 	}
 }
