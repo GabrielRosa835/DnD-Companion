@@ -10,7 +10,10 @@ public class StorageAssembler implements Facade
 	public static void clearData() {
 		new ClearStorageCommand().execute();
 	}
-	public static void setup() {
-		new SetupStorageCommand().execute();
+	public static void setupFileSystem() {
+		new SetupFileSystemCommand().execute();
+	}
+	public static void setupEntities() {
+		new SetupEntitiesCommand().execute();
 	}
 }

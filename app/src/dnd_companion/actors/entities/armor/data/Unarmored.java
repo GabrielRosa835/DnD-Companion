@@ -1,15 +1,13 @@
 package dnd_companion.actors.entities.armor.data;
 
-import dnd_companion.actors.entities.armor.ArmorCentral;
-import dnd_companion.actors.entities.armor.ArmorEntity;
-import dnd_companion.actors.entities.armor.category.data.NoArmor;
+import dnd_companion.actors.entities.armor.Armor;
 
-public final class Unarmored extends ArmorEntity
+public final class Unarmored extends Armor
 {
 	public Unarmored() {
-		super(ArmorCentral.use().builder()
+		super(Armor.builder()
 				.name("Unarmored")
-				.category(new NoArmor())
+				.category(Armor.Category.UNARMORED)
 				.build());
 	}
 }

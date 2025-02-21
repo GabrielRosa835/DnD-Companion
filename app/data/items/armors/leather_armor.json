@@ -1,33 +1,13 @@
 {
   "name" : "Leather Armor",
-  "price" : {
-    "value" : 10.0,
-    "unit" : {
-      "name" : "Gold pieces",
-      "singularForm" : "Gold piece",
-      "abbreviation" : "gp",
-      "normalizingFactor" : 100.0
-    }
-  },
-  "weight" : {
-    "value" : 10.0,
-    "unit" : {
-      "name" : "Pounds",
-      "singularForm" : "Pound",
-      "abbreviation" : "lbs",
-      "normalizingFactor" : 2.20462
-    }
-  },
-  "tags" : [ {
-    "name" : "Armor",
-    "id" : 0
-  } ],
+  "tags" : [ "ARMOR" ],
   "description" : "No description",
-  "category" : {
-    "name" : "Light",
-    "description" : "No description"
-  },
+  "category" : "LIGHT",
   "armorClass" : 11,
   "strengthRequirement" : 0,
-  "stealthDisadvantage" : false
+  "stealthDisadvantage" : false,
+  "price_unit" : "Gold pieces",
+  "price_value" : 10.0,
+  "weight_unit" : "Pounds",
+  "weight_value" : 10.0
 }
