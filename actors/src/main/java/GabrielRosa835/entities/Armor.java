@@ -1,19 +1,18 @@
 package GabrielRosa835.entities;
 
-import GabrielRosa835.annotations.GenerateClone;
-import GabrielRosa835.annotations.GenerateEffect;
+import GabrielRosa835.annotations.AutoCloneable;
 import GabrielRosa835.models.EntityActor;
 import GabrielRosa835.models.EntityData;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-@GenerateClone
+@AutoCloneable
 /*
  * automatic implementation of clone() method,
  * checking if a field is simple or if it can be loned
  */
-@GenerateEffect
+@AutoEffectable
 /*
  * automatic implementation of effect-related needs,
  * such as the applyEffect() method and a Effect interface with needed getters

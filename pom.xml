@@ -66,6 +66,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup</groupId>
+			<artifactId>javapoet</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -78,6 +87,14 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<path>
+								<groupId>com.squareup</groupId>
+								<artifactId>javapoet</artifactId>
+								<version>1.13.0</version>
+							</path>
+							<groupId>javax.annotation</groupId>
+							<artifactId>javax.annotation-api</artifactId>
+							<version>1.3.2</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -93,6 +110,25 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.github.drewctaylor</groupId>
+				<artifactId>javapoet-maven-plugin</artifactId>
+				<version>1.0.5-SNAPSHOT</version>
+				<configuration>
+					<methods>
+						<your.name.JavaFileFactory.javaFileIterable>ClassName</your.name.JavaFileFactory.javaFileIterable>
+					</methods>
+					<path>${project.basedir}/src/main/java</path>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate-sources</goal>
+						</goals>
+						<phase>generate-sources</phase>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
