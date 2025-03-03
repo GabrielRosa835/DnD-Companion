@@ -1,6 +1,8 @@
 package dnd_companion.actors.entities.armor;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Map;
 
 import dnd_companion.actors.components.measure.Price;
 import dnd_companion.actors.components.measure.Weight;
@@ -21,6 +23,9 @@ public class ArmorEntity implements IEntity, Effectable
 	private int armorClass;
 	private int strengthRequirement;
 	private boolean stealthDisadvantage;
+	
+	private Map<String, Object> attributes;
+	private Map<String, Method> methods;
 
 	@Override public String name() {return name;}
 	public Price price() {return price;}
@@ -69,6 +74,7 @@ public class ArmorEntity implements IEntity, Effectable
 			entity.stealthDisadvantage
 		);
 	}
+	
 	@Override public ArmorEntity clone() {
 		return new ArmorEntity(this);
 	}

@@ -6,8 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Gabriel/Documents/1. WOW/Programação/4. Full Projects/DnD-Companion/app/libraries/jackson-annotations-2.18.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gabriel/Documents/1. WOW/Programação/4. Full Projects/DnD-Companion/app/libraries/jackson-core-2.18.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gabriel/Documents/1. WOW/Programação/4. Full Projects/DnD-Companion/app/libraries/jackson-databind-2.18.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Note/Documents/1. Wow/5. Projects/DnD-Companion/app/libraries/jackson-annotations-2.18.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Note/Documents/1. Wow/5. Projects/DnD-Companion/app/libraries/jackson-core-2.18.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Note/Documents/1. Wow/5. Projects/DnD-Companion/app/libraries/jackson-databind-2.18.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

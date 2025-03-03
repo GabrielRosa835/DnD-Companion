@@ -11,11 +11,10 @@ import dnd_companion.actors.entities.system.unit.currency.CurrencyUnitCentral;
 import dnd_companion.actors.entities.system.unit.length.LengthUnitCentral;
 import dnd_companion.actors.entities.system.unit.time.TimeUnitCentral;
 import dnd_companion.actors.entities.system.unit.weight.WeightUnitCentral;
-import dnd_companion.actors.models.IEntity;
+import dnd_companion.actors.models.IData;
 import dnd_companion.actors.models.IEntityCentral;
 import dnd_companion.common.BaseCollections;
 import dnd_companion.common.design_patterns.Command;
-import dnd_companion.storage.handling.DataHandler;
 
 public class SetupStorageCommand implements Command
 {
@@ -38,7 +37,7 @@ public class SetupStorageCommand implements Command
 		}
 
 		for (IEntityCentral central : centralList) {
-			IEntity[] entities = central.data();
+			IData[] entities = central.data();
 			DataHandler.save(central, entities);
 		}
 	}
