@@ -2,27 +2,24 @@ package GabrielRosa835;
 
 import java.util.Arrays;
 
-public class ToolBox
-{
-   public static void print(String message) {
-      System.out.println(message);
-   }
-   public static void print(String main_message, Object... params) {
-      System.out.println(String.format(main_message, params));
-   }
+public interface ToolBox {
+	static void print(String message) {
+		System.out.println(message);
+	}
 
-   public static void exceptionHandler(Exception exception) {
-      exception.printStackTrace();
-   }
+	static void print(String main_message, Object... params) {
+		System.out.printf((main_message) + "%n", params);
+	}
 
-   public static String toSnakeCase(String input) {
-      return (input == null) ? null : input.toLowerCase().replace(" ", "_");
-   }
-   public static String[] toSnakeCase(String... input) {
-      return Arrays.stream(input).map(ToolBox::toSnakeCase).toArray(String[]::new);
-   }
+	static String toSnakeCase(String input) {
+		return (input == null) ? null : input.toLowerCase().replace(" ", "_");
+	}
 
-   public static String toFileName(String name) {
-      return toSnakeCase(name).concat(".json");
-   }
+	static String[] toSnakeCase(String... input) {
+		return Arrays.stream(input).map(ToolBox::toSnakeCase).toArray(String[]::new);
+	}
+
+	static String capitalize(String text) {
+		return Character.toUpperCase(text.charAt(0)) + text.substring(1);
+	}
 }
