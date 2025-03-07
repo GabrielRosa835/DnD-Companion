@@ -21,11 +21,6 @@
     <developers>
         <developer/>
     </developers>
-    <modules>
-        <module>elements</module>
-        <module>common</module>
-        <module>effects</module>
-    </modules>
     <scm>
         <connection/>
         <developerConnection/>
