@@ -1,8 +1,6 @@
 package elements.components;
 
-import common.*;
-import elements.entities.*;
-import elements.models.*;
+import elements.entities.options.*;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -23,7 +21,7 @@ public class Measure<T extends UnitOfMeasure>
 	public static class Period extends Measure<UnitOfMeasure.UnitOfTime> {
 	}
 
-	public static class Price extends Measure<UnitOfMeasure.Currency> {
+	public static class Price extends Measure<UnitOfMeasure.UnitOfCurrency> {
 	}
 
 	public static class Weight extends Measure<UnitOfMeasure.UnitOfMass> {

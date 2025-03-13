@@ -1,6 +1,6 @@
 package tactics.effects;
 
-import elements.components.character.Health;
+import elements.components.Health;
 import tactics.*;
 
 public class SimpleDamageDealEffect	implements Effect<Health>
@@ -11,7 +11,7 @@ public class SimpleDamageDealEffect	implements Effect<Health>
 		this.damage = damage;
 	}
 
-	@Override public Health apply(Health h) {
+	@Override public Health applyTo(Health h) {
 		int currentHitPointsBuffer = h.currentHitPoints();
 		int temporaryHitPointsBuffer = h.temporaryHitPoints();
 

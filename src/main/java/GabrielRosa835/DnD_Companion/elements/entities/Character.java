@@ -1,8 +1,7 @@
 package elements.entities;
 
-import elements.components.character.Health;
+import elements.components.Health;
 import elements.compositions.*;
-import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
@@ -18,15 +17,23 @@ public class Character implements Effect.Applicable<Character>
 	private String name;
 	private Health health;
 
-	private AbilityScoreComposition status;
-	private SkillComposition skills;
+	private EffectiveAbilityScoreComposition status;
+	private EffectiveSkillComposition skills;
 	private EffectiveCharacterClassComposition classes;
 
 	private int proficiencyBonus;
 
-	@Override public void applyEffect (Effect<Character> effect) {
-		Character result = effect.apply(this);
+	public Character applyEffect (Effect<Character> effect) {
+		Character result = effect.applyTo(this);
 		this.name = result.name;
 		this.health = result.health;
+		this.status = result.status;
+		this.skills = result.skills;
+		this.classes = result.classes;
+		return this;
+	}
+
+	public interface Property {
+		Character character();
 	}
 }

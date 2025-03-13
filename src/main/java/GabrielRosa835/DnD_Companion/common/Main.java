@@ -5,7 +5,7 @@ import elements.entities.*;
 public class Main {
 	public static void main(String[] args) {
 
-//	element
+//	character
 //			.applyEffect(new DamageDealEffect(4))
 //			.applyEffect(new HealDamageEffect(10));
 //

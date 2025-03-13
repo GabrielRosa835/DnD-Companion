@@ -1,6 +1,6 @@
-package elements.components.character;
+package elements.components;
 
-import elements.entities.Armor;
+import elements.entities.Character;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
@@ -11,14 +11,16 @@ import tactics.Effect;
 @ToString
 @Builder
 @Accessors(fluent = true)
-public class Health implements Effect.Applicable<Health>
+public class Health implements Effect.Applicable<Health>, Character.Property
 {
+	private Character character;
+
 	private int currentHitPoints;
 	private int maximumHitPoints;
 	private int temporaryHitPoints;
 
 	@Override public void applyEffect (Effect<Health> effect) {
-		Health result = effect.apply(this);
+		Health result = effect.applyTo(this);
 		this.currentHitPoints = result.currentHitPoints;
 		this.maximumHitPoints = result.maximumHitPoints;
 		this.temporaryHitPoints = result.temporaryHitPoints;

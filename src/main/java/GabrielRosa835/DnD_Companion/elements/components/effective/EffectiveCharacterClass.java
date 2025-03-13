@@ -1,5 +1,6 @@
-package elements.components.character;
+package elements.components.effective;
 
+import elements.entities.options.*;
 import lombok.*;
 import lombok.experimental.*;
 
@@ -11,9 +12,6 @@ import lombok.experimental.*;
 @Accessors(fluent = true)
 public class EffectiveCharacterClass
 {
-	private CharacterClass referencedClass;
-	private CharacterClass.Type type;
+	private CharacterClass type;
 	private int classLevel;
-
-//	private List<Feature> features;
 }

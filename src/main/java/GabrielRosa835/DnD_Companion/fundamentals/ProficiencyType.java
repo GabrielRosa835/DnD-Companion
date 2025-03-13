@@ -1,5 +1,6 @@
 package fundamentals;
 
+import elements.entities.Character;
 import lombok.*;
 import lombok.experimental.*;
 
@@ -12,5 +13,9 @@ public enum ProficiencyType {
 
 	public boolean isBasicProficiency() {
 		return this == NONE | this == NORMAL;
+	}
+
+	public int proficiencyModifier(Character character) {
+		return (int) (character.proficiencyBonus() * this.multiplier);
 	}
 }

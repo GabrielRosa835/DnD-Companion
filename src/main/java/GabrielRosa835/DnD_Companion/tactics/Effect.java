@@ -2,9 +2,9 @@ package tactics;
 
 public interface Effect<Target>
 {
-	Target apply(Target element);
+	Target applyTo(Target element);
 
 	interface Applicable<Self extends Applicable<Self>> {
-		void applyEffect(Effect<Self> effect);
+		Applicable<Self> applyEffect(Effect<Self> effect);
 	}
 }

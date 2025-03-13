@@ -1,4 +1,4 @@
-package elements.entities;
+package elements.entities.options;
 
 import GabrielRosa835.components.*;
 import GabrielRosa835.models.*;

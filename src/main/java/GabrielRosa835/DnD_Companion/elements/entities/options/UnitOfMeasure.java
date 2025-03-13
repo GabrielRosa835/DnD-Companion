@@ -1,7 +1,5 @@
-package elements.entities;
+package elements.entities.options;
 
-import common.*;
-import elements.models.*;
 import lombok.*;
 import lombok.experimental.Accessors;
 
@@ -10,7 +8,8 @@ import lombok.experimental.Accessors;
 @ToString
 @Getter
 @Accessors(fluent = true)
-public class UnitOfMeasure {
+public class UnitOfMeasure
+{
 	private String name;
 	private String singularForm;
 	private String abbreviation;
@@ -22,7 +21,7 @@ public class UnitOfMeasure {
 	public static class UnitOfTime extends UnitOfMeasure {
 	}
 
-	public static class Currency extends UnitOfMeasure {
+	public static class UnitOfCurrency extends UnitOfMeasure {
 	}
 
 	public static class UnitOfMass extends UnitOfMeasure {
