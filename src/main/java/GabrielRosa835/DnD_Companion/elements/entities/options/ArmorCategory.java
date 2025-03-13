@@ -1,16 +1,15 @@
 package elements.entities.options;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.*;
 
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PUBLIC, staticName = "create")
 @NoArgsConstructor (access = AccessLevel.PACKAGE)
 @Builder (setterPrefix = "with")
-@Accessors (fluent = true)
+@Accessors(fluent = true)
 @ToString
 @Getter
-public class CharacterClass
+public class ArmorCategory
 {
-	private String name;
+	String name;
 }

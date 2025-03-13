@@ -11,10 +11,10 @@ import tactics.*;
 import java.util.*;
 
 @RequiredArgsConstructor
+@Builder (setterPrefix = "with")
+@Accessors (fluent = true)
+@ToString
 @Getter
-@Accessors(fluent = true)
-
-@Component
 public class EffectiveAbilityScoreComposition implements
 		Effect.Applicable<EffectiveAbilityScoreComposition>,
 		Composition<AbilityScore, EffectiveAbilityScore>,
@@ -22,22 +22,28 @@ public class EffectiveAbilityScoreComposition implements
 {
 	private final Character character;
 
+	@Singular("abilityScore")
 	private Map<AbilityScore, EffectiveAbilityScore> statusMapping = new HashMap<>();
 
+	@Override
 	public EffectiveAbilityScoreComposition add(EffectiveAbilityScore abilityScore) {
 		statusMapping.putIfAbsent(abilityScore.type(), abilityScore);
 		return this;
 	}
+	@Override
 	public EffectiveAbilityScoreComposition remove(AbilityScore abilityScore) {
 		statusMapping.remove(abilityScore);
 		return this;
 	}
+	@Override
 	public EffectiveAbilityScore get(AbilityScore type) {
 		return statusMapping.get(type);
 	}
 
-	@Override public void applyEffect(Effect<EffectiveAbilityScoreComposition> effect) {
-		EffectiveAbilityScoreComposition result = effect.applyTo(this);
+	@Override
+	public EffectiveAbilityScoreComposition applyEffect(Effect<EffectiveAbilityScoreComposition> effect) {
+		var result = effect.applyTo(this);
 		this.statusMapping.putAll(result.statusMapping);
+		return this;
 	}
 }

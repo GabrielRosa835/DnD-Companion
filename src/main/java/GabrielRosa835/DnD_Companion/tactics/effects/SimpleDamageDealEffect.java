@@ -1,15 +1,15 @@
 package tactics.effects;
 
-import elements.components.Health;
+import elements.components.*;
+import lombok.*;
 import tactics.*;
 
+@NoArgsConstructor (access = AccessLevel.PUBLIC, staticName = "use")
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@With
 public class SimpleDamageDealEffect	implements Effect<Health>
 {
-	private final int damage;
-
-	public SimpleDamageDealEffect(int damage) {
-		this.damage = damage;
-	}
+	private int damage;
 
 	@Override public Health applyTo(Health h) {
 		int currentHitPointsBuffer = h.currentHitPoints();

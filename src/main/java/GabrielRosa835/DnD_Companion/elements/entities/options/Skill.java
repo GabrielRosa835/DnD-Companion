@@ -3,14 +3,13 @@ package elements.entities.options;
 import lombok.*;
 import lombok.experimental.*;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
-@Getter
+@AllArgsConstructor (access = AccessLevel.PUBLIC, staticName = "create")
+@NoArgsConstructor (access = AccessLevel.PACKAGE)
+@Accessors (fluent = true)
 @ToString
-@Builder
-@Accessors(fluent = true)
+@Getter
 public class Skill
 {
-	private String name;
 	private AbilityScore standardAbilityScore;
+	private String name;
 }

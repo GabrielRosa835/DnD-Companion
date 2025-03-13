@@ -7,8 +7,8 @@ import java.util.*;
 
 public interface Item {
 	String name();
-	Measure.Price price();
-	Measure.Weight weight();
+	Measure price();
+	Measure weight();
 	ItemTag[] tags();
 	String description();
 }

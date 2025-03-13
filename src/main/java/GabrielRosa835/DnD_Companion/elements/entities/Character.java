@@ -6,30 +6,31 @@ import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
 
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Getter
-@Builder
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@NoArgsConstructor (access = AccessLevel.PACKAGE)
+@Builder (setterPrefix = "with")
+@Accessors (fluent = true)
 @ToString
-@Accessors(fluent = true)
+@Getter
 public class Character implements Effect.Applicable<Character>
 {
 	private String name;
 	private Health health;
 
+	private EffectiveCharacterClassComposition classes;
 	private EffectiveAbilityScoreComposition status;
 	private EffectiveSkillComposition skills;
-	private EffectiveCharacterClassComposition classes;
 
 	private int proficiencyBonus;
 
+	@Override
 	public Character applyEffect (Effect<Character> effect) {
 		Character result = effect.applyTo(this);
-		this.name = result.name;
+		this.classes = result.classes;
 		this.health = result.health;
 		this.status = result.status;
 		this.skills = result.skills;
-		this.classes = result.classes;
+		this.name = result.name;
 		return this;
 	}
 

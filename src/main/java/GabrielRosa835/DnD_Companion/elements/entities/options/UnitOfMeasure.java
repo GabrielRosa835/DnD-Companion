@@ -3,27 +3,21 @@ package elements.entities.options;
 import lombok.*;
 import lombok.experimental.Accessors;
 
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@NoArgsConstructor (access = AccessLevel.PACKAGE)
+@Builder (setterPrefix = "with")
+@Accessors (fluent = true)
 @ToString
 @Getter
-@Accessors(fluent = true)
 public class UnitOfMeasure
 {
-	private String name;
+	private double normalizingFactor;
 	private String singularForm;
 	private String abbreviation;
-	private double normalizingFactor;
+	private String name;
+	private Type type;
 
-	public static class UnitOfLength extends UnitOfMeasure {
-	}
-
-	public static class UnitOfTime extends UnitOfMeasure {
-	}
-
-	public static class UnitOfCurrency extends UnitOfMeasure {
-	}
-
-	public static class UnitOfMass extends UnitOfMeasure {
+	public enum Type {
+		LENGTH, TIME, CURRENCY, MASS;
 	}
 }

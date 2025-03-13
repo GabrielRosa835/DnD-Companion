@@ -1,5 +1,6 @@
 package tactics;
 
+@FunctionalInterface
 public interface Effect<Target>
 {
 	Target applyTo(Target element);

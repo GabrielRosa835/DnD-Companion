@@ -5,24 +5,28 @@ import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
 
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Getter
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@NoArgsConstructor (access = AccessLevel.PACKAGE)
+@Builder (setterPrefix = "with")
+@Accessors (fluent = true)
 @ToString
-@Builder
-@Accessors(fluent = true)
-public class Health implements Effect.Applicable<Health>, Character.Property
+@Getter
+public class Health implements
+		Effect.Applicable<Health>,
+		Character.Property
 {
 	private Character character;
 
+	private int temporaryHitPoints;
 	private int currentHitPoints;
 	private int maximumHitPoints;
-	private int temporaryHitPoints;
 
-	@Override public void applyEffect (Effect<Health> effect) {
-		Health result = effect.applyTo(this);
+	@Override
+	public Health applyEffect (Effect<Health> effect) {
+		var result = effect.applyTo(this);
+		this.temporaryHitPoints = result.temporaryHitPoints;
 		this.currentHitPoints = result.currentHitPoints;
 		this.maximumHitPoints = result.maximumHitPoints;
-		this.temporaryHitPoints = result.temporaryHitPoints;
+		return this;
 	}
 }

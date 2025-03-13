@@ -1,40 +1,39 @@
 package elements.components.effective;
 
 import elements.entities.options.*;
-import elements.models.Component;
 import fundamentals.*;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;
 
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
-@Getter
+@NoArgsConstructor (access = AccessLevel.PACKAGE)
+@Builder (setterPrefix = "with")
+@Accessors (fluent = true)
 @ToString
-@Builder
-@Accessors(fluent = true)
-
-@Component
+@Getter
 public class EffectiveAbilityScore implements Effect.Applicable<EffectiveAbilityScore>
 {
+	private ProficiencyType proficiencySavingThrow;
 	private AbilityScore type;
 	private int value;
-	private ProficiencyType proficiencySavingThrow;
 
 	public int modifier() {return AbilityScore.calculateModifier(value);}
 
-	public EffectiveAbilityScore(AbilityScore type, int value, ProficiencyType proficiencyType) {
+	private EffectiveAbilityScore(ProficiencyType proficiencySavingThrow, AbilityScore type, int value) {
 		this.type = type;
 		this.value = value;
-		if(proficiencyType.isBasicProficiency()) {
-			this.proficiencySavingThrow = proficiencyType;
+		if(proficiencySavingThrow.isBasicProficiency()) {
+			this.proficiencySavingThrow = proficiencySavingThrow;
 		} else {
 			throw new IllegalArgumentException("Proficiency type not allowed");
 		}
 	}
 
-	@Override public void applyEffect (Effect<EffectiveAbilityScore> effect) {
-		EffectiveAbilityScore result = effect.applyTo(this);
+	@Override
+	public EffectiveAbilityScore applyEffect (Effect<EffectiveAbilityScore> effect) {
+		var result = effect.applyTo(this);
 		this.type = result.type;
 		this.value = result.value;
+		return this;
 	}
 }

@@ -11,8 +11,10 @@ import tactics.*;
 import java.util.*;
 
 @RequiredArgsConstructor
+@Builder (setterPrefix = "with")
+@Accessors (fluent = true)
+@ToString
 @Getter
-@Accessors(fluent = true)
 public class EffectiveCharacterClassComposition implements
 		Effect.Applicable<EffectiveCharacterClassComposition>,
 		Composition<CharacterClass, EffectiveCharacterClass>,
@@ -20,22 +22,27 @@ public class EffectiveCharacterClassComposition implements
 {
 	private final Character character;
 
+	@Singular("class")
 	private Map<CharacterClass, EffectiveCharacterClass> classMapping = new HashMap<>();
 
+	@Override
 	public EffectiveCharacterClass get(CharacterClass type) {
 		return classMapping.get(type);
 	}
+	@Override
 	public EffectiveCharacterClassComposition add(EffectiveCharacterClass effectiveCharacterClass) {
 		this.classMapping.putIfAbsent(effectiveCharacterClass.type(), effectiveCharacterClass);
 		return this;
 	}
+	@Override
 	public EffectiveCharacterClassComposition remove(CharacterClass characterClass) {
 		this.classMapping.remove(characterClass);
 		return this;
 	}
 
+	@Override
 	public EffectiveCharacterClassComposition applyEffect(Effect<EffectiveCharacterClassComposition> effect) {
-		EffectiveCharacterClassComposition result = effect.applyTo(this);
+		var result = effect.applyTo(this);
 		this.classMapping.putAll(result.classMapping);
 		return this;
 	}

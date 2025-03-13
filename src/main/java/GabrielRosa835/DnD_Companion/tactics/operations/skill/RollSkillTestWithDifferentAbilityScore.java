@@ -2,17 +2,22 @@ package tactics.operations.skill;
 
 import elements.components.effective.*;
 import elements.compositions.*;
-import elements.entities.Character;
 import elements.entities.options.*;
 import fundamentals.*;
 import lombok.*;
 import tactics.*;
 
-@AllArgsConstructor
+@NoArgsConstructor (access = AccessLevel.PUBLIC, staticName = "use")
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@With
 public class RollSkillTestWithDifferentAbilityScore implements Operation<Integer>
 {
 	private EffectiveSkill effectiveSkill;
 	private AbilityScore abilityScore;
+
+	public static RollSkillTestWithDifferentAbilityScore use() {
+		return new RollSkillTestWithDifferentAbilityScore();
+	}
 
 	public Integer execute() {
 		EffectiveAbilityScoreComposition composition = effectiveSkill.abilityScoreComposition();
