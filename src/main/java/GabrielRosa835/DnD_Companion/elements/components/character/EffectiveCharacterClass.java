@@ -1,6 +1,5 @@
-package elements.components;
+package elements.components.character;
 
-import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
 
@@ -10,7 +9,8 @@ import lombok.experimental.*;
 @ToString
 @Builder
 @Accessors(fluent = true)
-public class EffectiveCharacterClass implements Composed, Component {
+public class EffectiveCharacterClass
+{
 	private CharacterClass referencedClass;
 	private CharacterClass.Type type;
 	private int classLevel;

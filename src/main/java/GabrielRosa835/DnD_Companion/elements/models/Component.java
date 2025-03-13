@@ -1,5 +1,4 @@
 package elements.models;
 
-public interface Component extends Element {
-
+public @interface Component {
 }

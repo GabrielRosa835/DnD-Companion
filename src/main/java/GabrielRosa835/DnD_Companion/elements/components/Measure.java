@@ -4,34 +4,28 @@ import common.*;
 import elements.entities.*;
 import elements.models.*;
 import lombok.*;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @ToString
 @Getter
-public class Measure<T extends UnitOfMeasure.Types> implements Component, Replicable {
+@Accessors(fluent = true)
+public class Measure<T extends UnitOfMeasure>
+{
 	private double value;
-	private UnitOfMeasure<T> unit;
+	private UnitOfMeasure unit;
 
-	public Class<T> type() {
-		return unit.getType();
+	public static class Distance extends Measure<UnitOfMeasure.UnitOfLength> {
 	}
 
-	@Override
-	public Measure<T> replicate() {
-		return new Measure<T>(value, unit.replicate());
+	public static class Period extends Measure<UnitOfMeasure.UnitOfTime> {
 	}
 
-	public static class Distance extends Measure<UnitOfMeasure.Types.LENGTH> {
+	public static class Price extends Measure<UnitOfMeasure.Currency> {
 	}
 
-	public static class Period extends Measure<UnitOfMeasure.Types.TIME> {
-	}
-
-	public static class Price extends Measure<UnitOfMeasure.Types.CURRENCY> {
-	}
-
-	public static class Weight extends Measure<UnitOfMeasure.Types.MASS> {
+	public static class Weight extends Measure<UnitOfMeasure.UnitOfMass> {
 	}
 }

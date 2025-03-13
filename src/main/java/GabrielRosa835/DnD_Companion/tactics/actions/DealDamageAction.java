@@ -1,29 +1,27 @@
 package tactics.actions;
 
+import elements.entities.Character;
+import lombok.AllArgsConstructor;
 import tactics.*;
 import tactics.effects.*;
 
-public class DealDamageAction extends Action
+import java.util.List;
+
+public class DealDamageAction implements Action<Character>
 {
-	private Effect effect = new SimpleDamageDealEffect();
-
-	@Override
-	public Action execute() {
-		return null;
+	private SimpleDamageDealEffect effect;
+	public DealDamageAction effect(int damage) {
+		this.effect = new SimpleDamageDealEffect(damage);
+		return this;
 	}
 
-	@Override
-	public Action source(Applicable applicable) {
-		return null;
+	public DealDamageAction(int damage) {
+		this.effect = new SimpleDamageDealEffect(damage);
 	}
 
-	@Override
-	public Action timing(Timing timing) {
-		return null;
-	}
-
-	@Override
-	public Action targets(Effect.Applicable... applicables) {
-		return null;
+	@Override public void act (List<Character> characters) {
+		for (Character character : characters) {
+			character.health().applyEffect(effect);
+		}
 	}
 }

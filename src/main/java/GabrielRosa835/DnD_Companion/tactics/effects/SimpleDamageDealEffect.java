@@ -1,42 +1,30 @@
 package tactics.effects;
 
-import elements.components.*;
+import elements.components.character.Health;
+import tactics.*;
 
-public class SimpleDamageDealEffect implements Health.Effect
+public class SimpleDamageDealEffect	implements Effect<Health>
 {
-	private Health health = null;
-
-	private int currentHitPoints;
-	private int temporaryHitPoints;
-
 	private final int damage;
 
 	public SimpleDamageDealEffect(int damage) {
 		this.damage = damage;
 	}
 
-	@Override public SimpleDamageDealEffect loadElement(Applicable object) {
-		this.health = (Health) object;
-		this.currentHitPoints = health.currentHitPoints();
-		this.temporaryHitPoints = health.temporaryHitPoints();
-		return this;
-	}
-	@Override public SimpleDamageDealEffect execute() {
-		temporaryHitPoints -= damage;
-		if (temporaryHitPoints < 0) {
-			currentHitPoints += temporaryHitPoints;
-			temporaryHitPoints = 0;
-		}
-		return this;
-	}
+	@Override public Health apply(Health h) {
+		int currentHitPointsBuffer = h.currentHitPoints();
+		int temporaryHitPointsBuffer = h.temporaryHitPoints();
 
-	@Override public int changeCurrentHitPoints() {
-		return currentHitPoints;
-	}
-	@Override public int changeMaximumHitPoints() {
-		return health.maximumHitPoints();
-	}
-	@Override public int changeTemporaryHitPoints() {
-		return temporaryHitPoints;
+		temporaryHitPointsBuffer -= damage;
+		if (temporaryHitPointsBuffer < 0) {
+			currentHitPointsBuffer += temporaryHitPointsBuffer;
+			temporaryHitPointsBuffer = 0;
+		}
+
+		return Health.builder()
+				.currentHitPoints(currentHitPointsBuffer)
+				.temporaryHitPoints(temporaryHitPointsBuffer)
+				.maximumHitPoints(h.maximumHitPoints())
+				.build();
 	}
 }

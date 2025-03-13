@@ -1,12 +1,12 @@
 package elements.compositions;
 
-import elements.components.*;
+import elements.components.character.Skill;
 import elements.models.*;
 import tactics.*;
 
 import java.util.*;
 
-public class SkillComposition implements Component, Effect.Applicable, Composition<Skill> {
+public class SkillComposition implements Effect.Applicable, Composition<Skill> {
 	private Map<Skill.Type, Skill> skillMapping = new HashMap<>();
 
 	public Skill get(Skill.Type type) {

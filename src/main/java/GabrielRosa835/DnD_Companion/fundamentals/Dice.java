@@ -1,4 +1,4 @@
-package operational;
+package fundamentals;
 
 import common.*;
 import lombok.*;
@@ -6,14 +6,10 @@ import lombok.experimental.*;
 
 public interface Dice
 {
-	static int defaultRoll(int maxValue) {
-		return ToolBox.randomInt(1, maxValue);
-	}
-
 	int maxValue();
 	double average();
 	default int roll() {
-		return defaultRoll(maxValue());
+		return ToolBox.randomInt(1, maxValue());
 	}
 
 	@Getter

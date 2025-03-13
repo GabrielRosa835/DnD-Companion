@@ -1,7 +1,8 @@
 package elements.compositions;
 
 import common.*;
-import elements.components.*;
+import elements.components.character.CharacterClass;
+import elements.components.character.EffectiveCharacterClass;
 import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
@@ -13,7 +14,7 @@ import java.util.*;
 @ToString
 @Getter
 @Accessors(fluent = true)
-public class EffectiveCharacterClassComposition implements Replicable, Component, Effect.Applicable, Composition<EffectiveCharacterClass> {
+public class EffectiveCharacterClassComposition implements Replicable, Effect.Applicable, Composition<EffectiveCharacterClass> {
 	private Map<CharacterClass.Type, EffectiveCharacterClass> classMapping = new HashMap<>();
 
 	public EffectiveCharacterClass get(CharacterClass.Type type) {

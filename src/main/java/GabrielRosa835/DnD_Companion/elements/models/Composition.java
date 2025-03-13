@@ -1,6 +1,7 @@
 package elements.models;
 
-public interface Composition<C extends Composed> {
-	void get(Object type);
-	void add(Composed component);
+public interface Composition<Element> {
+	Element get(Object type);
+	Composition<Element> add(Element... elements);
+	Composition<Element> remove(Element... elements);
 }

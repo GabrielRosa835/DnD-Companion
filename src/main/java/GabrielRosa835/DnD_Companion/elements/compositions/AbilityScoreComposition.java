@@ -1,7 +1,6 @@
 package elements.compositions;
 
-import elements.components.*;
-import elements.models.*;
+import elements.components.character.AbilityScore;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;
@@ -12,7 +11,7 @@ import java.util.*;
 @ToString
 @Getter
 @Accessors(fluent = true)
-public class AbilityScoreComposition implements Component, Effect.Applicable {
+public class AbilityScoreComposition implements Effect.Applicable {
 	private Map<AbilityScore.Type, AbilityScore> statusMapping = new HashMap<>();
 
 	public AbilityScore get(AbilityScore.Type type) {

@@ -1,11 +1,10 @@
 package tactics;
 
-public interface Effect extends Tactic
+public interface Effect<Target>
 {
-	@Override Effect execute();
-	Effect target(Applicable target);
+	Target apply(Target element);
 
-	interface Applicable {
-		Applicable applyEffect(Effect effect);
+	interface Applicable<Self extends Applicable<Self>> {
+		void applyEffect(Effect<Self> effect);
 	}
 }

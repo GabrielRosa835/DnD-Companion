@@ -5,7 +5,6 @@ import GabrielRosa835.models.*;
 import GabrielRosa835.models.types.*;
 import common.*;
 import elements.components.*;
-import elements.models.*;
 import elements.models.types.*;
 import lombok.*;
 import lombok.experimental.*;
@@ -20,7 +19,7 @@ import java.util.*;
 @Getter
 @Accessors(fluent = true)
 public class Armor implements
-		Item, Entity, Replicable, Effect.Applicable, Action.Applicable
+		Item, Replicable, Effect.Applicable, Action.Applicable
 {
 	private String name;
 	private Measure.Price price;

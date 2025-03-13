@@ -3,35 +3,28 @@ package elements.entities;
 import common.*;
 import elements.models.*;
 import lombok.*;
+import lombok.experimental.Accessors;
 
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
 @ToString
 @Getter
-public class UnitOfMeasure<T extends UnitOfMeasure.Types> implements Entity, Replicable {
-	private Class<T> type;
+@Accessors(fluent = true)
+public class UnitOfMeasure {
 	private String name;
 	private String singularForm;
 	private String abbreviation;
 	private double normalizingFactor;
 
-	@Override
-	public UnitOfMeasure<T> replicate() {
-		return new UnitOfMeasure<T>(type, name, singularForm, abbreviation, normalizingFactor);
+	public static class UnitOfLength extends UnitOfMeasure {
 	}
 
-	public interface Types {
-		class LENGTH implements Types {
-		}
+	public static class UnitOfTime extends UnitOfMeasure {
+	}
 
-		class TIME implements Types {
-		}
+	public static class Currency extends UnitOfMeasure {
+	}
 
-		class CURRENCY implements Types {
-		}
-
-		class MASS implements Types {
-		}
+	public static class UnitOfMass extends UnitOfMeasure {
 	}
 }

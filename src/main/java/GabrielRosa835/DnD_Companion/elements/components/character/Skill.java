@@ -1,9 +1,9 @@
-package elements.components;
+package elements.components.character;
 
-import elements.models.*;
+import fundamentals.Dice;
+import fundamentals.ProficiencyType;
 import lombok.*;
 import lombok.experimental.*;
-import operational.*;
 import tactics.*;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -12,10 +12,11 @@ import tactics.*;
 @ToString
 @Builder
 @Accessors(fluent = true)
-public class Skill implements Component, Effect.Applicable, Composed {
+public class Skill
+{
 	private Character character;
 
-	private Type type;
+	private String name;
 	private int modifier;
 	private ProficiencyType proficiency;
 	private AbilityScore abilityScore;
@@ -30,19 +31,16 @@ public class Skill implements Component, Effect.Applicable, Composed {
 		return Dice.Standard.D20.roll() + modifier;
 	}
 
-	@RequiredArgsConstructor
-	@Getter
-	@Accessors(fluent = true)
-	public enum Type {
-		ATHLETICS(AbilityScore.Type.STRENGTH), ARCANA(AbilityScore.Type.INTELLIGENCE);
-		private final AbilityScore.Type defaultAbilityScoreType;
+	@Override public Action actWith (Action action) {
+		return action.source(this);
 	}
-
-	public Skill applyEffect(tactics.Effect effect) {
-		Effect e = (Effect) effect;
-		e.loadObject(this).run();
+	@Override public Service<?> useService (Service<?> service) {
+		return service.loadElements(this);
+	}
+	@Override public Skill applyEffect(tactics.Effect effect) {
+		Effect e = (Effect) effect.target(this).execute();
 		this.character = e.changeCharacter();
-		this.type = e.changeType();
+		this.name = e.changeName();
 		this.modifier = e.changeModifier();
 		this.proficiency = e.changeProficiency();
 		this.abilityScore = e.changeAbilityScore();
@@ -51,7 +49,7 @@ public class Skill implements Component, Effect.Applicable, Composed {
 
 	public interface Effect extends tactics.Effect {
 		Character changeCharacter();
-		Type changeType();
+		String changeName();
 		int changeModifier();
 		ProficiencyType changeProficiency();
 		AbilityScore changeAbilityScore();
