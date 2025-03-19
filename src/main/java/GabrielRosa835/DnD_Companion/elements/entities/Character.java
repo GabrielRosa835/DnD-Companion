@@ -1,10 +1,12 @@
 package elements.entities;
 
-import elements.components.Health;
+import elements.components.*;
+import elements.components.character.*;
 import elements.compositions.*;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
+import tactics.operations.character.*;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @NoArgsConstructor (access = AccessLevel.PACKAGE)
@@ -12,25 +14,21 @@ import tactics.Effect;
 @Accessors (fluent = true)
 @ToString
 @Getter
-public class Character implements Effect.Applicable<Character>
+public class Character implements
+		Effect.Applicable<Character>
 {
-	private String name;
+	private CharacterDecorationProperties decorationProperties;
+	private CharacterClassSlotComposition classes;
+	private CharacterKeyProperties keyProperties;
+	private AbilityScoreSlotComposition status;
+	private ItemSlotComposition belongings;
+	private SkillSlotComposition skills;
+	private EquippedItems equipment;
 	private Health health;
-
-	private EffectiveCharacterClassComposition classes;
-	private EffectiveAbilityScoreComposition status;
-	private EffectiveSkillComposition skills;
-
-	private int proficiencyBonus;
 
 	@Override
 	public Character applyEffect (Effect<Character> effect) {
 		Character result = effect.applyTo(this);
-		this.classes = result.classes;
-		this.health = result.health;
-		this.status = result.status;
-		this.skills = result.skills;
-		this.name = result.name;
 		return this;
 	}
 

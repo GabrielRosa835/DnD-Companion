@@ -1,4 +1,4 @@
-package elements.components.effective;
+package elements.components.slots;
 
 import common.*;
 import elements.entities.options.*;
@@ -12,18 +12,18 @@ import tactics.*;
 @Accessors (fluent = true)
 @ToString
 @Getter
-public class EffectiveCharacterClass implements
-		Effect.Applicable<EffectiveCharacterClass>,
+public class CharacterClassSlot implements
+		Effect.Applicable<CharacterClassSlot>,
 		Replicable
 {
 	private CharacterClass type;
-	private int classLevel;
+	private int level;
 
 	@Override
-	public EffectiveCharacterClass applyEffect(Effect<EffectiveCharacterClass> effect) {
+	public CharacterClassSlot applyEffect(Effect<CharacterClassSlot> effect) {
 		var result = effect.applyTo(this);
 		this.type = result.type;
-		this.classLevel = result.classLevel;
+		this.level = result.level;
 		return this;
 	}
 }

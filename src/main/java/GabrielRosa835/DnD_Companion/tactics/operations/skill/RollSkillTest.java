@@ -1,6 +1,6 @@
 package tactics.operations.skill;
 
-import elements.components.effective.*;
+import elements.components.slots.*;
 import fundamentals.*;
 import lombok.*;
 import tactics.*;
@@ -10,13 +10,13 @@ import tactics.*;
 @With
 public class RollSkillTest implements Operation<Integer>
 {
-	private EffectiveSkill effectiveSkill;
+	private SkillSlot skillSlot;
 
 	public static RollSkillTest use() {
 		return new RollSkillTest();
 	}
 
 	public Integer execute() {
-		return Dice.D20.roll() + effectiveSkill.modifier();
+		return Dice.D20.roll() + skillSlot.modifier();
 	}
 }

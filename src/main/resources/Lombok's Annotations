@@ -18,11 +18,8 @@ ELEMENT STANDARD
 @Getter
 
 TACTIC STANDARD
-@NoArgsConstructor (access = AccessLevel.PUBLIC, staticName = "use")
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @With
-
-
 
 STANDARD ANNOTATIONS
 @Data

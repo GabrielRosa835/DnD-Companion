@@ -1,4 +1,4 @@
-package elements.components.effective;
+package elements.components.slots;
 
 import elements.entities.options.*;
 import fundamentals.*;
@@ -11,26 +11,26 @@ import tactics.*;
 @Accessors (fluent = true)
 @ToString
 @Getter
-public class EffectiveAbilityScore implements Effect.Applicable<EffectiveAbilityScore>
+public class AbilityScoreSlot implements Effect.Applicable<AbilityScoreSlot>
 {
-	private ProficiencyType proficiencySavingThrow;
+	private ProficiencyType savingThrowProficiency;
 	private AbilityScore type;
 	private int value;
 
 	public int modifier() {return AbilityScore.calculateModifier(value);}
 
-	private EffectiveAbilityScore(ProficiencyType proficiencySavingThrow, AbilityScore type, int value) {
+	private AbilityScoreSlot(ProficiencyType savingThrowProficiency, AbilityScore type, int value) {
 		this.type = type;
 		this.value = value;
-		if(proficiencySavingThrow.isBasicProficiency()) {
-			this.proficiencySavingThrow = proficiencySavingThrow;
+		if(savingThrowProficiency.isBasicProficiency()) {
+			this.savingThrowProficiency = savingThrowProficiency;
 		} else {
 			throw new IllegalArgumentException("Proficiency type not allowed");
 		}
 	}
 
 	@Override
-	public EffectiveAbilityScore applyEffect (Effect<EffectiveAbilityScore> effect) {
+	public AbilityScoreSlot applyEffect (Effect<AbilityScoreSlot> effect) {
 		var result = effect.applyTo(this);
 		this.type = result.type;
 		this.value = result.value;

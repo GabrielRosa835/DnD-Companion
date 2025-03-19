@@ -1,4 +1,4 @@
-package elements.components.effective;
+package elements.components.slots;
 
 import common.*;
 import elements.compositions.*;
@@ -14,24 +14,24 @@ import tactics.*;
 @Accessors (fluent = true)
 @ToString
 @Getter
-public class EffectiveSkill implements
-		Effect.Applicable<EffectiveSkill>,
+public class SkillSlot implements
+		Effect.Applicable<SkillSlot>,
 		Replicable
 {
-	private EffectiveAbilityScoreComposition abilityScoreComposition;
+	private AbilityScoreSlotComposition abilityScoreSlotComposition;
 	private ProficiencyType proficiency;
 	private Skill type;
 
 	public int modifier() {
-		EffectiveAbilityScore effectiveAbilityScore = abilityScoreComposition.get(type.standardAbilityScore());
-		int proficiencyModifier = proficiency().proficiencyModifier(abilityScoreComposition.character());
-		return effectiveAbilityScore.modifier() + proficiencyModifier;
+		AbilityScoreSlot abilityScoreSlot = abilityScoreSlotComposition.get(type.standardAbilityScore());
+		int proficiencyModifier = proficiency().proficiencyModifier(abilityScoreSlotComposition.character());
+		return abilityScoreSlot.modifier() + proficiencyModifier;
 	}
 
 	@Override
-	public EffectiveSkill applyEffect(Effect<EffectiveSkill> effect) {
+	public SkillSlot applyEffect(Effect<SkillSlot> effect) {
 		var result = effect.applyTo(this);
-		this.abilityScoreComposition = result.abilityScoreComposition;
+		this.abilityScoreSlotComposition = result.abilityScoreSlotComposition;
 		this.proficiency = result.proficiency;
 		this.type = result.type;
 		return this;

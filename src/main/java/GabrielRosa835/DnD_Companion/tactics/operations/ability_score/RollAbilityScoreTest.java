@@ -1,6 +1,6 @@
 package tactics.operations.ability_score;
 
-import elements.components.effective.*;
+import elements.components.slots.*;
 import elements.compositions.*;
 import elements.entities.options.*;
 import fundamentals.*;
@@ -12,7 +12,7 @@ import tactics.*;
 @With
 public class RollAbilityScoreTest implements Operation<Integer>
 {
-	private EffectiveAbilityScoreComposition composition = null;
+	private AbilityScoreSlotComposition composition = null;
 	private AbilityScore abilityScore = null;
 
 	public static RollAbilityScoreTest use() {
@@ -20,7 +20,7 @@ public class RollAbilityScoreTest implements Operation<Integer>
 	}
 
 	public Integer execute() {
-		EffectiveAbilityScore effectiveAbilityScore = composition.get(abilityScore);
-		return Dice.D20.roll() + effectiveAbilityScore.modifier();
+		AbilityScoreSlot abilityScoreSlot = composition.get(abilityScore);
+		return Dice.D20.roll() + abilityScoreSlot.modifier();
 	}
 }

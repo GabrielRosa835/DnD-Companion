@@ -1,6 +1,6 @@
 package tactics.operations.ability_score;
 
-import elements.components.effective.*;
+import elements.components.slots.*;
 import elements.compositions.*;
 import elements.entities.options.*;
 import fundamentals.*;
@@ -12,13 +12,13 @@ import tactics.*;
 @With
 public class RollAbilityScoreTestWithProficiency implements Operation<Integer>
 {
-	private EffectiveAbilityScoreComposition composition;
+	private AbilityScoreSlotComposition composition;
 	private AbilityScore abilityScore;
 
 	public Integer execute() {
-		EffectiveAbilityScore effectiveAbilityScore = composition.get(abilityScore);
+		AbilityScoreSlot abilityScoreSlot = composition.get(abilityScore);
 		int proficiencyBonus = composition.character().proficiencyBonus();
-		int proficiencyModifier = (int) (proficiencyBonus * effectiveAbilityScore.proficiencySavingThrow().multiplier());
-		return Dice.D20.roll() + effectiveAbilityScore.modifier() + proficiencyModifier;
+		int proficiencyModifier = (int) (proficiencyBonus * abilityScoreSlot.savingThrowProficiency().multiplier());
+		return Dice.D20.roll() + abilityScoreSlot.modifier() + proficiencyModifier;
 	}
 }
