@@ -1,4 +1,4 @@
-CREATE TABLE OPT_ArmorCategory (
-    ArmorCategory_ID INT PRIMARY KEY AUTO_INCREMENT,
-    ArmorCategory_Name VARCHAR(15)
+CREATE TABLE ArmorCategory (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30)
 );

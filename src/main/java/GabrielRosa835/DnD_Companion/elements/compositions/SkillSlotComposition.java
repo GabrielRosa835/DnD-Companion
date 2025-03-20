@@ -1,8 +1,8 @@
 package elements.compositions;
 
-import elements.components.slots.*;
-import elements.entities.Character;
-import elements.entities.options.*;
+import elements.components.groups.*;
+import elements.entities.character.Character;
+import elements.entities.character.Skill;
 import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
@@ -17,21 +17,21 @@ import java.util.*;
 @Getter
 public class SkillSlotComposition implements
 		Effect.Applicable<SkillSlotComposition>,
-		Composition<Skill, SkillSlot>,
+		Composition<Skill, SkillGroup>,
 		Character.Property
 {
 	private final Character character;
 
 	@Singular("skill")
-	private Map<Skill, SkillSlot> skillMapping = new HashMap<>();
+	private Map<Skill, SkillGroup> skillMapping = new HashMap<>();
 
 	@Override
-	public SkillSlot get(Skill type) {
+	public SkillGroup get(Skill type) {
 		return skillMapping.get(type);
 	}
 	@Override
-	public SkillSlotComposition add(SkillSlot skillSlot) {
-		skillMapping.putIfAbsent(skillSlot.type(), skillSlot);
+	public SkillSlotComposition add(SkillGroup skillGroup) {
+		skillMapping.putIfAbsent(skillGroup.type(), skillGroup);
 		return this;
 	}
 	@Override

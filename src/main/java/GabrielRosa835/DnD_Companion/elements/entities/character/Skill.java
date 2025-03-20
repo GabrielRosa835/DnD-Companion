@@ -1,4 +1,4 @@
-package elements.entities.options;
+package elements.entities.character;
 
 import lombok.*;
 import lombok.experimental.*;

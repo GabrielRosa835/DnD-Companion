@@ -1,10 +1,9 @@
 package elements.components.character;
 
-import elements.entities.Character;
+import elements.entities.character.Character;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;
-import tactics.operations.character.*;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder (setterPrefix = "with")

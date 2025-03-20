@@ -1,6 +1,6 @@
 package fundamentals;
 
-import elements.entities.Character;
+import elements.entities.character.Character;
 import lombok.*;
 import lombok.experimental.*;
 

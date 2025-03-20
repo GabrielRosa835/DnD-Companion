@@ -1,26 +1,35 @@
 package tactics.operations.ability_score;
 
-import elements.components.slots.*;
+import elements.components.groups.*;
 import elements.compositions.*;
-import elements.entities.options.*;
+import elements.entities.character.AbilityScore;
+import elements.entities.character.Character;
 import fundamentals.*;
 import lombok.*;
 import tactics.*;
 
-@NoArgsConstructor (access = AccessLevel.PUBLIC, staticName = "use")
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
-@With
+@AllArgsConstructor
 public class RollAbilityScoreTest implements Operation<Integer>
 {
-	private AbilityScoreSlotComposition composition = null;
-	private AbilityScore abilityScore = null;
+	private int abilityScoreModifier;
 
-	public static RollAbilityScoreTest use() {
-		return new RollAbilityScoreTest();
+	public static int with(int abilityScoreModifier) {
+		return new RollAbilityScoreTest(abilityScoreModifier).execute();
+	}
+	public static int with(AbilityScoreGroup abilityScoreGroup) {
+		int abilityScoreModifier = abilityScoreGroup.modifier();
+		return new RollAbilityScoreTest(abilityScoreModifier).execute();
+	}
+	public static int with(AbilityScoreComposition composition, AbilityScore abilityScore) {
+		int abilityScoreModifier = composition.get(abilityScore).modifier();
+		return new RollAbilityScoreTest(abilityScoreModifier).execute();
+	}
+	public static int with(Character character, AbilityScore abilityScore) {
+		int abilityScoreModifier = character.status().get(abilityScore).modifier();
+		return new RollAbilityScoreTest(abilityScoreModifier).execute();
 	}
 
 	public Integer execute() {
-		AbilityScoreSlot abilityScoreSlot = composition.get(abilityScore);
-		return Dice.D20.roll() + abilityScoreSlot.modifier();
+		return Dice.D20.roll() + abilityScoreModifier;
 	}
 }

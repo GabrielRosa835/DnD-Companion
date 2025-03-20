@@ -1,19 +1,21 @@
-package elements.entities.options;
+package elements.entities.items;
 
 import common.*;
-import elements.components.*;
-import elements.models.types.*;
+import elements.entities.system.Measure;
+import elements.models.Item;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import tactics.*;
 
-import java.util.*;
+@Entity
+@Table
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
-@NoArgsConstructor (access = AccessLevel.PACKAGE)
-@Builder (setterPrefix = "with")
 @Accessors (fluent = true)
 @ToString
+@Builder (setterPrefix = "with")
 @Getter
 public class Armor implements
 		Effect.Applicable<Armor>,
@@ -44,4 +46,6 @@ public class Armor implements
 		this.name = result.name;
 		return this;
 	}
+
+	public interface Repository extends JpaRepository<Armor, Integer> {}
 }

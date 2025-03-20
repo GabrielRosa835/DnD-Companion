@@ -1,7 +1,7 @@
 package elements.components.character;
 
-import elements.components.*;
-import elements.entities.Character;
+import elements.entities.character.Character;
+import elements.entities.system.Measure;
 import fundamentals.*;
 import lombok.*;
 import lombok.experimental.*;

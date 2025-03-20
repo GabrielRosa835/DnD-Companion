@@ -1,8 +1,8 @@
 package tactics.operations.skill;
 
-import elements.components.slots.*;
+import elements.components.groups.*;
 import elements.compositions.*;
-import elements.entities.options.*;
+import elements.entities.character.AbilityScore;
 import fundamentals.*;
 import lombok.*;
 import tactics.*;
@@ -12,7 +12,7 @@ import tactics.*;
 @With
 public class RollSkillTestWithDifferentAbilityScore implements Operation<Integer>
 {
-	private SkillSlot skillSlot;
+	private SkillGroup skillGroup;
 	private AbilityScore abilityScore;
 
 	public static RollSkillTestWithDifferentAbilityScore use() {
@@ -20,9 +20,9 @@ public class RollSkillTestWithDifferentAbilityScore implements Operation<Integer
 	}
 
 	public Integer execute() {
-		AbilityScoreSlotComposition composition = skillSlot.abilityScoreSlotComposition();
+		AbilityScoreComposition composition = skillGroup.abilityScoreComposition();
 		int abilityScoreModifier = composition.get(abilityScore).modifier();
-		int proficiencyModifier = skillSlot.proficiency().proficiencyModifier(composition.character());
+		int proficiencyModifier = skillGroup.proficiency().proficiencyModifier(composition.character());
 		return Dice.D20.roll() + abilityScoreModifier + proficiencyModifier;
 	}
 }

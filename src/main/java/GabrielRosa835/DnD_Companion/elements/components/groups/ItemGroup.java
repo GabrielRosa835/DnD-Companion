@@ -1,24 +1,23 @@
-package elements.components.slots;
+package elements.components.groups;
 
-import elements.models.types.*;
+import elements.models.Item;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-@Builder (setterPrefix = "with")
-@Accessors(fluent = true)
+@Accessors (fluent = true)
 @ToString
+@Builder (setterPrefix = "with")
 @Getter
-public class ItemSlot implements
-		Effect.Applicable<ItemSlot>
+public class ItemGroup implements
+		Effect.Applicable<ItemGroup>
 {
 	private Item type;
 	private int amount;
 
-	@Override
-	public ItemSlot applyEffect (Effect<ItemSlot> effect) {
+	@Override public ItemGroup applyEffect (Effect<ItemGroup> effect) {
 		var result = effect.applyTo(this);
 		this.type = result.type;
 		this.amount = result.amount;

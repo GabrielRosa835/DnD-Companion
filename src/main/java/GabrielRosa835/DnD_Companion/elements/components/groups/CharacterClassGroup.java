@@ -1,26 +1,26 @@
-package elements.components.slots;
+package elements.components.groups;
 
 import common.*;
-import elements.entities.options.*;
+import elements.entities.character.CharacterClass;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @NoArgsConstructor (access = AccessLevel.PACKAGE)
-@Builder (setterPrefix = "with")
 @Accessors (fluent = true)
 @ToString
+@Builder (setterPrefix = "with")
 @Getter
-public class CharacterClassSlot implements
-		Effect.Applicable<CharacterClassSlot>,
+public class CharacterClassGroup implements
+		Effect.Applicable<CharacterClassGroup>,
 		Replicable
 {
 	private CharacterClass type;
 	private int level;
 
 	@Override
-	public CharacterClassSlot applyEffect(Effect<CharacterClassSlot> effect) {
+	public CharacterClassGroup applyEffect(Effect<CharacterClassGroup> effect) {
 		var result = effect.applyTo(this);
 		this.type = result.type;
 		this.level = result.level;

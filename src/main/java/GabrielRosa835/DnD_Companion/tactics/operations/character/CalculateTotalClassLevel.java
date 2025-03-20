@@ -1,8 +1,8 @@
 package tactics.operations.character;
 
-import elements.components.slots.*;
+import elements.components.groups.*;
 import elements.compositions.*;
-import elements.entities.Character;
+import elements.entities.character.Character;
 import lombok.*;
 import tactics.*;
 
@@ -12,12 +12,12 @@ import java.util.*;
 public class CalculateTotalClassLevel
 	implements Operation<Integer>
 {
-	private Collection<CharacterClassSlot> classes;
+	private Collection<CharacterClassGroup> classes;
 
-	public static int with(Collection<CharacterClassSlot> classes) {
+	public static int with(Collection<CharacterClassGroup> classes) {
 		return new CalculateTotalClassLevel(classes).execute();
 	}
-	public static int with(CharacterClassSlotComposition composition) {
+	public static int with(CharacterClassComposition composition) {
 		var classes = composition.classMapping().values();
 		return new CalculateTotalClassLevel(classes).execute();
 	}
@@ -28,7 +28,7 @@ public class CalculateTotalClassLevel
 
 	public Integer execute() {
 		int sum = 0;
-		for (CharacterClassSlot clazz : classes) {
+		for (CharacterClassGroup clazz : classes) {
 			sum += clazz.level();
 		}
 		return sum;

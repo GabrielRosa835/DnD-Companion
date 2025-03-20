@@ -1,8 +1,8 @@
 package elements.components.character;
 
-import elements.entities.Character;
-import elements.entities.options.*;
-import elements.models.types.*;
+import elements.entities.character.Character;
+import elements.entities.items.Armor;
+import elements.models.Item;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;

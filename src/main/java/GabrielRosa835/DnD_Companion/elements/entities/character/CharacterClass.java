@@ -1,14 +1,12 @@
-package elements.entities.options;
+package elements.entities.character;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.*;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
-@NoArgsConstructor (access = AccessLevel.PACKAGE)
-@Builder (setterPrefix = "with")
 @Accessors (fluent = true)
 @ToString
+@Builder (setterPrefix = "with")
 @Getter
 public class CharacterClass
 {

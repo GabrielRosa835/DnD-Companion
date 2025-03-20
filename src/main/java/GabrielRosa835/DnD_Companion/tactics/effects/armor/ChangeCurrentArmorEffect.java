@@ -1,7 +1,6 @@
 package tactics.effects.armor;
 
-import elements.components.slots.*;
-import elements.entities.options.*;
+import elements.entities.items.Armor;
 import lombok.*;
 import tactics.*;
 

@@ -1,4 +1,4 @@
-package elements.entities;
+package elements.entities.character;
 
 import elements.components.*;
 import elements.components.character.*;
@@ -6,7 +6,6 @@ import elements.compositions.*;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
-import tactics.operations.character.*;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @NoArgsConstructor (access = AccessLevel.PACKAGE)
@@ -18,9 +17,9 @@ public class Character implements
 		Effect.Applicable<Character>
 {
 	private CharacterDecorationProperties decorationProperties;
-	private CharacterClassSlotComposition classes;
+	private CharacterClassComposition classes;
 	private CharacterKeyProperties keyProperties;
-	private AbilityScoreSlotComposition status;
+	private AbilityScoreComposition status;
 	private ItemSlotComposition belongings;
 	private SkillSlotComposition skills;
 	private EquippedItems equipment;

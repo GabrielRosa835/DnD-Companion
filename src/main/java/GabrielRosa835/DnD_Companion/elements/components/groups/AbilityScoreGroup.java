@@ -1,6 +1,6 @@
-package elements.components.slots;
+package elements.components.groups;
 
-import elements.entities.options.*;
+import elements.entities.character.AbilityScore;
 import fundamentals.*;
 import lombok.*;
 import lombok.experimental.*;
@@ -11,7 +11,7 @@ import tactics.*;
 @Accessors (fluent = true)
 @ToString
 @Getter
-public class AbilityScoreSlot implements Effect.Applicable<AbilityScoreSlot>
+public class AbilityScoreGroup implements Effect.Applicable<AbilityScoreGroup>
 {
 	private ProficiencyType savingThrowProficiency;
 	private AbilityScore type;
@@ -19,7 +19,7 @@ public class AbilityScoreSlot implements Effect.Applicable<AbilityScoreSlot>
 
 	public int modifier() {return AbilityScore.calculateModifier(value);}
 
-	private AbilityScoreSlot(ProficiencyType savingThrowProficiency, AbilityScore type, int value) {
+	private AbilityScoreGroup (ProficiencyType savingThrowProficiency, AbilityScore type, int value) {
 		this.type = type;
 		this.value = value;
 		if(savingThrowProficiency.isBasicProficiency()) {
@@ -30,7 +30,7 @@ public class AbilityScoreSlot implements Effect.Applicable<AbilityScoreSlot>
 	}
 
 	@Override
-	public AbilityScoreSlot applyEffect (Effect<AbilityScoreSlot> effect) {
+	public AbilityScoreGroup applyEffect (Effect<AbilityScoreGroup> effect) {
 		var result = effect.applyTo(this);
 		this.type = result.type;
 		this.value = result.value;

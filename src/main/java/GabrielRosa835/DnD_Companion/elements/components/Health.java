@@ -1,15 +1,14 @@
 package elements.components;
 
-import elements.entities.Character;
+import elements.entities.character.Character;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.Effect;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
-@NoArgsConstructor (access = AccessLevel.PACKAGE)
-@Builder (setterPrefix = "with")
 @Accessors (fluent = true)
 @ToString
+@Builder (setterPrefix = "with")
 @Getter
 public class Health implements
 		Effect.Applicable<Health>,

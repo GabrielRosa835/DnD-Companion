@@ -1,8 +1,7 @@
 package tactics.operations.character;
 
-import elements.components.slots.*;
 import elements.compositions.*;
-import elements.entities.Character;
+import elements.entities.character.Character;
 import lombok.*;
 import tactics.*;
 
@@ -15,7 +14,7 @@ public class CalculateProficiencyBonus
 	public static int with(int totalClassLevel) {
 		return new CalculateProficiencyBonus(totalClassLevel).execute();
 	}
-	public static int with(CharacterClassSlotComposition classes) {
+	public static int with(CharacterClassComposition classes) {
 		int totalClassLevel = CalculateTotalClassLevel.with(classes);
 		return new CalculateProficiencyBonus(totalClassLevel).execute();
 	}

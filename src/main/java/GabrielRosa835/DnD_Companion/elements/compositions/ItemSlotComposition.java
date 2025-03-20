@@ -1,9 +1,8 @@
 package elements.compositions;
 
-import elements.components.slots.*;
-import elements.entities.Character;
+import elements.components.groups.*;
+import elements.entities.character.Character;
 import elements.models.*;
-import elements.models.types.*;
 import lombok.*;
 import lombok.experimental.*;
 import tactics.*;
@@ -19,19 +18,19 @@ import java.util.*;
 // Belongings
 public class ItemSlotComposition implements
 		Effect.Applicable<ItemSlotComposition>,
-		Composition<Item, ItemSlot>,
+		Composition<Item, ItemGroup>,
 		Character.Property
 {
 	private final Character character;
 
 	@Singular("item")
-	private Map<Item, ItemSlot> itemMapping = new HashMap<>();
+	private Map<Item, ItemGroup> itemMapping = new HashMap<>();
 
-	@Override public ItemSlot get(Item item) {
+	@Override public ItemGroup get(Item item) {
 		return itemMapping.get(item);
 	}
-	@Override public ItemSlotComposition add(ItemSlot itemSlot) {
-		itemMapping.put(itemSlot.type(), itemSlot);
+	@Override public ItemSlotComposition add(ItemGroup itemGroup) {
+		itemMapping.put(itemGroup.type(), itemGroup);
 		return this;
 	}
 	@Override public ItemSlotComposition remove(Item item) {
@@ -41,7 +40,7 @@ public class ItemSlotComposition implements
 	public boolean contains(Item item) {
 		return itemMapping().containsKey(item);
 	}
-	public Collection<ItemSlot> content() {
+	public Collection<ItemGroup> content() {
 		return itemMapping.values();
 	}
 

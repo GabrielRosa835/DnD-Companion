@@ -1,9 +1,7 @@
-package elements.models.types;
+package elements.models;
 
-import elements.components.*;
-import elements.entities.options.*;
-
-import java.util.*;
+import elements.entities.items.ItemTag;
+import elements.entities.system.Measure;
 
 public interface Item {
 	String name();

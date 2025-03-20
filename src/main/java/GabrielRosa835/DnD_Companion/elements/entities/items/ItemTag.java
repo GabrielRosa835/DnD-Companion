@@ -1,10 +1,9 @@
-package elements.entities.options;
+package elements.entities.items;
 
 import lombok.*;
 import lombok.experimental.*;
 
 @AllArgsConstructor (access = AccessLevel.PUBLIC, staticName = "create")
-@NoArgsConstructor (access = AccessLevel.PACKAGE)
 @Accessors (fluent = true)
 @ToString
 @Getter

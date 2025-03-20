@@ -1,8 +1,8 @@
 package elements.compositions;
 
-import elements.components.slots.*;
-import elements.entities.Character;
-import elements.entities.options.*;
+import elements.components.groups.*;
+import elements.entities.character.AbilityScore;
+import elements.entities.character.Character;
 import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
@@ -17,33 +17,33 @@ import java.util.*;
 @Getter
 
 // Status
-public class AbilityScoreSlotComposition implements
-		Effect.Applicable<AbilityScoreSlotComposition>,
-		Composition<AbilityScore, AbilityScoreSlot>,
+public class AbilityScoreComposition implements
+		Effect.Applicable<AbilityScoreComposition>,
+		Composition<AbilityScore, AbilityScoreGroup>,
 		Character.Property
 {
 	private final Character character;
 
 	@Singular("abilityScore")
-	private Map<AbilityScore, AbilityScoreSlot> statusMapping = new HashMap<>();
+	private Map<AbilityScore, AbilityScoreGroup> statusMapping = new HashMap<>();
 
 	@Override
-	public AbilityScoreSlotComposition add(AbilityScoreSlot abilityScore) {
+	public AbilityScoreComposition add(AbilityScoreGroup abilityScore) {
 		statusMapping.putIfAbsent(abilityScore.type(), abilityScore);
 		return this;
 	}
 	@Override
-	public AbilityScoreSlotComposition remove(AbilityScore abilityScore) {
+	public AbilityScoreComposition remove(AbilityScore abilityScore) {
 		statusMapping.remove(abilityScore);
 		return this;
 	}
 	@Override
-	public AbilityScoreSlot get(AbilityScore type) {
+	public AbilityScoreGroup get(AbilityScore type) {
 		return statusMapping.get(type);
 	}
 
 	@Override
-	public AbilityScoreSlotComposition applyEffect(Effect<AbilityScoreSlotComposition> effect) {
+	public AbilityScoreComposition applyEffect(Effect<AbilityScoreComposition> effect) {
 		var result = effect.applyTo(this);
 		this.statusMapping = result.statusMapping;
 		return this;

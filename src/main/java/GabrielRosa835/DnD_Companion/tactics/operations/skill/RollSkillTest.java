@@ -1,22 +1,26 @@
 package tactics.operations.skill;
 
-import elements.components.slots.*;
+import elements.components.groups.*;
 import fundamentals.*;
 import lombok.*;
 import tactics.*;
 
-@NoArgsConstructor (access = AccessLevel.PUBLIC, staticName = "use")
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
-@With
+@AllArgsConstructor
 public class RollSkillTest implements Operation<Integer>
 {
-	private SkillSlot skillSlot;
+	private int skillModifier;
 
-	public static RollSkillTest use() {
-		return new RollSkillTest();
+	public static int with(int skillModifier) {
+		return new RollSkillTest(skillModifier).execute();
 	}
+	public static int with(SkillGroup group) {
+		int skillModifier = group.modifier();
+		return new RollSkillTest(skillModifier).execute();
+	}
+	public static
 
 	public Integer execute() {
-		return Dice.D20.roll() + skillSlot.modifier();
+
+		return Dice.D20.roll() + skillModifier;
 	}
 }
