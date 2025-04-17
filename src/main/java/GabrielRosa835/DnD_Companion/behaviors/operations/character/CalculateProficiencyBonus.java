@@ -1,9 +1,17 @@
+<<<<<<<< HEAD:src/main/java/GabrielRosa835/DnD_Companion/app/tactics/operations/character/CalculateProficiencyBonus.java
 package GabrielRosa835.dnd_companion.app.tactics.operations.character;
+========
+package behaviors.operations.character;
+>>>>>>>> ddb13a8 (Created Catalyst structure):src/main/java/GabrielRosa835/DnD_Companion/behaviors/operations/character/CalculateProficiencyBonus.java
 
 import GabrielRosa835.dnd_companion.app.elements.compositions.*;
 import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
 import GabrielRosa835.dnd_companion.app.tactics.*;
 import lombok.*;
+<<<<<<<< HEAD:src/main/java/GabrielRosa835/DnD_Companion/app/tactics/operations/character/CalculateProficiencyBonus.java
+========
+import behaviors.*;
+>>>>>>>> ddb13a8 (Created Catalyst structure):src/main/java/GabrielRosa835/DnD_Companion/behaviors/operations/character/CalculateProficiencyBonus.java
 
 @AllArgsConstructor
 public class CalculateProficiencyBonus

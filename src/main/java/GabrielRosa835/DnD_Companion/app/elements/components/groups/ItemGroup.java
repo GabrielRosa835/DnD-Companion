@@ -1,14 +1,13 @@
-package GabrielRosa835.dnd_companion.app.elements.components.groups;
+package elements.components.groups;
 
-
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.models.Item;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-@Accessors(fluent = true)
+@Accessors (fluent = true)
 @ToString
 @Builder (setterPrefix = "with")
 @Getter

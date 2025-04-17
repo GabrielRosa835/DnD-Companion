@@ -1,18 +1,18 @@
-package GabrielRosa835.dnd_companion.app.elements.components.character;
+package elements.components.character;
 
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.elements.entities.items.*;
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.entities.character.Character;
+import elements.entities.items.Armor;
+import elements.models.Item;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 import java.util.*;
 
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
-@Accessors (fluent = true)
-@ToString
+@RequiredArgsConstructor
 @Builder (setterPrefix = "with")
+@Accessors(fluent = true)
+@ToString
 @Getter
 
 // Equipment
@@ -20,12 +20,10 @@ public class EquippedItems implements
 		Effect.Applicable<EquippedItems>,
 		Character.Property
 {
-	private Character character;
+	private final Character character;
 
-	@Singular("attuned")
-	private List<Item> attunedMagicItems;
-	@Singular("held")
-	private Map<Integer, Item> heldItems;
+	private List<Item> attunedMagicItems = new ArrayList<>();
+	private Map<Integer, Item> heldItems = new HashMap<>();
 
 	private Armor currentArmor;
 

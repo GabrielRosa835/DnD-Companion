@@ -1,16 +1,15 @@
-package GabrielRosa835.dnd_companion.app.elements.entities.system;
+package elements.entities.system;
 
-
-import GabrielRosa835.dnd_companion.app.common.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import common.*;
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.*;
-import org.springframework.data.jpa.repository.*;
+import lombok.experimental.Accessors;
+import org.springframework.data.jpa.repository.JpaRepository;
+import behaviors.*;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
 @NoArgsConstructor (access = AccessLevel.PROTECTED)
-@Accessors(fluent = true)
+@Accessors (fluent = true)
 @ToString
 @Builder (setterPrefix = "with")
 @Getter
@@ -21,7 +20,7 @@ public class Measure implements
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id = null;
 
 	@ManyToOne
 	@JoinColumn(name = "unit_id", nullable = false)
@@ -36,4 +35,6 @@ public class Measure implements
 		this.unit = result.unit;
 		return this;
 	}
+
+	public interface Repository extends JpaRepository<Measure, Integer> {}
 }

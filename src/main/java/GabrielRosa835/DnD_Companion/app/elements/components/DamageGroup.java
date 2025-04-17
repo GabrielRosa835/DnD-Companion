@@ -1,16 +1,15 @@
-package GabrielRosa835.dnd_companion.app.elements.components;
+package elements.components;
 
-
-import GabrielRosa835.dnd_companion.app.elements.entities.system.*;
-import GabrielRosa835.dnd_companion.app.fundamentals.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.entities.system.DamageType;
+import fundamentals.Dice;
 import lombok.*;
-import lombok.experimental.*;
+import lombok.experimental.Accessors;
+import behaviors.Effect;
 
-import java.util.*;
+import java.util.List;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Accessors(fluent = true)
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@Accessors (fluent = true)
 @ToString
 @Builder (setterPrefix = "with")
 @Getter

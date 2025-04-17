@@ -1,11 +1,11 @@
-package GabrielRosa835.dnd_companion.app.elements.components.character;
+package elements.components.character;
 
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.elements.entities.system.*;
-import GabrielRosa835.dnd_companion.app.fundamentals.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.entities.character.Character;
+import elements.entities.system.Measure;
+import fundamentals.*;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder (setterPrefix = "with")

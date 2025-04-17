@@ -1,14 +1,14 @@
-package GabrielRosa835.dnd_companion.app.elements.entities.items.weapon;
+package elements.entities.items.weapon;
 
-import GabrielRosa835.dnd_companion.app.common.*;
-import GabrielRosa835.dnd_companion.app.elements.components.*;
-import GabrielRosa835.dnd_companion.app.elements.components.groups.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.items.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.system.*;
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import common.Replicable;
+import elements.components.DamageGroup;
+import elements.entities.system.Measure;
+import elements.components.groups.WeaponPropertyGroup;
+import elements.entities.items.ItemTag;
+import elements.models.Item;
 import lombok.*;
-import lombok.experimental.*;
+import lombok.experimental.Accessors;
+import behaviors.Effect;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @Accessors (fluent = true)

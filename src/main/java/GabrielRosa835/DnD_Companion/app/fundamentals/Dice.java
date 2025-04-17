@@ -15,7 +15,7 @@ public enum Dice
 	private final int maxValue;
 	private final double average;
 
-	private Dice(int maxValue) {
+	Dice (int maxValue) {
 		this.maxValue = maxValue;
 		this.average = (double) (maxValue + 1) / 2;
 	}

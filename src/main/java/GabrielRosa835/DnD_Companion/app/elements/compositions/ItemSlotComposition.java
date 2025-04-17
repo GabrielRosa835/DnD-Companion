@@ -1,18 +1,18 @@
-package GabrielRosa835.dnd_companion.app.elements.compositions;
+package elements.compositions;
 
-import GabrielRosa835.dnd_companion.app.elements.components.groups.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.components.groups.*;
+import elements.entities.character.Character;
+import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 import java.util.*;
 
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
+@Builder (setterPrefix = "with")
 @Accessors (fluent = true)
 @ToString
-@Builder (setterPrefix = "with")
 @Getter
 
 // Belongings
@@ -21,10 +21,10 @@ public class ItemSlotComposition implements
 		Composition<Item, ItemGroup>,
 		Character.Property
 {
-	private Character character;
+	private final Character character;
 
 	@Singular("item")
-	private Map<Item, ItemGroup> itemMapping;
+	private Map<Item, ItemGroup> itemMapping = new HashMap<>();
 
 	@Override public ItemGroup get(Item item) {
 		return itemMapping.get(item);

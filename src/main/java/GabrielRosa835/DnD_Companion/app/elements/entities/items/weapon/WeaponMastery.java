@@ -1,6 +1,6 @@
-package GabrielRosa835.dnd_companion.app.elements.entities.items.weapon;
+package elements.entities.items.weapon;
 
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import behaviors.Operation;
 
 public class WeaponMastery
 {

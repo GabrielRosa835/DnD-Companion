@@ -1,12 +1,16 @@
-package GabrielRosa835.dnd_companion.app.elements.entities.items;
+package elements.entities.items;
 
-import GabrielRosa835.dnd_companion.app.common.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.system.*;
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import common.*;
+import elements.entities.system.Measure;
+import elements.models.Item;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.*;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import behaviors.*;
+
+@Entity
+@Table
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @Accessors (fluent = true)

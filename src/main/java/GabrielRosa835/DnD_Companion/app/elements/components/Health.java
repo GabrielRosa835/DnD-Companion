@@ -1,17 +1,19 @@
-package GabrielRosa835.dnd_companion.app.elements.components;
+package elements.components;
 
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import behaviors.*;
+import elements.entities.character.Character;
 import lombok.*;
 import lombok.experimental.*;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Accessors(fluent = true)
+import java.util.Set;
+
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@Accessors (fluent = true)
 @ToString
 @Builder (setterPrefix = "with")
 @Getter
 public class Health implements
-		Effect.Applicable<Health>,
+		Effectable<Health>,
 		Character.Property
 {
 	private Character character;
@@ -20,12 +22,14 @@ public class Health implements
 	private int currentHitPoints;
 	private int maximumHitPoints;
 
-	@Override
-	public Health applyEffect (Effect<Health> effect) {
-		var result = effect.applyTo(this);
-		this.temporaryHitPoints = result.temporaryHitPoints;
-		this.currentHitPoints = result.currentHitPoints;
-		this.maximumHitPoints = result.maximumHitPoints;
+	@Override public Health applyEffect (Effect<Health> effect, Set<Catalyst<?>> catalysts) {
+		var result = effect.applyTo(this, catalysts);
+		update(result);
 		return this;
+	}
+	protected void update(Health clone) {
+		this.temporaryHitPoints = clone.temporaryHitPoints;
+		this.currentHitPoints = clone.currentHitPoints;
+		this.maximumHitPoints = clone.maximumHitPoints;
 	}
 }

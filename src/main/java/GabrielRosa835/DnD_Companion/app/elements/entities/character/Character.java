@@ -1,20 +1,21 @@
-package GabrielRosa835.dnd_companion.app.elements.entities.character;
+package elements.entities.character;
 
-import GabrielRosa835.dnd_companion.app.elements.components.*;
-import GabrielRosa835.dnd_companion.app.elements.components.character.*;
-import GabrielRosa835.dnd_companion.app.elements.compositions.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.components.*;
+import elements.components.character.*;
+import elements.compositions.*;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.Effect;
+import behaviors.Effectable;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor (access = AccessLevel.PRIVATE)
 @NoArgsConstructor (access = AccessLevel.PACKAGE)
 @Builder (setterPrefix = "with")
-@Accessors(fluent = true)
+@Accessors (fluent = true)
 @ToString
 @Getter
 public class Character implements
-		Effect.Applicable<Character>
+		Effectable<Character>
 {
 	private CharacterDecorationProperties decorationProperties;
 	private CharacterClassComposition classes;

@@ -1,11 +1,10 @@
-package GabrielRosa835.dnd_companion.app.elements.components.groups;
+package elements.components.groups;
 
-
-import GabrielRosa835.dnd_companion.app.common.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.character.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import common.*;
+import elements.entities.character.CharacterClass;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 @AllArgsConstructor (access = AccessLevel.PRIVATE)
 @NoArgsConstructor (access = AccessLevel.PACKAGE)

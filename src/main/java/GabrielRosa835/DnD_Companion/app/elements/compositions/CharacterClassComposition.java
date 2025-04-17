@@ -1,30 +1,29 @@
-package GabrielRosa835.dnd_companion.app.elements.compositions;
+package elements.compositions;
 
-
-import GabrielRosa835.dnd_companion.app.elements.components.groups.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.character.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.components.groups.*;
+import elements.entities.character.Character;
+import elements.entities.character.CharacterClass;
+import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 import java.util.*;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Accessors(fluent = true)
-@ToString
+@RequiredArgsConstructor
 @Builder (setterPrefix = "with")
+@Accessors (fluent = true)
+@ToString
 @Getter
 public class CharacterClassComposition implements
 		Effect.Applicable<CharacterClassComposition>,
 		Composition<CharacterClass, CharacterClassGroup>,
 		Character.Property
 {
-	private Character character;
+	private final Character character;
 
 	@Singular("class")
-	private Map<CharacterClass, CharacterClassGroup> classMapping;
+	private Map<CharacterClass, CharacterClassGroup> classMapping = new HashMap<>();
 
 	@Override
 	public CharacterClassGroup get(CharacterClass type) {

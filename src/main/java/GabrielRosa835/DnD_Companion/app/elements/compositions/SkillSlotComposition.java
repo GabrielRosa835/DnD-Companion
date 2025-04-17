@@ -1,29 +1,29 @@
-package GabrielRosa835.dnd_companion.app.elements.compositions;
+package elements.compositions;
 
-import GabrielRosa835.dnd_companion.app.elements.components.groups.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.character.*;
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.elements.models.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.components.groups.*;
+import elements.entities.character.Character;
+import elements.entities.character.Skill;
+import elements.models.*;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 import java.util.*;
 
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
+@Builder (setterPrefix = "with")
 @Accessors (fluent = true)
 @ToString
-@Builder (setterPrefix = "with")
 @Getter
 public class SkillSlotComposition implements
 		Effect.Applicable<SkillSlotComposition>,
 		Composition<Skill, SkillGroup>,
 		Character.Property
 {
-	private Character character;
+	private final Character character;
 
 	@Singular("skill")
-	private Map<Skill, SkillGroup> skillMapping;
+	private Map<Skill, SkillGroup> skillMapping = new HashMap<>();
 
 	@Override
 	public SkillGroup get(Skill type) {

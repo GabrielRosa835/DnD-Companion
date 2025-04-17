@@ -1,9 +1,9 @@
-package GabrielRosa835.dnd_companion.app.elements.components.character;
+package elements.components.character;
 
-import GabrielRosa835.dnd_companion.app.elements.entities.character.Character;
-import GabrielRosa835.dnd_companion.app.tactics.*;
+import elements.entities.character.Character;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder (setterPrefix = "with")
@@ -16,10 +16,7 @@ public class CharacterKeyProperties implements
 {
 	private final Character character;
 
-	@Builder.Default
 	private int attunementLimit = 3;
-
-	@Builder.Default
 	private int proficiencyBonus = 2;
 
 	@Override public CharacterKeyProperties applyEffect(Effect<CharacterKeyProperties> effect) {

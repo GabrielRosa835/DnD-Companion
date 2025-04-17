@@ -1,26 +1,23 @@
-package GabrielRosa835.dnd_companion.app.elements.components.groups;
+package elements.components.groups;
 
-
-import GabrielRosa835.dnd_companion.app.elements.entities.character.*;
-import GabrielRosa835.dnd_companion.app.fundamentals.*;
-import GabrielRosa835.dnd_companion.app.tactics.*;
-import GabrielRosa835.dnd_companion.app.tactics.operations.ability_score.*;
+import elements.entities.character.AbilityScore;
+import fundamentals.*;
 import lombok.*;
 import lombok.experimental.*;
+import behaviors.*;
 
-@NoArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor (access = AccessLevel.PACKAGE)
 @Builder (setterPrefix = "with")
-@Accessors(fluent = true)
+@Accessors (fluent = true)
 @ToString
 @Getter
-public class AbilityScoreGroup implements
-		Effect.Applicable<AbilityScoreGroup>
+public class AbilityScoreGroup implements Effect.Applicable<AbilityScoreGroup>
 {
 	private ProficiencyType savingThrowProficiency;
 	private AbilityScore type;
 	private int value;
 
-	public int modifier() {return CalculateAbilityScoreModifier.with(value);}
+	public int modifier() {return AbilityScore.calculateModifier(value);}
 
 	private AbilityScoreGroup (ProficiencyType savingThrowProficiency, AbilityScore type, int value) {
 		this.type = type;
