@@ -1,4 +1,4 @@
-package GabrielRosa835.dnd_companion.app.common;
+package app.common;
 
 import java.lang.reflect.*;
 import java.util.*;

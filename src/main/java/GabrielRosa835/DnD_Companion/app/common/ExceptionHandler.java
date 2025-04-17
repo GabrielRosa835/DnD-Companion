@@ -1,16 +1,10 @@
-package GabrielRosa835.dnd_companion.app.common;
+package app.common;
 
-import lombok.*;
+import lombok.experimental.UtilityClass;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@UtilityClass
 public class ExceptionHandler {
-	private static ExceptionHandler instance;
-
-	public static ExceptionHandler use() {
-		return instance == null ? new ExceptionHandler() : instance;
-	}
-
-	public void handle(Exception e) {
+	public void handle (Exception e) {
 		e.printStackTrace();
 	}
 }
