@@ -2,37 +2,42 @@ package app.rpg.elements.actors;
 
 import app.rpg.elements.components.*;
 import app.rpg.elements.compositions.*;
-import app.rpg.models.Actor;
+import app.rpg.elements.models.*;
 import lombok.*;
-import lombok.experimental.Accessors;
+import lombok.experimental.*;
 
-@AllArgsConstructor (access = AccessLevel.PRIVATE)
-@Accessors (fluent = true)
+@AllArgsConstructor(staticName = "create")
+@NoArgsConstructor
+@Accessors(fluent = true)
 @ToString
-@Builder (setterPrefix = "with")
+@Builder(setterPrefix = "with")
 @Getter
-public class CharacterActor
-	implements Actor<CharacterActor>
+public class CharacterActor implements Actor<CharacterActor>
 {
-	private CharacterDecorationPropertiesComponent decorationProperties;
-	private CharacterKeyPropertiesComponent keyProperties;
-	private CharacterClassComposition classes;
-	private HealthComponent healthComponent;
-	private AbilityScoreComposition status;
-	private EquipmentComponent equipment;
-	private ItemComposition belongings;
-	private SkillComposition skills;
 	private String name;
+	private HealthComponent health;
+	private CharacterClassComposition classes;
+	private AbilityScoreComposition status;
+	private SkillComposition skills;
+	private ItemComposition inventory;
+	private EquipmentComponent equipment;
+	private CharacterKeyPropertiesComponent keyProperties;
+	private CharacterDecorationPropertiesComponent decorationProperties;
+	private CatalystComposition resistances;
 
-	@Override public void update(CharacterActor clone) {
+	@Override public CharacterActor update(CharacterActor clone) {
 		this.decorationProperties = clone.decorationProperties;
-		this.healthComponent = clone.healthComponent;
 		this.keyProperties = clone.keyProperties;
-		this.belongings = clone.belongings;
+		this.inventory = clone.inventory;
 		this.equipment = clone.equipment;
 		this.classes = clone.classes;
 		this.status = clone.status;
 		this.skills = clone.skills;
+		this.health = clone.health;
 		this.name = clone.name;
+		return this;
+	}
+	@Override public CharacterActor replicate() {
+		return new CharacterActor().update(this);
 	}
 }

@@ -1,11 +1,10 @@
 package app.rpg.elements.options;
 
-import app.rpg.models.Option;
+import app.rpg.elements.models.Option;
 
-public record CharacterClassOption (
+public record CharacterClassOption(
 		String name
-) implements Option
-{
+) implements Option {
 	// ARTIFICER, BARBARIAN, BARD, CLERIC,
 	// DRUID, FIGHTER, MONK,
 	// PALADIN, RANGER, ROGUE,

@@ -9,7 +9,7 @@ public class DnDCompanionApplication {
 
 		Canva.use().test();
 
-		// SpringApplication.run(DnDCompanionApplication.class, args);
+		// SpringApplication.run(app.DnDCompanionApplication.class, args);
 
 	}
 }

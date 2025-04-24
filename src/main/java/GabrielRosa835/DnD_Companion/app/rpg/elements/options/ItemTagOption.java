@@ -1,10 +1,9 @@
 package app.rpg.elements.options;
 
-import app.rpg.models.Option;
+import app.rpg.elements.models.Option;
 
-public record ItemTagOption (
+public record ItemTagOption(
 		String name
-) implements Option
-{
+) implements Option {
 	//
 }

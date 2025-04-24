@@ -1,11 +1,11 @@
 package app.rpg.elements.options;
 
 import app.rpg.elements.components.MeasureComponent;
-import app.rpg.models.Option;
-import app.rpg.elements.options.types.Item;
+import app.rpg.elements.models.Option;
+import app.rpg.elements.models.types.Item;
 import lombok.Builder;
 
-@Builder (setterPrefix = "with")
+@Builder(setterPrefix = "with")
 public record ArmorOption(
 		ItemTagOption[] tags,
 		String description,
@@ -17,7 +17,6 @@ public record ArmorOption(
 		boolean stealthDisadvantage,
 		int strengthRequirement,
 		int baseArmorClass
-) implements Option, Item
-{
+) implements Option, Item {
 	//
 }

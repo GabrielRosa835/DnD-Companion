@@ -1,6 +1,5 @@
 package app.storage;
 
-public class CollectionData
-{
+public class CollectionData {
 
 }

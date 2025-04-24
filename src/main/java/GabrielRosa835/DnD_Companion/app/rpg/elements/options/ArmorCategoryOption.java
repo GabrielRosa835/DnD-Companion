@@ -1,10 +1,9 @@
 package app.rpg.elements.options;
 
-import app.rpg.models.Option;
+import app.rpg.elements.models.Option;
 
-public record ArmorCategoryOption (
+public record ArmorCategoryOption(
 		String name
-) implements Option
-{
+) implements Option {
 	// UNARMORED, LIGHT, MEDIUM, HEAVY
 }
