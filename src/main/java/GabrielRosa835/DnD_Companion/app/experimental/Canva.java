@@ -1,26 +1,22 @@
 package app.experimental;
 
-import lombok.*;
+import io.vavr.control.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
 
-@NoArgsConstructor(staticName = "use")
-public class Canva {
+import java.sql.*;
 
-	public void test() {
-//		LocalStorageService storage = LocalStorageService.use();
-//		Display.display(LocalFolderData.use().setupCoreFolders().tree().keySet());
-//		Display.blank();
-//		Display.display(LocalFolderData.use().setupCoreFolders().types());
-//
-//		var type = new UnitTypeOption("Length");
-//		var unit = UnitOption.builder()
-//				.withName("Meters")
-//				.withAbbreviation("m")
-//				.withSingularForm("Meter")
-//				.withNormalizingFactor(1)
-//				.withType(type)
-//				.build();
-//		storage.initialize();
-//		storage.save(type);
-//		storage.save(unit);
+@Component
+public class Canva implements Runnable {
+
+	@Autowired
+	private Connection connection;
+
+	private UnitType type = new UnitType(null, "Length");
+	private Unit unit = new Unit(null, "Meters", "m", "Meter", 1, type);
+
+	@Override
+	public void run() {
+		System.out.println(Try.of(() -> connection.createStatement()));
 	}
 }
