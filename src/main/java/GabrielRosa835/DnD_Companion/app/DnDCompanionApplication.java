@@ -8,7 +8,7 @@ import org.springframework.context.*;
 @SpringBootApplication
 public class DnDCompanionApplication {
 
-	public static void main(String[] args) {
+	public static void main (String[] args) {
 
 		ApplicationContext context = SpringApplication.run(DnDCompanionApplication.class, args);
 		var canva = context.getBean(Canva.class);

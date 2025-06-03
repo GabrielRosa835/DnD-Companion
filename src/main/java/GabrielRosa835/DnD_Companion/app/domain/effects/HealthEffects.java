@@ -23,4 +23,8 @@ public interface HealthEffects
 	static int damageMultiply(int damage, double factor) {
 		return (int) Math.floor(damage * factor);
 	}
+
+	//	public int hitDiceMaximum() {
+//		return PlayerClassEffects.calculateTotalLevel(backToCharacter.classes().values());
+//	}
 }

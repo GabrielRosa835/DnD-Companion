@@ -1,19 +1,15 @@
 package app.domain.elements.components;
 
-import app.domain.elements.options.DamageType;
-import app.domain.elements.options.Dice;
+import app.domain.elements.options.system.DamageType;
+import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.Accessors;
 
 import java.util.List;
 
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Accessors(fluent = true)
-@ToString
-@Builder(setterPrefix = "with")
-@Getter
-public class DamageComponent {
-	private List<Dice> dice;
-	private DamageType type;
-	private int modifier;
-}
+@Embeddable
+@With
+public record DamageComponent (
+		List<DiceGroupComponent> dices,
+		DamageType type,
+		int modifier
+) {}

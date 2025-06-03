@@ -1,6 +1,6 @@
 package app.domain.effects;
 
-import app.domain.elements.options.*;
+import app.domain.elements.options.system.*;
 
 public interface AbilityScoreEffects
 {

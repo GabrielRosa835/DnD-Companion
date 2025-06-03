@@ -1,22 +1,25 @@
 package app.experimental;
 
-import io.vavr.control.*;
-import org.springframework.beans.factory.annotation.*;
+import app.domain.elements.options.system.*;
+import app.infrastructure.storage.repositories.system.*;
 import org.springframework.stereotype.*;
 
-import java.sql.*;
-
 @Component
-public class Canva implements Runnable {
+public class Canva {
 
-	@Autowired
-	private Connection connection;
+	private final UnitRepository unitRepo;
+	private final UnitTypeRepository unitTypeRepo;
 
-	private UnitType type = new UnitType(null, "Length");
-	private Unit unit = new Unit(null, "Meters", "m", "Meter", 1, type);
+	public Canva (UnitRepository unitRepo, UnitTypeRepository unitTypeRepo) {
+		this.unitRepo = unitRepo;
+		this.unitTypeRepo = unitTypeRepo;
+	}
 
-	@Override
-	public void run() {
-		System.out.println(Try.of(() -> connection.createStatement()));
+	private UnitType type = UnitType.createNew("Length");
+	private Unit unit = Unit.createNew("Meters", "m", "Meter", 1, type);
+
+	public void run () {
+		System.out.println(unitTypeRepo.save(type));
+		System.out.println(unitRepo.save(unit));
 	}
 }

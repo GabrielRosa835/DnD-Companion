@@ -1,6 +1,6 @@
 package app.domain.effects;
 
-import app.domain.elements.options.*;
+import app.domain.elements.options.system.*;
 
 public interface SkillEffects {
 
@@ -9,5 +9,16 @@ public interface SkillEffects {
 			throw new RuntimeException("Dice should be a D20, not a "+D20.name());
 		return D20.roll() + modifier;
 	}
+
+
+	public int modifier() {
+		int abilityScoreModifier = backToCharacter.status().get(type.standardAbilityScore()).modifier();
+		return (int) (backToCharacter.proficiencyBonus() * proficiencyType.multiplier()) + abilityScoreModifier;
+	}
+	public int modifierWith(AbilityScoreType abilityScore) {
+		int abilityScoreModifier = backToCharacter.status().get(abilityScore).modifier();
+		return (int) (backToCharacter.proficiencyBonus() * proficiencyType.multiplier()) + abilityScoreModifier;
+	}
+	public int passive() {return 10 + modifier();}
 
 }
