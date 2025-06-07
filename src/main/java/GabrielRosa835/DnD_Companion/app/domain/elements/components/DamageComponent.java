@@ -1,6 +1,5 @@
 package app.domain.elements.components;
 
-import app.domain.elements.options.system.DamageType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,7 +8,12 @@ import java.util.List;
 @Embeddable
 @With
 public record DamageComponent (
+		@ElementCollection
+		@Embedded
 		List<DiceGroupComponent> dices,
-		DamageType type,
+
+		@ManyToOne
+		app.domain.elements.entities.options.system.DamageTypeMapping type,
+
 		int modifier
 ) {}

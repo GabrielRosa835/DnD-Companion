@@ -1,33 +1,31 @@
 package app.domain.elements.components;
 
-import app.domain.elements.options.characterOptions.*;
-import app.domain.elements.options.items.*;
-import app.domain.elements.options.system.*;
+import app.domain.elements.entities.options.characterOptions.*;
+import app.domain.elements.entities.options.items.*;
+import app.infrastructure.storage.mappings.associations.*;
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.util.*;
 
 @Embeddable
-@With
 public record CharacterProficienciesComponent(
-		@MapKeyClass(Skill.class)
-		@ManyToMany (fetch = FetchType.LAZY)
-		Map<Skill, ProficiencyType> skills,
+		@OneToMany (fetch = FetchType.LAZY)
+		@MapKey (name = "category")
+		Map<ArmorCategory, CharacterArmorProficienciesAssociation> armors,
 
-		@MapKeyClass (Tool.class)
-		@ManyToMany (fetch = FetchType.LAZY)
-		Map<Tool, ProficiencyType> tools,
+		@OneToMany (fetch = FetchType.LAZY)
+		@MapKey (name = "category")
+		Map<WeaponCategory, CharacterWeaponProficienciesAssociation> weapons,
 
-		@MapKeyClass(Language.class)
-		@ManyToMany (fetch = FetchType.LAZY)
-		Map<Language, ProficiencyType> languages,
+		@OneToMany (fetch = FetchType.LAZY)
+		@MapKey (name = "skill")
+		Map<Skill, CharacterSkillProficienciesAssociation> skills,
 
-		@MapKeyClass(WeaponCategory.class)
-		@ManyToMany (fetch = FetchType.LAZY)
-		Map<WeaponCategory, ProficiencyType> weapons,
+		@OneToMany (fetch = FetchType.LAZY)
+		@MapKey (name = "language")
+		Map<Language, CharacterLanguageProficienciesAssociation> languages,
 
-		@MapKeyClass(SpeedType.class)
-		@ManyToMany (fetch = FetchType.LAZY)
-		Map<ArmorCategory, ProficiencyType> armors
+		@OneToMany (fetch = FetchType.LAZY)
+		@MapKey (name = "tool")
+		Map<Tool, CharacterToolProficienciesAssociation> tools
 ) {}

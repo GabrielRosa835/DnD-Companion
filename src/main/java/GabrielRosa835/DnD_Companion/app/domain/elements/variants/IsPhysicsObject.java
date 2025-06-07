@@ -1,7 +1,7 @@
 package app.domain.elements.variants;
 
-import app.domain.elements.components.*;
-import app.domain.elements.options.characterOptions.*;
+import app.domain.elements.entities.options.characterOptions.*;
+import app.experimental.*;
 
 public interface IsPhysicsObject {
 	MeasureComponent height();

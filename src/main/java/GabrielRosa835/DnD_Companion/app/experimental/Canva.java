@@ -1,25 +1,20 @@
 package app.experimental;
 
-import app.domain.elements.options.system.*;
 import app.infrastructure.storage.repositories.system.*;
 import org.springframework.stereotype.*;
 
 @Component
 public class Canva {
 
-	private final UnitRepository unitRepo;
-	private final UnitTypeRepository unitTypeRepo;
+	private final UnitRepository unitRepository;
+	private final UnitTypeRepository unitTypeRepository;
 
-	public Canva (UnitRepository unitRepo, UnitTypeRepository unitTypeRepo) {
-		this.unitRepo = unitRepo;
-		this.unitTypeRepo = unitTypeRepo;
+	public Canva (UnitRepository unitRepository, UnitTypeRepository unitTypeRepository) {
+		this.unitRepository = unitRepository;
+		this.unitTypeRepository = unitTypeRepository;
 	}
 
-	private UnitType type = UnitType.createNew("Length");
-	private Unit unit = Unit.createNew("Meters", "m", "Meter", 1, type);
-
 	public void run () {
-		System.out.println(unitTypeRepo.save(type));
-		System.out.println(unitRepo.save(unit));
+
 	}
 }
